@@ -21,12 +21,12 @@ git rebase master
 
 ### rebasing merge conflicts
 ```
-// fix conflicts
+# fix conflicts
 git add <files>
-git commit -m <message of what was fixed>
-// if more
+# if more
 git rebase --continue
 ```
 
 oh herro
+
 
