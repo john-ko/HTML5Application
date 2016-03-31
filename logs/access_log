@@ -1,0 +1,6 @@
+169.234.244.139 - - [28/Mar/2016:21:11:27 -0700] "GET / HTTP/1.1" 200 542 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+169.234.244.139 - - [28/Mar/2016:21:11:27 -0700] "GET /icons/blank.gif HTTP/1.1" 200 148 "http://andromeda-10.ics.uci.edu:8080/" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+169.234.244.139 - - [28/Mar/2016:21:11:27 -0700] "GET /favicon.ico HTTP/1.1" 404 301 "http://andromeda-10.ics.uci.edu:8080/" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+169.234.244.139 - - [28/Mar/2016:21:11:34 -0700] "GET /index.html HTTP/1.1" 404 300 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+169.234.244.139 - - [28/Mar/2016:21:11:42 -0700] "GET /html/index.html HTTP/1.1" 404 305 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+169.234.244.139 - - [28/Mar/2016:21:12:03 -0700] "GET /index.html HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
