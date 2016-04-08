@@ -1,0 +1,217 @@
+var products = {
+	"men" : {
+		"bottoms" : {
+			"pendleton-davis-chinos" : {
+				"name" : "The Davis Chinos",
+				"brand" : "Pendleton",
+				"color" : "Slate",
+				"price" : 89.50,
+				"details" : [
+					"Exclusive pattern lines waistband",
+					"Cotton",
+					"Machine wash",
+					"Imported"
+					]
+			},
+			"pendleton-compass-5-pocket-pants" : {
+				"name" : "Compass-5 Pocket Pants",
+				"brand" : "Pendleton",
+				"color" : "Dark Olive",
+				"price" : 89.50,
+				"details" : [
+						"Exclusive pattern lines waistband",
+						"Cotton, spandex",
+						"Machine wash",
+						"Imported"
+						]
+			},
+			"pendleton-cargo-shorts" : {
+				"name" : "Cargo Shorts",
+				"brand" : "Pendleton",
+				"color" : "Stone Grey",
+				"price" : 79.50,
+				"details" : [
+						"10 inches inseam",
+						"Cotton/spandex",
+						"Machine wash",
+						"Imported"
+						]
+			},
+			"pendleton-transit-utility-pants" : {
+				"name" : "Transit Utility Pants",
+				"brand" : "Pendleton",
+				"color" : "Grey Stone",
+				"price" : 89.50,
+				"details" : [
+						"Exclusive pattern lines waistband",
+						"Cotton/spandex",
+						"Machine wash",
+						"Imported"
+						]
+			}
+		},
+		"tops" : {
+			"pendleton-blaine-chambray-shirt" : {
+				"name" : "Blaine Chambray Shirt",
+				"brand" : "Pendleton",
+				"color" : "Blue",
+				"price" : 139.00,
+				"details" : [
+						"Smooth worsted wool, looks like vintage-washed chambray",
+						"Peaked button pockets",
+						"Shirttail hem",
+						"Dry clean",
+						"Imported USA fabric"
+						]
+			},
+			"pendleton-long-sleeve-henley" : {
+				"name" : "Long-sleeve Henley",
+				"brand" : "Pendleton",
+				"color" : "Light Indigo",
+				"price" : 89.50,
+				"details" : [
+						"Cotton",
+						"Machine wash",
+						"Imported"
+						]
+			},
+			"pendleton-star-wars-a-new-hope-tee" : {
+				"name" : "Star Wars: A New Hope Tee",
+				"brand" : "Pendleton",
+				"color" : "Black/Blue",
+				"price" : 29.50,
+				"details" : [
+						"Exclusive Pendleton design",
+						"100% cotton",
+						"Machine wash",
+						"Made in USA"
+						]
+			},
+			"pendleton-fitted-tennyson-shirt" : {
+				"name" : "Fitted Tennyson Shirt",
+				"brand" : "Pendleton",
+				"color" : "Indigo Large Check",
+				"price" : 99.50,
+				"details" : [
+						"Cotton",
+						"Machine wash",
+						"Imported",
+						"Trim fit",
+						"Tapered silhouette",
+						"Rounded shirttail hem"
+						]
+			}
+		}
+	},
+	"women" : {
+		"bottoms" : {
+			"level-99-cicerone-shorts" : {
+				"name" : "Level 99 Cicerone Shorts",
+				"brand" : "Level 99",
+				"color" : "Plum",
+				"price" : 68.00,
+				"details" : [
+						"Linen, lyocell, spandex",
+						"Front slash, back welt pockets",
+						"Machine wash",
+						"Imported"
+						]
+			},
+			"cartonnier-charlie-trousers" : {
+				"name" : "Charlie Trousers",
+				"brand" : "Cartonnier",
+				"color" : "Moss",
+				"price" : 108.00,
+				"details" : [
+						"Cotton, spandex",
+						"Slim tailored fit",
+						"Side slant, back welt pockets",
+						"Machine wash",
+						"Imported"
+						]
+			},
+			"mcguire-newton-skinny-jeans" : {
+				"name" : "McGuire Newton Skinny Jeans",
+				"brand" : "McGuire",
+				"color" : "Another Dawn",
+				"price" : 230.00,
+				"details" : [
+						"Cotton, polyester, spandex",
+						"Skinny fit",
+						"Five-pocket styling",
+						"Machine wash",
+						"Imported"
+						]
+			}
+		},
+		"tops" : {
+			"en-elie-embroidered-sanna-top" : {
+				"name" : "Embroidered Sanna Top",
+				"brand" : "En Elie",
+				"color" : "Blue",
+				"price" : 118.00,
+				"details" : [
+						"Rayon, cotton",
+						"Kimono sleeves",
+						"Pullover styling",
+						"Dry clean",
+						"Made in US"
+						]
+			},
+			"hd-in-paris-laurel-tank" : {
+				"name" : "Laurel Tank",
+				"brand" : "HD in Paris",
+				"color" : "Grey",
+				"price" : 78.00,
+				"details" : [
+						"Linen, silk",
+						"Cropped silhouette",
+						"Pullover styling",
+						"Machine wash",
+						"Imported"
+						]
+			},
+			"maeve-orchid-island-top" : {
+				"name" : "Orchid Island Top",
+				"brand" : "Maeve",
+				"color" : "Neutral",
+				"price" : 78.00,
+				"details" : [
+						"Cotton",
+						"Pleated detail",
+						"Pullover styling",
+						"Hand wash",
+						"Imported"
+						]
+			}
+		},
+		"dresses" : {
+			"madame-shoushou-south-island-maxi-dress" : {
+				"name" : "South Island Maxi Dress",
+				"brand" : "Madame Shoushou",
+				"color" : "Blue",
+				"price" : 248.00,
+				"details" : [
+						"Cotton",
+						"Side zip",
+						"Machine wash",
+						"Imported"
+						]
+			},
+			"eva-franco-chirography-dress" : {
+				"name" : "Chirography Dress",
+				"brand" : "Eva Franco",
+				"color" : "Blue",
+				"price" : 188.00,
+				"details" : [
+						"Woven cotton, polyester lining",
+						"Lace cap sleeves",
+						"Side pockets",
+						"Side zip",
+						"Dry clean",
+						"Made in USA"
+						]
+			}
+		}
+	}
+}
