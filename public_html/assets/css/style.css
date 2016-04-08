@@ -1,11 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display);
-#header {
+.header {
     background-color:#555555;
     color:white;
     text-align:center;
     padding:5px;
 }
-#nav {
+.nav {
     line-height:30px;
     background-color:#FF99FF;
     height:300px;
@@ -13,19 +13,19 @@
     float:left;
     padding:5px;	      
 }
-#section {
+.section {
     width:350px;
     float:left;
     padding:10px;	 	 
 }
-#footer {
+.footer {
     background-color:#555555;
     color:white;
     clear:both;
     text-align:center;
    padding:5px;	 	 
 }
-#logo {
+.logo {
 	background: #555555;
 	position: aboslute;
 	margin: auto;
@@ -34,7 +34,7 @@
 	border-top-color: #000000;
 	border-top-style: solid;
 }
-#title {
+.title {
 	float:left;
 	margin:0 0 0 1.2em;
 	font-size:5em;
@@ -43,7 +43,7 @@
 	font-weight:400;
 	letter-spacing:0.025em;
 }
-#title a {
+.title a {
 	color:#184668;
 	text-decoration:none;
 	transition:.5s;
