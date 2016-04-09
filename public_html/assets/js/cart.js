@@ -3,6 +3,11 @@
  * cart object that writes cookies on the front end
  * to keep track of shopping cart
  *
+ * typical usage:
+ *
+ * var cart = Cart;
+ * cart.init(products); // init products
+ * cart.get(); // gets cart items from browser cookies
  */
 
 var Cart = {
@@ -31,7 +36,13 @@ var Cart = {
      * cart object
      */
     items: {},
-    /* save Cart object string as a cookie */
+
+    /**
+     * save
+     *
+     * saves the current contents of the cart into cookies
+     * on the browser so that cart items will be persistent
+     */
     save: function() {
         //prepend items= and save it to cookie
         var CartJSONString = "items=" + JSON.stringify(this.items);
@@ -64,6 +75,11 @@ var Cart = {
      *
      * example usage:
      * cart.add("men","bottoms","pendleton-compass-5-pocket-pants",3);
+     *
+     * @param gender string opts "women" | "men"
+     * @param category string options "bottoms" | "tops" | "dresses"
+     * @param item string unique identifier for each product
+     * @param qty int
      */
     add: function(gender, category, item, qty) {
         console.log(category, item, qty);
