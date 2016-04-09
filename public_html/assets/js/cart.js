@@ -93,7 +93,6 @@ var Cart = {
 
         this.items[gender][category][item] = parseInt(qty);
 
-        alert('Item has been added');
         this.save();
         console.log(this);
     },
