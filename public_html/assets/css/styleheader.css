@@ -1,6 +1,6 @@
 header {
 	background-color: white;
-	paddind: 20px;
+	padding: 20px;
 }
 
 nav.navigationBar{
@@ -9,22 +9,22 @@ nav.navigationBar{
 
 ul.headernav li {
 	display:inline-block;
-    margin:auto;
+	margin:auto;
 }
 
 ul.headernav li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
 
 ul.headernav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 } 
 
 li.navItem a{
