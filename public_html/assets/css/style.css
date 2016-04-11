@@ -5,6 +5,17 @@ img.splash {
 	height: auto;
 }
 
+.footer {
+     background-color:#555555;
+     color:white;
+     clear:both;
+     text-align:center;
+     padding:5px;	 	 
+}
+
+a.footer {
+	color: white;
+}
 
 
 /*****
