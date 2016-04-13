@@ -25,6 +25,7 @@ time, mark, audio, video {
 }
 
 .row {
+	padding-top: 10px;
 	margin: 0 auto;
 	width: 960px;
 }
@@ -38,7 +39,6 @@ time, mark, audio, video {
 .third {
 	position: relative;
 	margin-right: 15px;
-	background-color: #ccc;
 	width: 305px;
 	float: left;
 	color: #992233;
@@ -51,22 +51,22 @@ time, mark, audio, video {
 
 @media screen and (max-width: 980px){
 	.row {
-		background-color: #000;
 		width: 768px;
 	}
 
 	.third {
 		margin-right: 10px;
 		width: 246px;
+		padding: 0px;
 	}
 }
 
 @media screen and (max-width: 768px) {
 	.row {
-		background-color: #fff;
 		width: 100%;
 	}
 	.third {
+		padding: 20px;
 		width: 100%;
 		float: inherit;
 		display:block;
@@ -82,10 +82,11 @@ img.splash {
 
 .footer {
      background-color: #aaaaaa;
+     margin-top: 100px;
      color:black;
      clear:both;
      text-align:center;
-     padding:5px;	 	 
+     padding:20px;	 	 
 }
 
 a.footer {
@@ -97,32 +98,3 @@ a.footer {
 footer .footer {
 
 }
-
-/*****
- about page
- ****/
-#about-title {
-	text-decoration: underline;
-}
-#about-description {
-	text-indent: 50px;
-}
-#about-body {
-	font-family: Playfair Display;
-}
-.about-avatar {
-	width: 96px;
-	height: 96px;
-}
-.about-ul {
-	list-style: none;
-	margin-right: 40px;
-}
-.about-rightBio {
-	text-align: right;
-}
-
-
-
-
- 
