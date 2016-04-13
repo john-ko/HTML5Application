@@ -41,6 +41,7 @@ time, mark, audio, video {
 	background-color: #ccc;
 	width: 305px;
 	float: left;
+	color: #992233;
 }
 
 .third:last-child {
@@ -80,8 +81,8 @@ img.splash {
 }
 
 .footer {
-     background-color:#555555;
-     color:white;
+     background-color: #aaaaaa;
+     color:black;
      clear:both;
      text-align:center;
      padding:5px;	 	 
