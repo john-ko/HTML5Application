@@ -49,7 +49,7 @@ time, mark, audio, video {
 }
 
 .footer-header {
-	color: #992233;
+	color: #eee;
 }
 
 
@@ -116,7 +116,6 @@ footer a:hover {
 header {
 	background-color: white;
 	padding: 20px;
-	font-family: 'Playfair Display', serif;
 }
 
 nav.navigationBar{
@@ -144,7 +143,7 @@ ul.headernav {
 } 
 
 li.navItem a{
-	border: 5px;
+	border: 1px;
 	color: #333;
 	border-style:solid;
 	border-color:white;
@@ -157,7 +156,7 @@ li.navItem a:visited {
 }
 
 li.navItem a:hover {
-	border: 5px;
+	border: 1px;
 	color: #333;
 	border-style:solid;
 	border-left-color:white;
@@ -179,7 +178,8 @@ li.navItem a:hover {
 	background: #ffffff;
 	margin:auto;
 	text-align:center;
-	width:350px;
+	width:400px;
+	font-family: 'Playfair Display', serif;
 }
 
 
