@@ -188,4 +188,28 @@ li.navItem a:hover {
 	font-family: 'Playfair Display', serif;
 }
 
+/*****
+ about page
+ ****/
+ #about-title {
+ 	text-decoration: underline;
+ }
+ #about-description {
+ 	text-indent: 50px;
+ }
+ #about-body {
+ 	font-family: Playfair Display;
+ }
+ .about-avatar {
+ 	width: 96px;
+ 	height: 96px;
+ }
+ .about-ul {
+ 	list-style: none;
+ 	margin-right: 40px;
+ }
+ .about-rightBio {
+ 	text-align: right;
+ }
+
 
