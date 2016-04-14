@@ -1,6 +1,6 @@
 /* HTML reset */
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -17,6 +17,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	font-family: 'Source Sans Pro', sans-serif;
 	vertical-align: baseline;
 }
 .row:before {
@@ -41,11 +42,14 @@ time, mark, audio, video {
 	margin-right: 15px;
 	width: 305px;
 	float: left;
-	color: #992233;
 }
 
 .third:last-child {
 	margin-right: -15px;
+}
+
+.footer-header {
+	color: #eee;
 }
 
 
@@ -80,21 +84,108 @@ img.splash {
 	height: auto;
 }
 
+/*** footer ****/
 .footer {
-     background-color: #aaaaaa;
+     background-color: #777;
      margin-top: 100px;
-     color:black;
+     color:white;
      clear:both;
      text-align:center;
      padding:20px;	 	 
 }
 
-a.footer {
-	color: white;
+footer a {
+	color: #DCF0F7;
+	text-decoration: none;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	/* ...and now for the proper property */
+	transition:.5s;
+}
+
+footer a:hover {
+	color: #5E9DC8;
 }
 
 
-/** footer **/
-footer .footer {
 
+/**** header ******/
+
+header {
+	background-color: white;
+	padding: 20px;
 }
+
+nav.navigationBar{
+	padding-top: 20px;
+}
+
+ul.headernav li {
+	display:inline-block;
+	margin:auto;
+}
+
+ul.headernav li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+ul.headernav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+} 
+
+li.navItem a{
+	border: 1px;
+	color: #333;
+	border-style:solid;
+	border-color:white;
+	-o-transition:.3s;
+	-ms-transition:.3s;
+	-moz-transition:.3s;
+	-webkit-transition:.3s;
+	/* ...and now for the proper property */
+	transition:.3s;
+}
+
+li.navItem a:link,
+li.navItem a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+li.navItem a:hover {
+	border: 1px;
+	color: #333;
+	border-style:solid;
+	border-left-color:white;
+	border-right-color:white;
+}
+
+.cartimage{
+	height:53px;
+}
+
+
+.header{
+	text-align:center;
+}
+
+.header .header-logo-text{
+	border-top-style: solid;
+	border-bottom-style: solid;
+	background: #ffffff;
+	margin:auto;
+	text-align:center;
+	width:400px;
+	font-family: 'Playfair Display', serif;
+}
+
+
