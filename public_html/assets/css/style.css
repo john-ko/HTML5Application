@@ -26,7 +26,7 @@ time, mark, audio, video {
 }
 
 .row {
-	padding-top: 10px;
+	padding-top: 0px;
 	margin: 0 auto;
 	width: 960px;
 }
@@ -90,7 +90,7 @@ img.splash {
      margin-top: 100px;
      color:white;
      clear:both;
-     text-align:center;
+     //text-align:center;
      padding:20px;	 	 
 }
 
