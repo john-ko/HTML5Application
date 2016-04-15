@@ -90,7 +90,6 @@ img.splash {
      margin-top: 100px;
      color:white;
      clear:both;
-     //text-align:center;
      padding:20px;	 	 
 }
 
@@ -107,6 +106,11 @@ footer a {
 
 footer a:hover {
 	color: #5E9DC8;
+}
+
+.copyright {
+	text-align: center;
+	padding-top:20px;
 }
 
 
