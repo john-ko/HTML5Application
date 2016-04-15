@@ -269,11 +269,17 @@ li.navItem a:hover {
  }
  .about-ul {
  	list-style: none;
- 	margin-right: 40px;
+ }
+ .about-quote {
+ 	font-style: italic;
  }
  .about-rightBio {
  	text-align: right;
  }
  
+
+/*
+contact page
+*/
 
 
