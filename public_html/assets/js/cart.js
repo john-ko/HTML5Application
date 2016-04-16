@@ -91,7 +91,12 @@ var Cart = {
             this.items[gender][category] = {};
         }
 
-        this.items[gender][category][item] = parseInt(qty);
+        if (this.items[gender][category][item] === undefined) {
+            this.items[gender][category][item] = parseInt(qty);
+        } else {
+            this.items[gender][category][item] += parseInt(qty);
+        }
+        
 
         this.save();
         console.log(this);

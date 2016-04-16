@@ -17,6 +17,18 @@
         var cart = {};
 
         /**
+        * addItems
+        * fires when onclick occurs for the button "Add Items"
+        */
+        function addItems(gender, category, item) {
+            
+            var input = document.getElementById("do-something").value;
+            // todo find qty
+            cart.add(gender, category, item, input);
+            var element = document.getElementById("cart-qty");
+            element.innerHTML = cart.getCount();
+        }
+        /**
          * onLoad()
          * fires when body is loaded
          */
@@ -27,7 +39,6 @@
             cart = Cart;
             // get cart from cookies
             cart.get();
-            cart.add("men","bottoms","pendleton-compass-5-pocket-pants",5);
             templates(function() {
                 var element = document.getElementById("cart-qty");
                 element.innerHTML = cart.getCount();
@@ -50,7 +61,7 @@
 
 
             <h1>content goes here</h1>
-            <button onclick="cart.asdf()">asdf</button>
+            <button onclick="addItems('men', 'bottoms', 'pendleton-davis-chinos')">Add Items</button>
 
 
             <!-- end write stuff here -->
