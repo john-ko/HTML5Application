@@ -21,15 +21,13 @@
          * fires when body is loaded
          */
         function onLoad() {
-            // load templates
-            templates();
-
-            // load cart
             cart = Cart;
-            // get cart from cookies
-            cart.get();
-
-            // load products
+            cart.init(products);
+            cart.load();
+            templates(function() {
+                var element = document.getElementById("cart-qty");
+                element.innerHTML = cart.getCount();
+            });
 
             var bottomsList = getCategoryArray("men", "bottoms");
             console.log(bottomsList);
@@ -60,17 +58,8 @@
 				<a href="/men/bottoms">
 					<h4 style="color: #5E9DC8">Bottoms</h4> </a>
 			</div>
-<!-- 			<div class="main-page">
-				<img src="/assets/images/instagram.png" width="150" height="auto"/>
-				<p>Instagram Pants</p>
-				<p>$15.00</p>
-			</div> -->
-		</div>
-
-
-            <!-- end write stuff here -->
-            <div id="productList">The product list goes here</div>
-
+				<div id="productList">The product list goes here</div>
+			
         </div>
 
         <div class="template" include="/templates/footer.html"></div>
