@@ -5,7 +5,113 @@
  *
  * Usages: 
  */
-function imageswap(scope) {
-	var element = document.getElementById("bigpic");
-	element.src = scope.src;
+ 
+function isNumeric(n) {
+	return !isNaN(parseFloat(n)) && isFinite(n);
+}
+	
+function formvalidation() {
+	var firstname = document.getElementById("first-nameId");
+	var lastname = document.getElementById("last-nameId");
+	var street = document.getElementById("streetId");
+	var city = document.getElementById("cityId");
+	var state = document.getElementById("stateId");
+	var zip = document.getElementById("zipId");
+	var area = document.getElementById("phone-area");
+	var three = document.getElementById("phone-first3");
+	var four = document.getElementById("phone-last4");
+	
+	var name = document.getElementById("nameOnCardId");
+	var number = document.getElementById("cardNumberId");
+	var month = document.getElementById("expMonthId");
+	var year = document.getElementById("expYearId");
+	var cvc = document.getElementById("csvCscId");
+	
+	var triggered = 0;
+	
+	if (firstname.value.length < 1)
+	{
+		firstname.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (lastname.value.length < 1)
+	{
+		lastname.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (street.value.length < 4)
+	{
+		street.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (!city.value)
+	{
+		city.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (state.value.length != 2)
+	{
+		state.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (zip.value.length != 5)
+	{
+		zip.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (area.value.length != 3 || !isNumeric(area.value))
+	{
+		area.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (three.value.length != 3 || !isNumeric(three.value))
+	{
+		three.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (four.value.length != 4 || !isNumeric(four.value))
+	{
+		four.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (name.value.length < 2)
+	{
+		name.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (number.value.length != 16)
+	{
+		number.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (month.value.length != 2 || !isNumeric(month.value))
+	{
+		month.style.borderColor = "red";
+		triggered++;
+	}
+	
+	if (year.value.length != 2 || !isNumeric(year.value))
+	{
+		year.style.borderColor = "red";
+		triggered++;
+	}
+
+	if (cvc.value.length != 3 || !isNumeric(cvc.value))
+	{
+		cvc.style.borderColor = "red";
+		triggered++;
+	}
+	
+	return !(triggered);
 }
