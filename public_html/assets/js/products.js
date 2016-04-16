@@ -332,7 +332,7 @@ function displayProduct(theProduct){
 	//console.log("length coming up");
 	//console.log(theProduct.length);
 	finalHTML += '<div class="big-image">';
-	finalHTML += "<img class = \"bigpic\" src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"auto\" height=\"auto\"/></div>";
+	finalHTML += "<img id = \"bigpic\" src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"auto\" height=\"auto\"/></div>";
 	finalHTML += "<div class = \"big-image-body\">";
 	finalHTML += "<h3>More Pictures!<h3>";
 	finalHTML += "<div>"
@@ -344,12 +344,14 @@ function displayProduct(theProduct){
 	finalHTML += "<p> Brand:" + theProduct.brand+ "<p>";
 	finalHTML += "<p> Color:" + theProduct.color + "<p>";
 	finalHTML += "<p> Additional Details:" + theProduct.details + "<p>";
-	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "<p> </div>";
+	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "<p>";
 	finalHTML += "<br>";	
 	finalHTML += "<form>";
+	finalHTML += "        ";
+	finalHTML += "				Add To Cart";
 	finalHTML += "<input class=\"mailinglist-input\" type=\"number\" name=\"do-something\" value=\"1\"/>";
 	finalHTML += "<button class=\"mailinglist-subscribe-button\">Add To Cart</button>";
-	finalHTML += "</form>";
+	finalHTML += "</div></form>";
 
 	return finalHTML;
 
