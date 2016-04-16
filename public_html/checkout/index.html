@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+	<script src="/assets/js/templates.js"></script>
+	<script src="/assets/js/cart.js"></script>
+	<sciprt src="/assets/js/products.json"></sciprt>
+	<script>
+        /**
+         * cart object, initalized as an empty object
+         * defined in onLoad function
+         */
+         var cart = {};
+
+        /**
+         * onLoad()
+         * fires when body is loaded
+         */
+         function onLoad() {
+            // load templates
+            templates();
+
+            // load cart
+            cart = Cart;
+            // get cart from cookies
+            cart.get();
+        }
+        </script>
+
+        <!-- edit the title -->
+        <title>T H O R N E & S P I N D L E | Checkout</title>
+
+    </head>
+    <body onLoad="onLoad()">
+    	<div class="template" include="/templates/header.html"></div>
+    	
+    	<div class="row">
+    		<form id="checkout-form" name="checkoutForm" method="post" action="index.html">
+    			<table id="checkout-table">
+    				<td>
+    					<h2>Shipping & Billing Address</h2>
+    					<div id="shippingAddress">
+    						First Name <input id="first-nameId" type="text" required /><br />
+    						Last Name <input id="last-nameId" type="text" required /><br />
+    						Street <input id="streetId" type="text" required /><br />
+    						City <input id="cityId" type="text" required /><br />
+    						State <select id="stateId" required>
+    						<option value="AL">Alabama</option>
+    						<option value="AK">Alaska</option>
+    						<option value="AZ">Arizona</option>
+    						<option value="AR">Arkansas</option>
+    						<option value="CA">California</option>
+    						<option value="CO">Colorado</option>
+    						<option value="CT">Connecticut</option>
+    						<option value="DE">Delaware</option>
+    						<option value="DC">District Of Columbia</option>
+    						<option value="FL">Florida</option>
+    						<option value="GA">Georgia</option>
+    						<option value="HI">Hawaii</option>
+    						<option value="ID">Idaho</option>
+							<option value="IL">Illinois</option>
+    						<option value="IN">Indiana</option>
+    						<option value="IA">Iowa</option>
+    						<option value="KS">Kansas</option>
+    						<option value="KY">Kentucky</option>
+    						<option value="LA">Louisiana</option>
+    						<option value="ME">Maine</option>
+    						<option value="MD">Maryland</option>
+    						<option value="MA">Massachusetts</option>
+    						<option value="MI">Michigan</option>
+    						<option value="MN">Minnesota</option>
+    						<option value="MS">Mississippi</option>
+    						<option value="MO">Missouri</option>
+    						<option value="MT">Montana</option>
+    						<option value="NE">Nebraska</option>
+    						<option value="NV">Nevada</option>
+    						<option value="NH">New Hampshire</option>
+    						<option value="NJ">New Jersey</option>
+    						<option value="NM">New Mexico</option>
+    						<option value="NY">New York</option>
+    						<option value="NC">North Carolina</option>
+    						<option value="ND">North Dakota</option>
+    						<option value="OH">Ohio</option>
+    						<option value="OK">Oklahoma</option>
+    						<option value="OR">Oregon</option>
+    						<option value="PA">Pennsylvania</option>
+    						<option value="RI">Rhode Island</option>
+    						<option value="SC">South Carolina</option>
+    						<option value="SD">South Dakota</option>
+    						<option value="TN">Tennessee</option>
+    						<option value="TX">Texas</option>
+    						<option value="UT">Utah</option>
+    						<option value="VT">Vermont</option>
+    						<option value="VA">Virginia</option>
+    						<option value="WA">Washington</option>
+    						<option value="WV">West Virginia</option>
+    						<option value="WI">Wisconsin</option>
+    						<option value="WY">Wyoming</option>
+    					</select>	
+    					Zip <input id="zipId" type="text" maxlength="5"required /><br />
+    					Phone (<input id="phone-area" type="text" value="000" maxlength="3" required />) <input id="phone-first3" type="text" value="000" maxlength="3" required /> - <input id="phone-last4" type="text" value="0000" required /><br />
+    				</div>
+    			</td>
+    			<td>
+    				<div id="creditCardInfo">
+    					<h2>Credit Card Information</h2>
+    					Name on Card <input id="nameOnCardId" type="text" required /><br />
+    					Card Number <input id="cardNumberId" type="text" maxlength="19" required /><br />
+    					Expiration Date <input id="expMonthId" type="text" value="00" maxlength="2" required /> / <input id="expYearId" type="text" value="00" maxlength="2" required /><br />
+    					CSV/CSC <input id="csvCscId" type="text" value="0000" maxlength="4" required /><br />
+    				</div>
+    				<td>
+    				</table>
+    				<div id="checkout-order-summary">
+    					<h2>Order Summary</h2>
+    					<p>Total Merhandise: </p>
+    					<p>Price Total: $<div id:"cart-price"></div></p>
+    					<input id="checkout-submit-button" type="submit" onclick="" />
+    				</div>
+    			</form>
+    		</div>
+    	</body>
+    	</html>
