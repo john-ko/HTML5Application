@@ -91,7 +91,12 @@ var Cart = {
             this.items[gender][category] = {};
         }
 
-        this.items[gender][category][item] = parseInt(qty);
+        if (this.items[gender][category][item] === undefined) {
+            this.items[gender][category][item] = parseInt(qty);
+        } else {
+            this.items[gender][category][item] += parseInt(qty);
+        }
+        
 
         this.save();
         console.log(this);
@@ -117,6 +122,28 @@ var Cart = {
         }
 
         return total;
+
+    },
+
+    /**
+    * getCount
+    * 
+    * calculates the total number of items in the cart
+    * @returns (qty)
+    *
+    */
+    getCount: function() {
+        var qty = 0;
+
+        for (var gender in this.items) {
+            for (var categories in this.items[gender]) {
+                for (var items in this.items[gender][categories]) {
+                    qty += this.items[gender][categories][items];
+                }
+            }
+        }
+
+        return "(" + qty + ")";
 
     },
 
