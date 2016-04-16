@@ -238,16 +238,17 @@ li.navItem a:hover {
 	text-decoration: none;
 }
 
-.header .header-logo-text{
-	color: black;
+.header .header-logo-text {
 	border-top-style: solid;
 	border-bottom-style: solid;
+	width: 400px;
+	margin: auto;
+}
+.header .header-logo-text a{
+	color: black;
 	background: #ffffff;
-	margin:auto;
 	text-align:center;
-	width:400px;
 	font-family: 'Playfair Display', serif;
-
 }
 
 
@@ -314,10 +315,22 @@ contact page
 	width: auto;
 	float: left;
 	padding-right: 50px;
+
 }
 
 .big-image-body{
 	position: relative;
 	float: left;
 	width: 400px;
+}
+
+#bigpic {
+	width: 280px;
+	height: 373px;
+	transition: 1s ease;
+}
+
+#bigpic:hover{
+	width: 500px;
+	height: 625px;
 }

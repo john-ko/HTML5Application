@@ -15,7 +15,8 @@ var products = {
 					"Cotton",
 					"Machine wash",
 					"Imported"
-					]
+					],
+				"slug": "pendleton-davis-chinos"
 
 			},
 			"pendleton-compass-5-pocket-pants" : {
@@ -33,7 +34,8 @@ var products = {
 						"Cotton, spandex",
 						"Machine wash",
 						"Imported"
-						]
+						],
+				"slug": "pendleton-compass-5-pocket-pants"
 			},
 			"pendleton-cargo-shorts" : {
 				"name" : "Cargo Shorts",
@@ -49,7 +51,9 @@ var products = {
 						"Cotton/spandex",
 						"Machine wash",
 						"Imported"
-						]
+						],
+				"slug": "pendleton-cargo-shorts"
+
 			},
 			"pendleton-transit-utility-pants" : {
 				"name" : "Transit Utility Pants",
@@ -66,7 +70,8 @@ var products = {
 						"Cotton/spandex",
 						"Machine wash",
 						"Imported"
-						]
+						],
+				"slug": "pendleton-transit-utility-pants"
 			}
 		},
 		"tops" : {
@@ -85,7 +90,8 @@ var products = {
 						"Shirttail hem",
 						"Dry clean",
 						"Imported USA fabric"
-						]
+						],
+				"slug": "pendleton-blaine-chambray-shirt"
 			},
 			"pendleton-long-sleeve-henley" : {
 				"name" : "Long-sleeve Henley",
@@ -100,7 +106,8 @@ var products = {
 						"Cotton",
 						"Machine wash",
 						"Imported"
-						]
+						],
+				"slug": "pendleton-long-sleeve-henley"
 			},
 			"pendleton-star-wars-a-new-hope-tee" : {
 				"name" : "Star Wars: A New Hope Tee",
@@ -116,7 +123,8 @@ var products = {
 						"100% cotton",
 						"Machine wash",
 						"Made in USA"
-						]
+						],
+				"slug": "pendleton-star-wars-a-new-hope-tee"
 			},
 			"pendleton-fitted-tennyson-shirt" : {
 				"name" : "Fitted Tennyson Shirt",
@@ -134,7 +142,8 @@ var products = {
 						"Trim fit",
 						"Tapered silhouette",
 						"Rounded shirttail hem"
-						]
+						],
+				"slug": "pendleton-fitted-tennyson-shirt"
 			}
 		}
 	},
@@ -155,7 +164,8 @@ var products = {
 						"Front slash, back welt pockets",
 						"Machine wash",
 						"Imported"
-						]
+						],
+				"slug": "level-99-cicerone-shorts"
 			},
 			"cartonnier-charlie-trousers" : {
 				"name" : "Charlie Trousers",
@@ -173,7 +183,8 @@ var products = {
 						"Side slant, back welt pockets",
 						"Machine wash",
 						"Imported"
-						]
+						],
+				"slug": "cartonnier-charlie-trousers"
 			},
 			"mcguire-newton-skinny-jeans" : {
 				"name" : "McGuire Newton Skinny Jeans",
@@ -191,7 +202,8 @@ var products = {
 						"Five-pocket styling",
 						"Machine wash",
 						"Imported"
-						]
+						],
+				"slug": "mcguire-newton-skinny-jeans"
 			}
 		},
 		"tops" : {
@@ -211,7 +223,8 @@ var products = {
 						"Pullover styling",
 						"Dry clean",
 						"Made in US"
-						]
+						],
+				"slug": "en-elie-embroidered-sanna-top"
 			},
 			"hd-in-paris-laurel-tank" : {
 				"name" : "Laurel Tank",
@@ -229,7 +242,8 @@ var products = {
 						"Pullover styling",
 						"Machine wash",
 						"Imported"
-						]
+						],
+				"slug": "hd-in-paris-laurel-tank"
 			},
 			"maeve-orchid-island-top" : {
 				"name" : "Orchid Island Top",
@@ -247,7 +261,8 @@ var products = {
 						"Pullover styling",
 						"Hand wash",
 						"Imported"
-						]
+						],
+				"slug": "maeve-orchid-island-top"
 			}
 		},
 		"dresses" : {
@@ -266,7 +281,8 @@ var products = {
 						"Side zip",
 						"Machine wash",
 						"Imported"
-						]
+						],
+				"slug": "madame-shoushou-south-island-maxi-dress"
 			},
 			"eva-franco-chirography-dress" : {
 				"name" : "Chirography Dress",
@@ -285,7 +301,8 @@ var products = {
 						"Side zip",
 						"Dry clean",
 						"Made in USA"
-						]
+						],
+				"slug": "eva-franco-chirography-dress"
 			}
 		}
 	}
@@ -304,8 +321,36 @@ function getProduct(gender, category, item)  {
 	return products[gender][category][item];
 }
 
-function displayProduct(product){
-	return;
+function getItemInformation(gender,category,item){
+	var theClothingItem = getProduct(gender,category,item);
+	//console.log(theClothingItem);
+	return theClothingItem;
+}
+
+function displayProduct(theProduct){
+	var finalHTML = "";
+	//console.log("length coming up");
+	//console.log(theProduct.length);
+	finalHTML += '<div class="big-image">';
+	finalHTML += "<img id = \"bigpic\" src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"auto\" height=\"auto\"/></div>";
+	finalHTML += "<div class = \"big-image-body\">";
+	finalHTML += "<h3>More Pictures!<h3>";
+	finalHTML += "<div>"
+	for (var index in theProduct.images){
+		finalHTML += "<img onClick = \"imageswap(this)\" src=\"/assets/images/products" + theProduct.images[index] + "\" alt=productImage width=\"15%\" height=\"auto\"/>";
+	}
+	finalHTML += "</div>";
+	finalHTML += "<h4> Name:" + theProduct.name+ "</h4>";
+	finalHTML += "<p> Brand:" + theProduct.brand+ "<p>";
+	finalHTML += "<p> Color:" + theProduct.color + "<p>";
+	finalHTML += "<p> Additional Details:" + theProduct.details + "<p>";
+	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "<p>";
+	finalHTML += "<br>";	
+	finalHTML += "<input class=\"mailinglist-input\" type=\"number\" name=\"do-something\" value=\"1\"/>";
+	finalHTML += "<button class=\"mailinglist-subscribe-button\">Add To Cart</button>";
+	finalHTML += "</div>";
+
+	return finalHTML;
 
 }
 
@@ -314,7 +359,10 @@ function getCategoryArray(gender, category){
 	var clothingTypeList = [];
 
 	for (var property in clothingType) {
-		console.log(clothingType[property]);
+		//console.log(clothingType[property]);
+		var obj = clothingType[property];
+		obj.gender = gender;
+		obj.category = category;
 		clothingTypeList.push(clothingType[property]);
 	}
 
@@ -327,9 +375,9 @@ function displayProjectListing(productArray){
 		//console.log("K");
 		//console.log(productArray[productObject]);
 		var theProduct = productArray[productObjectIndex];
-		console.log(theProduct.name);
+		console.log(theProduct);
 		finalHTML += '<div class="main-page">';
-		finalHTML += "<img src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"150\" height=\"auto\"/>";
+		finalHTML += "<a href = \"/" + theProduct.gender + "/" + theProduct.category + "/" + theProduct.slug + "\" ><img src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
 		finalHTML += "<p>" + theProduct.name+ "<p>";
 		finalHTML += "<p>" + theProduct.brand+ "<p>";
 		finalHTML += "<p>" + theProduct.price.toFixed(2)+ "<p> </div>";
