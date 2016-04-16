@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
         <script src="/assets/js/templates.js"></script>
         <script src="/assets/js/cart.js"></script>
-        <sciprt src="/assets/js/products.json"></sciprt>
+        <script src="/assets/js/products.js"></script>
         <script>
         /**
          * cart object, initalized as an empty object
@@ -27,10 +27,19 @@
             cart = Cart;
             // get cart from cookies
             cart.get();
+
+            // load products
+
+            var bottomsList = getCategoryArray("men", "bottoms");
+            console.log(bottomsList);
+
+            var finalHTML = displayProjectListing(bottomsList);
+            document.getElementById("productList").innerHTML = finalHTML;
+
         }
+
         </script>
 
-        <!-- edit the title -->
         <title>T H O R N E & S P I N D L E | Mens's Bottoms</title>
 
     </head>
@@ -50,24 +59,21 @@
 				<a href="/men/bottoms">
 					<h4 style="color: #5E9DC8">Bottoms</h4> </a>
 			</div>
-			<div class="main-page">
+<!-- 			<div class="main-page">
 				<img src="/assets/images/instagram.png" width="150" height="auto"/>
 				<p>Instagram Pants</p>
 				<p>$15.00</p>
-			</div>
-			<div class="main-page">
-				<!-- next row here -->
-			</div>
+			</div> -->
 		</div>
 
 
             <!-- end write stuff here -->
-
+            <div id="productList">The product list goes here</div>
 
         </div>
 
         <div class="template" include="/templates/footer.html"></div>
 
-        <!--<div class="template" include="/templates/footer.html"></div>-->
     </body>
 </html>
+
