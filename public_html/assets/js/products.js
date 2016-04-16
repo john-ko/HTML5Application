@@ -359,7 +359,7 @@ function displayProduct(theProduct){
 	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "<p>";
 	finalHTML += "<br>";	
 	finalHTML += "<input id=\"product-qty\" class=\"mailinglist-input\" type=\"number\" name=\"product-qty\" value=\"1\"/>";
-	finalHTML += "<button onclick= \"addItems(\'" + theProduct.gender + "\',\'" + theProduct.category + "\',\'" + theProduct.name + "\')\">Add Items To Cart </button>";
+	finalHTML += "<button onclick= \"addItems(\'" + theProduct.gender + "\',\'" + theProduct.category + "\',\'" + theProduct.slug + "\')\">Add Items To Cart </button>";
 	finalHTML += "</div>";
 
 	return finalHTML;
