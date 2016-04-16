@@ -50,20 +50,23 @@ var Cart = {
     },
 
     /**
-     * get
+     * load
      *
      * gets current cart from browser cookies
      * and sets this.items (cart object)
      */
-    get: function() {
-        console.log(document.cookie);
-        //get cookies
+    load: function() {
+        // get cookies
         var cookies = document.cookie;
-        //remove items= in the beginning of cookies
+        // remove items= in the beginning of cookies
         var cartItems = cookies.replace('items=', '');
-        //check to see if empty
+
+        // cause safari is stupid
+        cartItems = cartItems.replace(/SQLiteManager.*?(;|$| )/g, '');
+
+        // check to see if empty
         if(cartItems != '') {
-            //convert to json and set items
+            // convert to json and set items
             this.items = JSON.parse(cartItems);
         }
     },
@@ -100,6 +103,37 @@ var Cart = {
 
         this.save();
         console.log(this);
+    },
+
+    /**
+     * remove
+     *
+     * removes a specific item from the current cart
+     * saves the current cart then redirects to the cart homepage
+     *
+     * @param gender string
+     * @param category string
+     * @param item string
+     * @location redirect /cart
+     */
+    remove: function(gender, category, item) {
+        if (this.items[gender] === undefined) {
+            return;
+        }
+
+        if (this.items[gender][category] === undefined) {
+            return;
+        }
+
+        if (this.items[gender][category][item] === undefined) {
+            return;
+        }
+
+        delete this.items[gender][category][item];
+
+        this.save();
+
+        window.location="/cart";
     },
 
     /**
@@ -174,6 +208,49 @@ var Cart = {
 
         string += '<h2>Total: $' + this.total() + '</h2>';
         return string;*/
+
+    },
+
+    /**
+     * getContents
+     *
+     * gets the contents of the cart
+     */
+    getContents: function() {
+
+        var generateCartItem = function(name, brand, image, price, qty, gender, category, item) {
+            return '' +
+            '<div class="row cart-container">' +
+            '<div class="cart-item">' +
+                '<div class="cart-img-container">'+
+                    '<img src="/assets/images/products' + image + '" />' +
+                '</div>' +
+                '<div class="cart-description">' +
+                    '<span class="product-attr product-name">'+ name +'</span>' +
+                    '<span class="product-attr product-brand">'+ brand +'</span>' +
+                    '<span class="product-attr">$'+ price.toFixed(2) +'</span>' +
+                    '<span class="product-attr">qty: '+ qty +'</span>' +
+                    '<button class="btn" onclick=cart.remove("'+gender+'","'+category+'","'+item+'") >remove</button>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+        }
+
+        var contents = "";
+
+        var empty = "<h1 class=\"cart-empty\"> Your cart seems sad :( </h1>";
+        
+        for (var gender in this.items) {
+            for (var categories in this.items[gender]) {
+                for (var items in this.items[gender][categories]) {
+                    var product = this.products[gender][categories][items];
+                    contents += generateCartItem(product.name, product.brand, product.defaultImage, 
+                        product.price, this.items[gender][categories][items], gender, categories, items)
+                }
+            }
+        }
+
+        return contents? contents : empty;
 
     },
 
