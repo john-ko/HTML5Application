@@ -52,6 +52,41 @@ time, mark, audio, video {
 	color: #eee;
 }
 
+/**** body ******/
+.sidebar {
+	position: relative;
+	margin-right: 15px;
+	width: 100px;
+	float: left;
+}
+
+.sidebar a {
+	color: #000000;
+	text-decoration: none;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	/* ...and now for the proper property */
+	transition:.5s;
+}
+
+.sidebar a:hover {
+	color: #5E9DC8;
+}
+
+.main-page {
+	position: relative;
+	float: left;
+	left: 20px;
+	width: 150px;
+	padding-right: 40px;
+}
+
+.main-page p {
+	text-align: center;
+	
+}
 
 @media screen and (max-width: 980px){
 	.row {
@@ -62,6 +97,13 @@ time, mark, audio, video {
 		margin-right: 10px;
 		width: 246px;
 		padding: 0px;
+	}
+	
+	.main-page {
+		margin-right: 10px;
+		width: 200px;
+		padding: 0px;
+		text-align: center;
 	}
 }
 
@@ -74,6 +116,16 @@ time, mark, audio, video {
 		width: 100%;
 		float: inherit;
 		display:block;
+	}
+	.sidebar {
+		width: 100%;
+	}
+	.main-page {
+		padding: 20px;
+		width: 100%;
+		float: inherit;
+		display:block;
+		text-align: center;
 	}
 }
 
@@ -215,5 +267,6 @@ li.navItem a:hover {
  .about-rightBio {
  	text-align: right;
  }
+ 
 
 
