@@ -281,5 +281,23 @@ li.navItem a:hover {
 /*
 contact page
 */
-
-
+#contact-table {
+	margin-right: auto;
+	margin-left: auto;
+}
+#contact-store-hours {
+	text-align: center;
+}
+#contact-store-hours-table {
+	padding-left: 50px;
+}
+.contact-time {
+	padding-left: 50px;
+}
+#contact-cs-hours {
+	text-align: center;
+}
+#contact-store-hours-table-title {
+	text-align: center;
+	padding-left: 50px;
+}
