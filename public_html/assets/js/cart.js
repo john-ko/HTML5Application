@@ -107,6 +107,14 @@ var Cart = {
 
     /**
      * remove
+     *
+     * removes a specific item from the current cart
+     * saves the current cart then redirects to the cart homepage
+     *
+     * @param gender string
+     * @param category string
+     * @param item string
+     * @location redirect /cart
      */
     remove: function(gender, category, item) {
         if (this.items[gender] === undefined) {
