@@ -334,3 +334,31 @@ contact page
 	width: 500px;
 	height: 625px;
 }
+
+.cart-container {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.cart-img-container {
+	position: relative;
+	overflow: hidden;
+	height: 250px;
+	width: 250px;
+	float:left;
+}
+
+.cart-img-container img {
+	position: absolute;
+	transform: translate(0, -50%);
+	top: 50%;
+}
+
+.product-attr {
+	display:block;
+}
+
+.cart-description {
+	float:left;
+	margin-left: 50px;
+}

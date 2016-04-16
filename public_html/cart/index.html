@@ -38,12 +38,17 @@
             // load cart
             cart = Cart;
             cart.init(products);
-            // load cart from cookies
             cart.load();
             templates(function() {
                 var element = document.getElementById("cart-qty");
                 element.innerHTML = cart.getCount();
             });
+
+            //cart.add("men","bottoms","pendleton-compass-5-pocket-pants",3);
+
+            // cart
+            var cartContents = document.getElementById("cart-contents");
+            cartContents.innerHTML = cart.getContents();
 
         }
         </script>
@@ -55,19 +60,35 @@
     <body onLoad="onLoad()">
         <div class="template" include="/templates/header.html"></div>
         
-        <div class="row">
+        <div class="row cart-container">
+            <div class="cart-item">
+                <div class="cart-img-container">
+                    <img src="/assets/images/products/men/bottoms/compass5PocketPantsBack.jpg" />
+                </div>
+                <div class="cart-description">
+                    <span class="product-attr"><span class="">name:</span> asdffsfsf</span>
+                    <span class="product-attr">Penditelkjas</span>
+                    <span class="product-attr">$34.22</span>
+                    <span class="product-attr">1</span>
+                    <p>asdfasdf</p>
+                </div>
+            </div>
+        </div>
 
-            <!-- write stuff in here -->
-            <!-- also remember to change the title to your page -->
-
-
-            <h1>content goes here</h1>
-            <button onclick="addItems('men', 'bottoms', 'pendleton-davis-chinos')">Add Items</button>
-
-
-            <!-- end write stuff here -->
-
-
+        <div class="row cart-container">
+            <div class="cart-item">
+                <div class="cart-img-container">
+                    <img src="/assets/images/products/men/bottoms/compass5PocketPantsBack.jpg" />
+                </div>
+                <div class="cart-description">
+                    <span class="product-attr"><span class="">name:</span> asdffsfsf</span>
+                    <span class="product-attr">Penditelkjas</span>
+                    <span class="product-attr">$34.22</span>
+                    <span class="product-attr">1</span>
+                    <p>asdfasdf</p>
+                    <span class="product-attr">update | remove</span>
+                </div>
+            </div>
         </div>
 
         <div class="template" include="/templates/footer.html"></div>

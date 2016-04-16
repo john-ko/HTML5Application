@@ -50,12 +50,12 @@ var Cart = {
     },
 
     /**
-     * get
+     * load
      *
      * gets current cart from browser cookies
      * and sets this.items (cart object)
      */
-    get: function() {
+    load: function() {
         console.log(document.cookie);
         //get cookies
         var cookies = document.cookie;
@@ -174,6 +174,28 @@ var Cart = {
 
         string += '<h2>Total: $' + this.total() + '</h2>';
         return string;*/
+
+    },
+
+    /**
+     * getContents
+     *
+     * gets the contents of the cart
+     */
+    getContents: function() {
+        var string = "";
+        
+        for (var gender in this.items) {
+            for (var categories in this.items[gender]) {
+                for (var items in this.items[gender][categories]) {
+                    var product = this.products[gender][categories][items];
+
+                    console.log(product);
+                }
+            }
+        }
+
+        return string;
 
     },
 
