@@ -314,10 +314,22 @@ contact page
 	width: auto;
 	float: left;
 	padding-right: 50px;
+
 }
 
 .big-image-body{
 	position: relative;
 	float: left;
 	width: 400px;
+}
+
+.bigpic {
+	width: 280px;
+	height: 373px;
+	transition: 1s ease;
+}
+
+.bigpic:hover{
+	width: 500px;
+	height: 625px;
 }
