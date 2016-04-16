@@ -308,6 +308,10 @@ var products = {
 	}
 }
 
+function getProductGender(gender){
+	return products[gender];
+}
+
 
 function getProductOuter(gender, category)  {
 	//console.log(products[gender][category][item])
@@ -315,10 +319,16 @@ function getProductOuter(gender, category)  {
 	return products[gender][category];
 }
 
+
 function getProduct(gender, category, item)  {
 	//console.log(products[gender][category][item])
 	//console.log(products[gender][category][item]);
 	return products[gender][category][item];
+}
+
+function getGenderProducts(gender){
+	var genderClothes = getProductGender(gender);
+	return genderClothes;
 }
 
 function getItemInformation(gender,category,item){
