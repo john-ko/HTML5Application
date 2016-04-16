@@ -331,20 +331,25 @@ function displayProduct(theProduct){
 	var finalHTML = "";
 	//console.log("length coming up");
 	//console.log(theProduct.length);
-	finalHTML += '<div class="main-page">';
-	finalHTML += "<img src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
+	finalHTML += '<div class="big-image">';
+	finalHTML += "<img class = \"bigpic\" src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"auto\" height=\"auto\"/></div>";
+	finalHTML += "<div class = \"big-image-body\">";
+	finalHTML += "<h3>More Pictures!<h3>";
+	finalHTML += "<div>"
 	for (var index in theProduct.images){
-		finalHTML += "<img src=\"/assets/images/products" + theProduct.images[index] + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
+		finalHTML += "<img onClick = \"imageswap(this)\" src=\"/assets/images/products" + theProduct.images[index] + "\" alt=productImage width=\"15%\" height=\"auto\"/>";
 	}
-	
-	// finalHTML += "<img src=\"/assets/images/products" + theProduct.images[1] + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
-	// finalHTML += "<img src=\"/assets/images/products" + theProduct.images[2] + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
-	finalHTML += "<p>" + theProduct.name+ "<p>";
-	finalHTML += "<p>" + theProduct.brand+ "<p>";
-	finalHTML += "<p>" + theProduct.color + "<p>";
-	finalHTML += "<p>" + theProduct.price.toFixed(2)+ "<p> </div>";
-	finalHTML += "<p>" + theProduct.color + "<p>";
-	finalHTML += "<p>" + theProduct.details + "<p>";
+	finalHTML += "</div>";
+	finalHTML += "<h4> Name:" + theProduct.name+ "</h4>";
+	finalHTML += "<p> Brand:" + theProduct.brand+ "<p>";
+	finalHTML += "<p> Color:" + theProduct.color + "<p>";
+	finalHTML += "<p> Additional Details:" + theProduct.details + "<p>";
+	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "<p> </div>";
+	finalHTML += "<br>";	
+	finalHTML += "<form>";
+	finalHTML += "<input class=\"mailinglist-input\" type=\"number\" name=\"do-something\" value=\"1\"/>";
+	finalHTML += "<button class=\"mailinglist-subscribe-button\">Add To Cart</button>";
+	finalHTML += "</form>";
 
 	return finalHTML;
 

@@ -8,6 +8,7 @@
         <script src="/assets/js/templates.js"></script>
         <script src="/assets/js/cart.js"></script>
         <script src="/assets/js/products.js"></script>
+        <script src="/assets/js/imageswap.js"></script>
         <script>
         /**
          * cart object, initalized as an empty object
@@ -35,8 +36,6 @@
             var finalHTML = displayProduct(clothingInfo);
             document.getElementById("productDisplay").innerHTML = finalHTML;
 
-            var theClothing
-
         }
 
         </script>
@@ -48,18 +47,19 @@
         <div class="template" include="/templates/header.html"></div>
         
         <div class="row">
+            <div id="productDisplay">The product list goes here</div>
 
             <!-- write stuff in here -->
             <!-- also remember to change the title to your page -->
 
-			<div class="sidebar">
+<!-- 			<div class="sidebar">
 			
 				<a href="/men"> <h1>Men</h1> </a>
 				<a href="/men/tops">
 					<h4>Tops</h4> </a>
 				<a href="/men/bottoms">
 					<h4 style="color: #5E9DC8">Bottoms</h4> </a>
-			</div>
+			</div> -->
 <!-- 			<div class="main-page">
 				<img src="/assets/images/instagram.png" width="150" height="auto"/>
 				<p>Instagram Pants</p>
@@ -69,9 +69,8 @@
 
 
             <!-- end write stuff here -->
-            <div id="productDisplay">The product list goes here</div>
+            
 
-            THE PANTS PAGE
 
         </div>
 
