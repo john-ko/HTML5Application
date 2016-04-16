@@ -324,13 +324,13 @@ contact page
 	width: 400px;
 }
 
-.bigpic {
+#bigpic {
 	width: 280px;
 	height: 373px;
 	transition: 1s ease;
 }
 
-.bigpic:hover{
+#bigpic:hover{
 	width: 500px;
 	height: 625px;
 }
