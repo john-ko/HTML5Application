@@ -22,12 +22,17 @@
          */
         function onLoad() {
             // load templates
-            templates();
-
+            
             // load cart
             cart = Cart;
             // get cart from cookies
             cart.get();
+            cart.add("men","bottoms","pendleton-compass-5-pocket-pants",5);
+            templates(function() {
+                var element = document.getElementById("cart-qty");
+                element.innerHTML = cart.getCount();
+            });
+
         }
         </script>
 

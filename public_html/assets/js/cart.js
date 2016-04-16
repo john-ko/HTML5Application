@@ -121,6 +121,28 @@ var Cart = {
     },
 
     /**
+    * getCount
+    * 
+    * calculates the total number of items in the cart
+    * @returns (qty)
+    *
+    */
+    getCount: function() {
+        var qty = 0;
+
+        for (var gender in this.items) {
+            for (var categories in this.items[gender]) {
+                for (var items in this.items[gender][categories]) {
+                    qty += this.items[gender][categories][items];
+                }
+            }
+        }
+
+        return "(" + qty + ")";
+
+    },
+
+    /**
      * getCart
      *
      * todo finish later when we have a clearer idea how to use
