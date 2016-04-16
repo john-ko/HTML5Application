@@ -277,6 +277,11 @@ li.navItem a:hover {
  	text-align: right;
  }
  
+/**** home ******/
+.releases {
+	clear: both;
+}
+ 
 
 /*
 contact page
