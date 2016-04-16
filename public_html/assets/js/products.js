@@ -316,6 +316,7 @@ function addItems(gender, category, item) {
     element.innerHTML = cart.getCount();
 }
 
+
 function getProductGender(gender){
 	return products[gender];
 }
