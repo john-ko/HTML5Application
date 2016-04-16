@@ -311,28 +311,33 @@ var products = {
 function addItems(gender, category, item) {
     
     var input = document.getElementById("product-qty").value;
-    // todo find qty
     cart.add(gender, category, item, input);
     var element = document.getElementById("cart-qty");
     element.innerHTML = cart.getCount();
 }
 
 
+function getProductGender(gender){
+	return products[gender];
+}
+
+
 function getProductOuter(gender, category)  {
-	//console.log(products[gender][category][item])
-	//console.log(products[gender][category]);
 	return products[gender][category];
 }
 
+
 function getProduct(gender, category, item)  {
-	//console.log(products[gender][category][item])
-	//console.log(products[gender][category][item]);
 	return products[gender][category][item];
+}
+
+function getGenderProducts(gender){
+	var genderClothes = getProductGender(gender);
+	return genderClothes;
 }
 
 function getItemInformation(gender,category,item){
 	var theClothingItem = getProduct(gender,category,item);
-	//console.log(theClothingItem);
 	theClothingItem.gender=gender;
 	theClothingItem.category=category;
 	return theClothingItem;
@@ -341,8 +346,6 @@ function getItemInformation(gender,category,item){
 
 function displayProduct(theProduct){
 	var finalHTML = "";
-	//console.log("length coming up");
-	//console.log(theProduct.length);
 	finalHTML += '<div class="big-image">';
 	finalHTML += "<img id = \"bigpic\" src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"auto\" height=\"auto\"/></div>";
 	finalHTML += "<div class = \"big-image-body\">";

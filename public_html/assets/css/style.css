@@ -57,6 +57,7 @@ time, mark, audio, video {
 	position: relative;
 	margin-right: 15px;
 	width: 100px;
+	height:750px;
 	float: left;
 }
 
@@ -80,6 +81,7 @@ time, mark, audio, video {
 	float: left;
 	left: 20px;
 	width: 150px;
+	height:350px;
 	padding-right: 40px;
 }
 
@@ -281,6 +283,8 @@ li.navItem a:hover {
  .about-rightBio {
  	text-align: right;
  }
+
+
  
 /**** home ******/
 .releases {

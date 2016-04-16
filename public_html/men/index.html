@@ -28,13 +28,13 @@
                 var element = document.getElementById("cart-qty");
                 element.innerHTML = cart.getCount();
             });
+            var topsList = getCategoryArray("men","tops");
+            var bottomsList = getCategoryArray("men", "bottoms");
 
-            // load products
-            var product = getProductOuter("men","bottoms");
-            document.getElementById("product").innerHTML = getProductOuter("men","bottoms");
-
-
-
+            var finalHTML = displayProjectListing(topsList);
+            var finalHTML2 = displayProjectListing(bottomsList);
+            document.getElementById("productList").innerHTML = finalHTML;
+            document.getElementById("productList").innerHTML += finalHTML2;
 
         }
         </script>
@@ -50,30 +50,19 @@
         <div class="row">
             <!-- write stuff in here -->
             <!-- also remember to change the title to your page -->
-
-			<div class="sidebar">
-			
-				<a href="/men"> <h1 style="color: #5E9DC8">Men</h1> </a>
-				<a href="/men/tops">
-					<h4>Tops</h4> </a>
-				<a href="/men/bottoms">
-					<h4>Bottoms</h4> </a>
-			</div>
-			<div class="main-page">
-				<img src="/assets/images/facebook.png" width="150" height="auto"/>
-				<p>Facebook Shirt</p>
-				<p>$15.00</p>
-			</div>
-			<div class="main-page">
-				<img src="/assets/images/instagram.png" width="150" height="auto"/>
-				<p>Instagram Pants</p>
-				<p>$15.00</p>
-			</div>
+            <div class="sidebar">
+            
+                <a href="/men"> <h1>Men</h1> </a>
+                <a href="/men/tops">
+                    <h4 style="color: #5E9DC8">Tops</h4> </a>
+                <a href="/men/bottoms">
+                    <h4>Bottoms</h4> </a>
+            </div>
+            <div id="productList">The product list goes here</div>
 		</div>
 
 
         <div class="template" include="/templates/footer.html"></div>
 
-        <!--<div class="template" include="/templates/footer.html"></div>-->
     </body>
 </html>
