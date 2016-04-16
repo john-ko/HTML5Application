@@ -2,12 +2,13 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
         <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
         <script src="/assets/js/templates.js"></script>
         <script src="/assets/js/cart.js"></script>
-        <sciprt src="/assets/js/products.json"></sciprt>
+        <script src="/assets/js/products.js"></script>
         <script>
         /**
          * cart object, initalized as an empty object
@@ -20,18 +21,29 @@
          * fires when body is loaded
          */
         function onLoad() {
-            // load templates
-            templates();
-
-            // load cart
             cart = Cart;
-            // get cart from cookies
-            cart.get();
+            cart.init(products);
+            cart.load();
+            templates(function() {
+                var element = document.getElementById("cart-qty");
+                element.innerHTML = cart.getCount();
+            });
+            var topsList = getCategoryArray("women","tops");
+            var bottomsList = getCategoryArray("women", "bottoms");
+            var dressList = getCategoryArray("women", "dresses");
+
+            var finalHTML = displayProjectListing(topsList);
+            var finalHTML2 = displayProjectListing(bottomsList);
+            var finalHTML3 = displayProjectListing(dressList);
+            document.getElementById("productList").innerHTML = finalHTML;
+            document.getElementById("productList").innerHTML += finalHTML2;
+            document.getElementById("productList").innerHTML += finalHTML3;
+
         }
         </script>
 
         <!-- edit the title -->
-        <title>T H O R N E & S P I N D L E | Mens</title>
+        <title>T H O R N E & S P I N D L E | Womens</title>
 
     </head>
     <body onLoad="onLoad()">
@@ -52,31 +64,12 @@
 				<a href="/women/dresses">
 					<h4>Dresses</h4> </a>
 			</div>
-			<div class="main-page">
-				<img src="/assets/images/facebook.png" width="150" height="auto"/>
-				<p>Facebook Shirt</p>
-				<p>$15.00</p>
-			</div>
-			<div class="main-page">
-				<img src="/assets/images/instagram.png" width="150" height="auto"/>
-				<p>Instagram Pants</p>
-				<p>$15.00</p>
-			</div>
-			<div class="main-page">
-				<img src="/assets/images/kevinAvatar.png" width="150" height="auto"/>
-				<p>kevinAvatar Dress</p>
-				<p>$15.00</p>
-			</div>
+            <div id="productList">The product list goes here</div>
 		</div>
-
-
-            <!-- end write stuff here -->
-
 
         </div>
 
         <div class="template" include="/templates/footer.html"></div>
 
-        <!--<div class="template" include="/templates/footer.html"></div>-->
     </body>
 </html>
