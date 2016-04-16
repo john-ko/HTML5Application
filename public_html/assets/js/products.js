@@ -356,10 +356,10 @@ function displayProduct(theProduct){
 	}
 	finalHTML += "</div>";
 	finalHTML += "<h4> Name:" + theProduct.name+ "</h4>";
-	finalHTML += "<p> Brand:" + theProduct.brand+ "<p>";
-	finalHTML += "<p> Color:" + theProduct.color + "<p>";
-	finalHTML += "<p> Additional Details:" + theProduct.details + "<p>";
-	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "<p>";
+	finalHTML += "<p> Brand:" + theProduct.brand+ "</p>";
+	finalHTML += "<p> Color:" + theProduct.color + "</p>";
+	finalHTML += "<p> Additional Details:" + theProduct.details + "</p>";
+	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "</p>";
 	finalHTML += "<br>";	
 	finalHTML += "<input id=\"product-qty\" class=\"mailinglist-input\" type=\"number\" name=\"product-qty\" value=\"1\"/>";
 	finalHTML += "<button onclick= \"addItems(\'" + theProduct.gender + "\',\'" + theProduct.category + "\',\'" + theProduct.slug + "\')\">Add Items To Cart </button>";
@@ -393,9 +393,9 @@ function displayProjectListing(productArray){
 		console.log(theProduct);
 		finalHTML += '<div class="main-page">';
 		finalHTML += "<a href = \"/" + theProduct.gender + "/" + theProduct.category + "/" + theProduct.slug + "\" ><img src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
-		finalHTML += "<p>" + theProduct.name+ "<p>";
-		finalHTML += "<p>" + theProduct.brand+ "<p>";
-		finalHTML += "<p>" + theProduct.price.toFixed(2)+ "<p> </div>";
+		finalHTML += "<p>" + theProduct.name+ "</p>";
+		finalHTML += "<p>" + theProduct.brand+ "</p>";
+		finalHTML += "<p>" + theProduct.price.toFixed(2)+ "</p> </div>";
 	}
 	return finalHTML;
 }

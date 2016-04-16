@@ -20,18 +20,18 @@
          * fires when body is loaded
          */
         function onLoad() {
-            // load templates
-            templates();
-
-            // load cart
             cart = Cart;
-            // get cart from cookies
-            cart.get();
+            cart.init(products);
+            cart.load();
+            templates(function() {
+                var element = document.getElementById("cart-qty");
+                element.innerHTML = cart.getCount();
+            });
         }
         </script>
 
         <!-- edit the title -->
-        <title>T H O R N E & S P I N D L E | about</title>
+        <title>T H O R N E & S P I N D L E | Main Index </title>
 
     </head>
     <body onLoad="onLoad()">
@@ -39,40 +39,51 @@
         
         <div class="row">
 
-            <!-- write stuff in here -->
-            <!-- also remember to change the title to your page -->
-
 			<div class="content">
 				<img class="splash" src="assets/images/pic.jpg" width="700" height="auto" align="middle"/>
 			</div>
-			<h2>New Releases for Women</h2>
-				<div class="main-page">
-					<img src="/assets/images/kevinAvatar.png" width="150" height="auto"/>
-					<p>kevinAvatar Dress</p>
-					<p>$15.00</p>
-				</div>
-				<div class="main-page">
-					<img src="/assets/images/instagram.png" width="150" height="auto"/>
-					<p>Instagram Pants</p>
-					<p>$15.00</p>
-				</div>
-			<div class="releases"> </div>
-			
-			<h2> New Releases for Men</h2>
-				<div class="main-page">
-					<img src="/assets/images/instagram.png" width="150" height="auto"/>
-					<p>Instagram Pants</p>
-					<p>$15.00</p>
-				</div>
-			
-			
-			
-			
+		<h2>New Releases for Women</h2>
+        <div class="main-page">
+            <a href="/women/tops/hd-in-paris-laurel-tank"><img src="/assets/images/products/women/tops/laurelTankFront.jpg" alt="productImage" width="150" height="auto"></a>
+                <p>Laurel Tank</p>
+                <p>HD in Paris</p>
+                <p>78.00</p> 
+        </div>
+        <div class="main-page">
+            <a href="/women/bottoms/cartonnier-charlie-trousers"><img src="/assets/images/products/women/bottoms/charlieTrousersFront.jpg" alt="productImage" width="150" height="auto"></a>
+                <p>Charlie Trousers</p>
+                <p>Cartonnier</p>
+                <p>108.00</p> 
+        </div>
+        <div class="main-page">
+            <a href="/women/dresses/madame-shoushou-south-island-maxi-dress"><img src="/assets/images/products/women/dresses/southIslandMaxiDressFront.jpg" alt="productImage" width="150" height="auto"></a>
+                <p>South Island Maxi Dress</p>
+                <p>Madame Shoushou</p>
+                <p>248.00</p> 
+        </div>
 
+        </div>
 
-            <!-- end write stuff here -->
-
-
+        <div class = "row">
+		<h2> New Releases for Men</h2>
+        <div class="main-page">
+            <a href="/men/bottoms/pendleton-cargo-shorts"><img src="/assets/images/products/men/bottoms/cargoShortsFront.jpg" alt="productImage" width="150" height="auto"></a>
+                <p>Cargo Shorts</p>
+                <p>Pendleton</p>
+                <p>79.50</p>
+        </div>
+        <div class="main-page">
+            <a href="/men/tops/pendleton-long-sleeve-henley"><img src="/assets/images/products/men/tops/longSleeveHenleyFront.jpg" alt="productImage" width="150" height="auto"></a>
+                <p>Long-sleeve Henley</p>
+                <p>Pendleton</p>
+                <p>89.50</p>
+        </div>
+        <div class="main-page">
+            <a href="/men/tops/pendleton-fitted-tennyson-shirt"><img src="/assets/images/products/men/tops/fittedTennysonShirtFront.jpg" alt="productImage" width="150" height="auto"></a>
+                <p>Fitted Tennyson Shirt</p>
+                <p>Pendleton</p>
+                <p>99.50</p>
+        </div>
         </div>
 
         <div class="template" include="/templates/footer.html"></div>
