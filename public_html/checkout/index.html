@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<script src="/assets/js/templates.js"></script>
 	<script src="/assets/js/cart.js"></script>
-	<sciprt src="/assets/js/products.json"></sciprt>
+	<script src="/assets/js/products.json"></script>
 	<script>
         /**
          * cart object, initalized as an empty object
@@ -20,13 +20,17 @@
          * fires when body is loaded
          */
          function onLoad() {
-            // load templates
-            templates();
-
-            // load cart
             cart = Cart;
-            // get cart from cookies
-            cart.get();
+            cart.init(products);
+            cart.load();
+            templates(function() {
+                var element = document.getElementById("cart-qty");
+                element.innerHTML = "(" + cart.getCount() + ")";
+            });
+
+
+            document.getElementById("checkout-price").innerHTML = cart.total();
+            document.getElementById("checkout-qty").innerHTML = cart.getCount()
         }
         </script>
 
@@ -116,8 +120,8 @@
     				</table>
     				<div id="checkout-order-summary">
     					<h2>Order Summary</h2>
-    					<p>Total Merhandise: </p>
-    					<p>Price Total: $<div id:"cart-price"></div></p>
+    					<p>Total Merhandise: <span id="checkout-qty"></span></p>
+    					<p>Price Total: $<span id="checkout-price"></span></p>
     					<input id="checkout-submit-button" type="submit" onclick="" />
     				</div>
     			</form>

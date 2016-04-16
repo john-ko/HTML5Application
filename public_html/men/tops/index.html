@@ -28,7 +28,7 @@
             cart.load();
             templates(function() {
                 var element = document.getElementById("cart-qty");
-                element.innerHTML = cart.getCount();
+                element.innerHTML = "(" + cart.getCount() + ")";
             });
 
             var bottomsList = getCategoryArray("men", "tops");

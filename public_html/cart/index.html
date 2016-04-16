@@ -34,7 +34,7 @@
             cart.load();
             templates(function() {
                 var element = document.getElementById("cart-qty");
-                element.innerHTML = cart.getCount();
+                element.innerHTML = "(" + cart.getCount() + ")";
             });
 
             //cart.add("men","bottoms","pendleton-compass-5-pocket-pants",3);

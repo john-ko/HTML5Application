@@ -156,7 +156,7 @@ var Cart = {
             }
         }
 
-        return total;
+        return total.toFixed(2);
 
     },
 
@@ -178,7 +178,7 @@ var Cart = {
             }
         }
 
-        return "(" + qty + ")";
+        return qty;
 
     },
 
