@@ -187,12 +187,12 @@ ul.headernav li a {
 	display: block;
 	color: black;
 	text-align: center;
-	padding: 14px 16px;
+	padding: 8px 16px;
 	text-decoration: none;
 }
 
 ul.headernav li a.cart-icon {
-	padding: 7px 16px 10px 16px;
+	padding: 1px 16px 8px 16px;
 }
 
 ul.headernav {
