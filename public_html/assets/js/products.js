@@ -308,6 +308,15 @@ var products = {
 	}
 }
 
+function addItems(gender, category, item) {
+    
+    var input = document.getElementById("product-qty").value;
+    // todo find qty
+    cart.add(gender, category, item, input);
+    var element = document.getElementById("cart-qty");
+    element.innerHTML = cart.getCount();
+}
+
 
 function getProductOuter(gender, category)  {
 	//console.log(products[gender][category][item])
@@ -324,8 +333,11 @@ function getProduct(gender, category, item)  {
 function getItemInformation(gender,category,item){
 	var theClothingItem = getProduct(gender,category,item);
 	//console.log(theClothingItem);
+	theClothingItem.gender=gender;
+	theClothingItem.category=category;
 	return theClothingItem;
 }
+
 
 function displayProduct(theProduct){
 	var finalHTML = "";
@@ -346,8 +358,8 @@ function displayProduct(theProduct){
 	finalHTML += "<p> Additional Details:" + theProduct.details + "<p>";
 	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "<p>";
 	finalHTML += "<br>";	
-	finalHTML += "<input class=\"mailinglist-input\" type=\"number\" name=\"do-something\" value=\"1\"/>";
-	finalHTML += "<button class=\"mailinglist-subscribe-button\">Add To Cart</button>";
+	finalHTML += "<input id=\"product-qty\" class=\"mailinglist-input\" type=\"number\" name=\"product-qty\" value=\"1\"/>";
+	finalHTML += "<button onclick= \"addItems(\'" + theProduct.gender + "\',\'" + theProduct.category + "\',\'" + theProduct.slug + "\')\">Add Items To Cart </button>";
 	finalHTML += "</div>";
 
 	return finalHTML;

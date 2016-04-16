@@ -30,7 +30,7 @@
             });
 
             var bottomsList = getCategoryArray("men", "bottoms");
-            console.log(bottomsList);
+
 
             var finalHTML = displayProjectListing(bottomsList);
             document.getElementById("productList").innerHTML = finalHTML;
@@ -50,16 +50,17 @@
             <!-- write stuff in here -->
             <!-- also remember to change the title to your page -->
 
-			<div class="sidebar">
-			
-				<a href="/men"> <h1>Men</h1> </a>
-				<a href="/men/tops">
-					<h4>Tops</h4> </a>
-				<a href="/men/bottoms">
-					<h4 style="color: #5E9DC8">Bottoms</h4> </a>
-			</div>
-				<div id="productList">The product list goes here</div>
-			
+            <div class="sidebar">
+
+                <a href="/men"> <h1>Men</h1> </a>
+                <a href="/men/tops">
+                    <h4>Tops</h4> </a>
+                <a href="/men/bottoms">
+                    <h4 style="color: #5E9DC8">Bottoms</h4> </a>
+                </div>
+
+            <div id="productList">The product list goes here</div>
+
         </div>
 
         <div class="template" include="/templates/footer.html"></div>

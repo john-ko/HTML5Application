@@ -21,14 +21,13 @@
          * fires when body is loaded
          */
         function onLoad() {
-            // load templates
-            templates();
-
-            // load cart
             cart = Cart;
-            // get cart from cookies
-            cart.get();
-
+            cart.init(products);
+            cart.load();
+            templates(function() {
+                var element = document.getElementById("cart-qty");
+                element.innerHTML = cart.getCount();
+            });
 
             // load products
             var product = getProductOuter("men","bottoms");

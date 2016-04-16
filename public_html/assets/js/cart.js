@@ -46,6 +46,7 @@ var Cart = {
     save: function() {
         //prepend items= and save it to cookie
         var CartJSONString = "items=" + JSON.stringify(this.items);
+        CartJSONString += "; path=/";
         document.cookie = CartJSONString;
     },
 
