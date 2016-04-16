@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+	<script src="/assets/js/templates.js"></script>
+	<script src="/assets/js/cart.js"></script>
+	<sciprt src="/assets/js/products.json"></sciprt>
+	<script>
+        /**
+         * cart object, initalized as an empty object
+         * defined in onLoad function
+         */
+         var cart = {};
+
+        /**
+         * onLoad()
+         * fires when body is loaded
+         */
+         function onLoad() {
+            // load templates
+            templates();
+
+            // load cart
+            cart = Cart;
+            // get cart from cookies
+            cart.get();
+        }
+        </script>
+
+        <!-- edit the title -->
+        <title>T H O R N E & S P I N D L E | Contact</title>
+
+    </head>
+    <body onLoad="onLoad()">
+    	<div class="template" include="/templates/header.html"></div>
+    	
+    	<div class="row">
+
+    		<!-- write stuff in here -->
+    		<!-- also remember to change the title to your page -->
+
+
+    		<div id="contact-body">
+    			<table id="contact-table">
+    				<tr>
+    					<td>
+    						<h2>Headquarters</h2>
+    						<p>5347 Aldrich Drive,</p>
+    						<p>Irvine, CA, 92617</p>
+    						<p>United States</p>
+
+    						<h2>Phone</h2>
+    						<p>(949) 626-4587</p>
+
+    						<h2>Email</h2>
+    						<p>contactUs@tns.com</p>
+    					</td>
+    					<td>
+    						<table id="contact-store-hours-table">
+    							<tr>
+    								<div id="contact-store-hours-table-title">
+    									<h2>Store Hours</h2>
+    								</div>
+    								<td>
+    									<div class="contact-days">
+    										<p>Sunday</p>
+    										<p>Monday</p>
+    										<p>Tuesday</p>
+    										<p>Wednesday</p>
+    										<p>Thursday</p>
+    										<p>Friday</p>
+    										<p>Saturday</p>
+    									</div>
+    								</td>
+    								<td>
+    									<div class="contact-time">
+    										<p>10:00AM - 8:00PM</p>
+    										<p>10:00AM - 9:00PM</p>
+    										<p>10:00AM - 9:00PM</p>
+    										<p>10:00AM - 9:00PM</p>
+    										<p>10:00AM - 9:00PM</p>
+    										<p>10:00AM - 9:00PM</p>
+    										<p>9:00AM - 9:00PM</p>
+    									</div>
+    								</td>
+    							</tr>
+    						</table>
+    					</td>
+    				</tr>
+    			</table>
+    			<div id="contact-cs-hours">
+    				<h2>Customer Support Hours</h2>
+    				<p>24/7</p>
+    			</div>
+    		</div>
+
+
+    	</div>
+    	<!-- end write stuff here -->
+
+
+
+    	<div class="template" include="/templates/footer.html"></div>
+
+    	<!--<div class="template" include="/templates/footer.html"></div>-->
+    </body>
+    </html>
