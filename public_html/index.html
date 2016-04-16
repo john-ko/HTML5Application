@@ -1,67 +1,60 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-		<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+        <script src="/assets/js/templates.js"></script>
+        <script src="/assets/js/cart.js"></script>
+        <sciprt src="/assets/js/products.json"></sciprt>
+        <script>
+        /**
+         * cart object, initalized as an empty object
+         * defined in onLoad function
+         */
+        var cart = {};
 
-		<title>T H O R N E & S P I N D L E</title>
-	</head>
-	<body>
-		<div class="content">
-			<img class="splash" src="assets/images/pic.jpg" width="700" height="auto" align="middle"/>
-		</div><!DOCTYPE html>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-		<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+        /**
+         * onLoad()
+         * fires when body is loaded
+         */
+        function onLoad() {
+            // load templates
+            templates();
 
-		<title>T H O R N E & S P I N D L E</title>
-	</head>
-	<body>
-		<div class="content">
-			<img class="splash" src="assets/images/pic.jpg" width="700" height="auto" align="middle"/>
-		</div>
+            // load cart
+            cart = Cart;
+            // get cart from cookies
+            cart.get();
+        }
+        </script>
 
-		<footer>
-			<div class="footer" style="margin-top:100px">
-			<p>Copyright  2016 - TNS. All Rights Reserved</p>
-				<div class="row">
-					<div class="third">
-						Customer Service
-						<div><a href="comingsoon.html">Frequently Asked Questions</a></div>
-						<div><a href="comingsoon.html">Returns</a></div>
-						<div><a href="comingsoon.html">Live Chat</a></div>
-						<div><a href="comingsoon.html">Track Orders</a></div>
-						<div><a href="contact.html">Contact Us</a></div>
-					</div>
-					<div class="third">
-						Company Info
-						<div><a href="about.html">About Us</a></div>
-						<div><a href="comingsoon.html">Complain about Us</a></div>
-					</div>
-					<div class="third">
-						Connect
-						<div>
-							<a href="https://twitter.com/justinbieber">
-								<img src="assets/images/twitter.png" width="20" height="auto"/>
-							</a>
-						</div>
-						<div>
-							<a href="https://www.facebook.com/zuck">
-								<img src="assets/images/facebook.png" width="20" height="auto"/>
-							</a>
-						</div>
-						<div>
-							<a href="https://www.instagram.com/kang_gary8888/">
-								<img src="assets/images/instagram.png" width="20" height="auto"/>
-							</a>
-						</div>
-					</div>
-				</div>
+        <!-- edit the title -->
+        <title>T H O R N E & S P I N D L E | about</title>
 
+    </head>
+    <body onLoad="onLoad()">
+        <div class="template" include="/templates/header.html"></div>
+        
+        <div class="row">
+
+            <!-- write stuff in here -->
+            <!-- also remember to change the title to your page -->
+
+
+			<div class="content">
+				<img class="splash" src="assets/images/pic.jpg" width="700" height="auto" align="middle"/>
 			</div>
-		</footer>
-	<body>
+
+
+            <!-- end write stuff here -->
+
+
+        </div>
+
+        <div class="template" include="/templates/footer.html"></div>
+
+        <!--<div class="template" include="/templates/footer.html"></div>-->
+    </body>
 </html>
