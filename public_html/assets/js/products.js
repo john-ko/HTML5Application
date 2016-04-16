@@ -328,12 +328,11 @@ function displayProjectListing(productArray){
 		//console.log(productArray[productObject]);
 		var theProduct = productArray[productObjectIndex];
 		console.log(theProduct.name);
-		finalHTML += "<img src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage/>";
-		finalHTML += "<h1>" + theProduct.name+ "</h1>";
-		finalHTML += "<h1>" + theProduct.brand+ "</h1>";
-		finalHTML += "<h1>" + theProduct.color+ "</h1>";
-		finalHTML += "<h1>" + theProduct.price+ "</h1>";
-		finalHTML += "<h1>" + theProduct.details+ "</h1>";
+		finalHTML += '<div class="main-page">';
+		finalHTML += "<img src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"150\" height=\"auto\"/>";
+		finalHTML += "<p>" + theProduct.name+ "<p>";
+		finalHTML += "<p>" + theProduct.brand+ "<p>";
+		finalHTML += "<p>" + theProduct.price.toFixed(2)+ "<p> </div>";
 	}
 	return finalHTML;
 }
