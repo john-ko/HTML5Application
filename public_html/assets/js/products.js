@@ -346,12 +346,9 @@ function displayProduct(theProduct){
 	finalHTML += "<p> Additional Details:" + theProduct.details + "<p>";
 	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "<p>";
 	finalHTML += "<br>";	
-	finalHTML += "<form>";
-	finalHTML += "        ";
-	finalHTML += "				Add To Cart";
 	finalHTML += "<input class=\"mailinglist-input\" type=\"number\" name=\"do-something\" value=\"1\"/>";
 	finalHTML += "<button class=\"mailinglist-subscribe-button\">Add To Cart</button>";
-	finalHTML += "</div></form>";
+	finalHTML += "</div>";
 
 	return finalHTML;
 
