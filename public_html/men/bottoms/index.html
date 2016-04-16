@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
         <script src="/assets/js/templates.js"></script>
         <script src="/assets/js/cart.js"></script>
-        <sciprt src="/assets/js/products.json"></sciprt>
+        <script src="/assets/js/products.js"></script>
         <script>
         /**
          * cart object, initalized as an empty object
@@ -27,10 +27,33 @@
             cart = Cart;
             // get cart from cookies
             cart.get();
-        }
+
+            // load products
+
+            //var product = getProduct("men","bottoms", "pendleton-davis-chinos");
+            // var bottoms = getProductOuter("men","bottoms");
+            // var bottomsList = [];
+
+            // for (var property in bottoms) {
+            // 	console.log(bottoms[property]);
+            // 	bottomsList.push(bottoms[property]);
+            // }
+
+            var bottomsList = getCategoryArray("men", "bottoms");
+            console.log(bottomsList);
+
+            var finalHTML = displayProjectListing(bottomsList);
+            document.getElementById("productList").innerHTML = finalHTML;
+
+            //console.log(product);
+            //document.getElementById("product").innerHTML = product.name;
+
+            // var list = [];
+
+            // for
+
         </script>
 
-        <!-- edit the title -->
         <title>T H O R N E & S P I N D L E | Mens's Bottoms</title>
 
     </head>
@@ -62,12 +85,12 @@
 
 
             <!-- end write stuff here -->
-
+            <div id="productList">The product list goes here</div>
 
         </div>
 
         <div class="template" include="/templates/footer.html"></div>
 
-        <!--<div class="template" include="/templates/footer.html"></div>-->
     </body>
 </html>
+
