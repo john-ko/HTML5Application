@@ -5,7 +5,7 @@
  * this will help templatize our html
  */
 
-function templates() {
+function templates(callback) {
 
   // get list of all templates
   var templates = document.getElementsByClassName("template");
@@ -26,6 +26,10 @@ function templates() {
     xhrs[i].onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         this.element.innerHTML = this.responseText;
+        if (this.element.getAttribute("include") === "/templates/header.html") {
+          callback();
+        }
+
       }
     }
 
