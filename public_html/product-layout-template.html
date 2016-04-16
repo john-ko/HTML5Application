@@ -22,7 +22,7 @@
         */
         function addItems(gender, category, item) {
             
-            var input = document.getElementById("do-something").value;
+            var input = document.getElementById("product-qty").value;
             // todo find qty
             cart.add(gender, category, item, input);
             var element = document.getElementById("cart-qty");
@@ -38,7 +38,7 @@
             // load cart
             cart = Cart;
             // get cart from cookies
-            cart.get();
+            cart.load();
             //cart.add("men","bottoms","pendleton-compass-5-pocket-pants",5);
             templates(function() {
                 var element = document.getElementById("cart-qty");
@@ -75,7 +75,7 @@
 				<p>Price: $15.00</p>
 				<br>
 					Add To Cart<br>
-					<input class="mailinglist-input" type="number" id="do-something" value="1"/>
+					<input class="mailinglist-input" type="number" id="product-qty" value="1"/>
 					<button class="mailinglist-subscribe-button">Add To Cart</button>
                     <button onclick="addItems('men', 'bottoms', 'pendleton-davis-chinos')">Add Items</button>
 			</div>
