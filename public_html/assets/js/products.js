@@ -316,26 +316,48 @@ function addItems(gender, category, item) {
     element.innerHTML = cart.getCount();
 }
 
-
+	/**
+     * getProductGender
+     *
+     * gets product information listing based on gender
+     */
 function getProductGender(gender){
 	return products[gender];
 }
 
-
+	/**
+     * getProductOuter
+     *
+     * gets product information based on gender and category (like men's bottoms)
+     */
 function getProductOuter(gender, category)  {
 	return products[gender][category];
 }
 
-
+	/**
+     * getProduct
+     *
+     * gets individual product information
+     */
 function getProduct(gender, category, item)  {
 	return products[gender][category][item];
 }
 
+	/**
+     * getGenderProducts
+     *
+     * gets the object containing information about product information listing based on gender
+     */
 function getGenderProducts(gender){
 	var genderClothes = getProductGender(gender);
 	return genderClothes;
 }
 
+	/**
+     * getItemInformation
+     *
+     * gets the object containing information about  individual product information
+     */
 function getItemInformation(gender,category,item){
 	var theClothingItem = getProduct(gender,category,item);
 	theClothingItem.gender=gender;
@@ -343,29 +365,27 @@ function getItemInformation(gender,category,item){
 	return theClothingItem;
 }
 
-
+	/**
+     * displayProduct
+     *
+     * creates the HTML of the individual product page
+     */
 function displayProduct(theProduct){
 	var finalHTML = "";
 	finalHTML += '<div class="big-image">';
 	finalHTML += "<img id = \"bigpic\" src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"auto\" height=\"auto\"/></div>";
 	finalHTML += "<div class = \"big-image-body\">";
+	finalHTML += "<h3>More Pictures!<h3>";
 	finalHTML += "<div>"
 	for (var index in theProduct.images){
 		finalHTML += "<img onClick = \"imageswap(this)\" src=\"/assets/images/products" + theProduct.images[index] + "\" alt=productImage width=\"15%\" height=\"auto\"/>";
 	}
 	finalHTML += "</div>";
-	finalHTML += "<h3 class=\"product-name\">" + theProduct.name+ "</h3>";
-	finalHTML += "<p> by <span class=\"product-brand\">" + theProduct.brand+ "</span></p>";
-	finalHTML += "<br/>";
-	finalHTML += "<p> Color: " + theProduct.color + "</p>";
-
-	finalHTML += "<p class=\"product-name\">details</p>";
-
-	for(var i = 0; i < theProduct.details.length; i++) {
-		finalHTML += "<p> - " + theProduct.details[i] + "</p>";
-	}
-
-	finalHTML += "<p><span class=\"product-name\">Price</span>: $" + theProduct.price.toFixed(2)+ "</p>";
+	finalHTML += "<h4>" + theProduct.name+ "</h4>";
+	finalHTML += "<p> Brand:" + theProduct.brand+ "</p>";
+	finalHTML += "<p> Color:" + theProduct.color + "</p>";
+	finalHTML += "<p> Additional Details:" + theProduct.details + "</p>";
+	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "</p>";
 	finalHTML += "<br>";	
 	finalHTML += "<input id=\"product-qty\" class=\"mailinglist-input\" type=\"number\" name=\"product-qty\" value=\"1\"/>";
 	finalHTML += "<button onclick= \"addItems(\'" + theProduct.gender + "\',\'" + theProduct.category + "\',\'" + theProduct.slug + "\')\">Add Items To Cart </button>";
@@ -375,6 +395,11 @@ function displayProduct(theProduct){
 
 }
 
+	/**
+     * getCategoryArray
+     *
+     * gets array of objects representing the clothing types
+     */
 function getCategoryArray(gender, category){
 	var clothingType = getProductOuter(gender, category);
 	var clothingTypeList = [];
@@ -390,17 +415,20 @@ function getCategoryArray(gender, category){
 	return clothingTypeList;
 }
 
+	/**
+     * displayProductListing
+     *
+     * creates the HTML of the general product page listings
+     */
 function displayProjectListing(productArray){
 	var finalHTML = "";
 	for(var productObjectIndex in productArray){
-		//console.log("K");
-		//console.log(productArray[productObject]);
 		var theProduct = productArray[productObjectIndex];
 		console.log(theProduct);
 		finalHTML += '<div class="main-page">';
-		finalHTML += "<a href = \"/" + theProduct.gender + "/" + theProduct.category + "/" + theProduct.slug + "\" ><img class=\"product-image\" src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
-		finalHTML += "<p class=\"product-name\">" + theProduct.name+ "</p>";
-		finalHTML += "<p class=\"product-brand\">" + theProduct.brand+ "</p>";
+		finalHTML += "<a href = \"/" + theProduct.gender + "/" + theProduct.category + "/" + theProduct.slug + "\" ><img src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
+		finalHTML += "<p>" + theProduct.name+ "</p>";
+		finalHTML += "<p>" + theProduct.brand+ "</p>";
 		finalHTML += "<p>" + theProduct.price.toFixed(2)+ "</p> </div>";
 	}
 	return finalHTML;

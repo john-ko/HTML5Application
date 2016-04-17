@@ -190,16 +190,24 @@ var Cart = {
      *
      */
     getCart: function() {
-        // todo finish out later
 
-        /*
+        
         var string = '';
         for (var categories in this.items) {
 
             for(var items in this.items[categories]){
-                string += '<b>' + Products[categories][items].Name + '</b><br/>';
-                string += '<b>Price:</b> ' + Products[categories][items].Price + '<br/>';
-                string += '<b>Qty:</b> ' + this.items[categories][items] + ' <br/><br/>';
+
+            }
+        }
+        for (var gender in this.items) {
+            for (var categories in this.items[gender]) {
+                for (var items in this.items[gender][categories]) {
+                    var product = this.products[gender][categories][items];
+                    string += 'Name:' + product.name + '%0D';
+                    string += 'Price:' + product.price.toFixed(2) + '%0D';
+                    string += 'Qty:' + this.items[gender][categories][items] + '%0D';
+                    string += '----------%0D';
+                }
             }
         }
 
@@ -207,8 +215,8 @@ var Cart = {
             return 'Cart is empty!';
         }
 
-        string += '<h2>Total: $' + this.total() + '</h2>';
-        return string;*/
+        string += 'Total: $' + this.total() + '';
+        return string;
 
     },
 
