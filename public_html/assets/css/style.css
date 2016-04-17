@@ -454,3 +454,10 @@ button:hover {
 .product-image:hover {
 	box-shadow: 3px 3px 5px #ccc;
 }
+
+input, select {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin: 5px;
+}
+
