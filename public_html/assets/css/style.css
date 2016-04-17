@@ -457,7 +457,7 @@ button {
 
 button:hover {
 	background-color: #DCF0F7;
-	box-shadow: 3px 3px 5px #ccc;
+	box-shadow: 0 8px 16px 0 #ccc;
 }
 
 .product-image {
@@ -476,5 +476,18 @@ input, select {
 
 .text-center {
 	text-align: center;
+}
+
+button.big-btn {
+	background-color: #4CAF50;
+	color: #FFF;
+	transition: .5s ease;
+	padding: 15px;
+	font-size: 18px;
+}
+
+button.big-btn:hover {
+	background-color: #FFF;
+	color: #4CAF50;
 }
 
