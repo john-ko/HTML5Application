@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<script src="/assets/js/templates.js"></script>
 	<script src="/assets/js/cart.js"></script>
+	<script src="/assets/js/formvalidation.js"></script>
 	<script src="/assets/js/products.json"></script>
 	<script>
         /**
@@ -42,7 +43,7 @@
     	<div class="template" include="/templates/header.html"></div>
     	
     	<div class="row">
-    		<form id="checkout-form" name="checkoutForm" method="post" action="index.html">
+    		<form onsubmit="return formvalidation();" id="checkout-form" name="checkoutForm" method="post" action="index.html">
     			<table id="checkout-table">
     				<td>
     					<h2>Shipping & Billing Address</h2>
@@ -105,16 +106,16 @@
     						<option value="WY">Wyoming</option>
     					</select>	
     					Zip <input id="zipId" type="text" maxlength="5"required /><br />
-    					Phone (<input id="phone-area" type="text" value="000" maxlength="3" required />) <input id="phone-first3" type="text" value="000" maxlength="3" required /> - <input id="phone-last4" type="text" value="0000" required /><br />
+    					Phone (<input id="phone-area" type="text" value="" maxlength="3" required />) <input id="phone-first3" type="text" value="" maxlength="3" required /> - <input id="phone-last4" type="text" value="" maxlength="4" required /><br />
     				</div>
     			</td>
     			<td>
     				<div id="creditCardInfo">
     					<h2>Credit Card Information</h2>
     					Name on Card <input id="nameOnCardId" type="text" required /><br />
-    					Card Number <input id="cardNumberId" type="text" maxlength="19" required /><br />
-    					Expiration Date <input id="expMonthId" type="text" value="00" maxlength="2" required /> / <input id="expYearId" type="text" value="00" maxlength="2" required /><br />
-    					CSV/CSC <input id="csvCscId" type="text" value="0000" maxlength="4" required /><br />
+    					Card Number <input id="cardNumberId" type="text" maxlength="16" required /><br />
+    					Expiration Date <input id="expMonthId" type="text" value="" maxlength="2" required /> / <input id="expYearId" type="text" value="" maxlength="2" required /><br />
+    					CSV/CSC <input id="csvCscId" type="text" value="" maxlength="3" required /><br />
     				</div>
     				<td>
     				</table>
@@ -127,7 +128,7 @@
     					<p>Total Merhandise: <span id="checkout-qty"></span></p>
                         <p>Shipping: $0.00</p>
     					<p>Price Total: $<span id="checkout-price"></span></p>
-    					<button id="checkout-submit-button" type="submit" onclick="" >Purchase</button>
+    					<button id="checkout-submit-button" type="submit">Purchase</button>
     				</div>
     			</form>
     		</div>

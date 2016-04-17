@@ -29,89 +29,119 @@ function formvalidation() {
 	
 	var triggered = 0;
 	
-	if (firstname.value.length < 1)
-	{
+	if (firstname.value.length < 1 || isNumeric(firstname.value)) {
 		firstname.style.borderColor = "red";
 		triggered++;
 	}
-	
-	if (lastname.value.length < 1)
-	{
-		lastname.style.borderColor = "red";
-		triggered++;
+	else {
+		firstname.style.borderColor = "";
 	}
 	
-	if (street.value.length < 4)
-	{
+	if (lastname.value.length < 1 || isNumeric(lastname.value)) {
+		lastname.style.borderColor = "red";
+		triggered++;
+	} 	
+	else {
+		lastname.style.borderColor = "";
+	}
+	
+	if (street.value.length < 4) {
 		street.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		street.style.borderColor = "";
+	}
 	
-	if (!city.value)
-	{
+	if (isNumeric(city.value)) {
 		city.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		city.style.borderColor = "";
+	}
 	
-	if (state.value.length != 2)
-	{
+	if (state.value.length != 2) {
 		state.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		state.style.borderColor = "";
+	}
 	
-	if (zip.value.length != 5)
-	{
+	if (zip.value.length != 5 || !isNumeric(zip.value)) {
 		zip.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		zip.style.borderColor = "";
+	}
 	
-	if (area.value.length != 3 || !isNumeric(area.value))
-	{
+	if (area.value.length != 3 || !isNumeric(area.value)) {
 		area.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		area.style.borderColor = "";
+	}
 	
-	if (three.value.length != 3 || !isNumeric(three.value))
-	{
+	if (three.value.length != 3 || !isNumeric(three.value)) {
 		three.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		three.style.borderColor = "";
+	}
 	
-	if (four.value.length != 4 || !isNumeric(four.value))
-	{
+	if (four.value.length != 4 || !isNumeric(four.value)) {
 		four.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		four.style.borderColor = "";
+	}
 	
-	if (name.value.length < 2)
-	{
+	if (name.value.length < 2) {
 		name.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		name.style.borderColor = "";
+	}
 	
-	if (number.value.length != 16)
-	{
+	if (number.value.length != 16) {
 		number.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		number.style.borderColor = "";
+	}
 	
-	if (month.value.length != 2 || !isNumeric(month.value))
-	{
+	if (!isNumeric(month.value) || !(month.value >= 1 && month.value <= 12)) {
 		month.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		month.style.borderColor = "";
+	}
 	
-	if (year.value.length != 2 || !isNumeric(year.value))
-	{
+	if (!isNumeric(year.value) || year.value < 16) {
 		year.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		year.style.borderColor = "";
+	}
 
-	if (cvc.value.length != 3 || !isNumeric(cvc.value))
-	{
+	if (cvc.value.length != 3 || !isNumeric(cvc.value)) {
 		cvc.style.borderColor = "red";
 		triggered++;
 	}
+	else {
+		cvc.style.borderColor = "";
+	}
 	
-	return !(triggered);
+	if (triggered > 0) {
+		return false;
+	}
 }
