@@ -26,7 +26,7 @@
             cart.load();
             templates(function() {
                 var element = document.getElementById("cart-qty");
-                element.innerHTML = cart.getCount();
+                element.innerHTML = "(" + cart.getCount() + ")";
             });
 
             var clothingInfo = getItemInformation("men", "tops", "pendleton-fitted-tennyson-shirt");
