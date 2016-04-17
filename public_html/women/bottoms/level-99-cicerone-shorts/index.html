@@ -27,7 +27,7 @@
             cart.load();
             templates(function() {
                 var element = document.getElementById("cart-qty");
-                element.innerHTML = cart.getCount();
+                element.innerHTML = "(" + cart.getCount() + ")";
             });
 
             var clothingInfo = getItemInformation("women", "bottoms", "level-99-cicerone-shorts");
