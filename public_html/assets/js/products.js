@@ -144,6 +144,41 @@ var products = {
 						"Rounded shirttail hem"
 						],
 				"slug": "pendleton-fitted-tennyson-shirt"
+			},
+			"pendleton-short-sands-cardigan" : {
+				"name" : "Short Sands Cardigan",
+				"brand" : "Pendleton",
+				"color" : "Tan",
+				"price" : 149.00,
+				"defaultImage" : "/men/tops/shortSandsCardiganFront.jpg",
+				"images" : ["/men/tops/shortSandsCardiganFront.jpg",
+					"/men/tops/shortSandsCardiganBack.jpg"
+					],
+				"details" : [
+					"Shawl collar",
+					"Welt pockets",
+					"Cotton",
+					"Hand wash",
+					"Imported"
+					],
+				"slug" : "pendleton-short-sands-cardigan"
+			},
+			"pendleton-short-sleeve-polo" : {
+				"name" : "Short-sleeve Polo",
+				"brand" : "Pendleton",
+				"color" : "Light Indigo",
+				"price" : 79.50,
+				"defaultImage" : "/men/tops/shortSleevePoloFront.jpg",
+				"images" : ["/men/tops/shortSleevePoloFront.jpg",
+					"/men/tops/shortSleevePoloBack.jpg"
+					],
+				"details" : [
+					"Casual essential",
+					"Cotton",
+					"Machine wash",
+					"Imported"
+					],
+				"slug" : "pendleton-short-sleeve-polo"
 			}
 		}
 	},
@@ -263,6 +298,25 @@ var products = {
 						"Imported"
 						],
 				"slug": "maeve-orchid-island-top"
+			},
+			"yoana-barschi-eyelet-sleeveless-blouse" : {
+				"name" : "Eyelet Sleeveless Blouse",
+				"brand" : "Yoana Barschi",
+				"price" : 118.00,
+				"color" : "White",
+				"defaultImage" : "/women/tops/eyeletSleevelessBlouseFront.jpg",
+				"images" : ["/women/tops/eyeletSleevelessBlouseFront.jpg",
+					"/women/tops/eyeletSleevelessBlouseBack.jpg",
+					"/women/tops/eyeletSleevelessBlouseFrontCloseup.jpg"
+					],
+				"details" : [
+					"Cotton; cotton lining",
+					"Eyelet detail",
+					"Button front",
+					"Dry clean",
+					"Imported"
+					],
+				"slug" : "yoana-barschi-eyelet-sleeveless-blouse"
 			}
 		},
 		"dresses" : {
@@ -303,6 +357,25 @@ var products = {
 						"Made in USA"
 						],
 				"slug": "eva-franco-chirography-dress"
+			},
+			"shoushanna-azura-lace-sheath" : {
+				"name" : "Azura Lace Sheath",
+				"brand" : "Shoushanna",
+				"color" : "Sky",
+				"price" : 395.00,
+				"defaultImage" : "/women/dresses/azuraLaceSheathDressFront.jpg",
+				"images" : ["/women/dresses/azuraLaceSheathDressFront.jpg",
+					"/women/dresses/azuraLaceSheathDressBack.jpg",
+					"/women/dresses/azuraLaceSheathDressFrontCloseup.jpg"
+					],
+				"details" : [
+					"Nylon-polyester lace",
+					"3/4 sleeves",
+					"Back zip",
+					"Dry clean",
+					"Imported"
+					]
+				"slug" : "shoushanna-azura-lace-sheath"
 			}
 		}
 	}
