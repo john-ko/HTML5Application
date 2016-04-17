@@ -434,7 +434,7 @@ contact page
 	font-style: italic;
 }
 
-.btn {
+button {
 	margin-top: 5px;
 	padding:5px;
 	background-color: #eee;
@@ -442,7 +442,7 @@ contact page
 	transition: 1s ease;
 }
 
-.btn:hover {
+button:hover {
 	background-color: #DCF0F7;
 	box-shadow: 3px 3px 5px #ccc;
 }
