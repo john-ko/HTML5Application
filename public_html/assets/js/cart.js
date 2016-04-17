@@ -63,7 +63,7 @@ var Cart = {
 
         for (var i = 0; i < cookies.length; i++) {
             var cookie = cookies[i];
-            if (cookie.trim().indexOf("items=")) {
+            if (cookie.trim().indexOf("items=") == 0) {
                 cartItems = cookie.replace('items=', '');
                 break;
             }
