@@ -50,7 +50,7 @@
     	<div class="template" include="/templates/header.html"></div>
     	
     	<div class="row">
-    		<form onsubmit="return formvalidation();" id="checkout-form" name="checkoutForm" method="post" action="index.html">
+    		<!--<form id="checkout-form" name="checkoutForm" method="post">-->
     			<table id="checkout-table">
     				<td>
     					<h2>Shipping & Billing Address</h2>
@@ -138,9 +138,9 @@
     					<p>Total Merchandise: <span id="checkout-qty"></span></p>
                         <p>Shipping: $0.00</p>
     					<p>Price Total: $<span id="checkout-price"></span></p>
-    					<button id="checkout-submit-button" type="submit" class="big-btn" onclick="formValidation(theMailFunction);">Purchase</button>
+    					<button id="checkout-submit-button" class="big-btn" onclick="formValidation(theMailFunction);">Purchase</button>
     				</div>
-    			</form>
+    			<!--</form>-->
     		</div>
             <div class="template" include="/templates/footer.html"></div>
     	</body>

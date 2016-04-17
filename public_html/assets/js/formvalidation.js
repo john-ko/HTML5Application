@@ -126,7 +126,7 @@ function formValidation(callback) {
 	currentDate.setSeconds(0);
 	currentDate.setMilliseconds(0);
 
-	var dateToCheck = new Date(year.value, month.value, 0, 0, 0, 0, 0);
+	var dateToCheck = new Date(year.value + 2000, month.value, 0, 0, 0, 0, 0);
 
 	if (!isNumeric(month.value) || !(month.value >= 1 && month.value <= 12)) {
 		month.style.borderColor = "red";
