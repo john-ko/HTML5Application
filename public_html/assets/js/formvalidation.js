@@ -10,7 +10,7 @@ function isNumeric(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);
 }
 	
-function formValidation(callback) {
+function formValidation(mailtoCallback, cartClearCallback) {
 	var firstname = document.getElementById("first-nameId");
 	var lastname = document.getElementById("last-nameId");
 	var street = document.getElementById("streetId");
@@ -126,7 +126,7 @@ function formValidation(callback) {
 	currentDate.setSeconds(0);
 	currentDate.setMilliseconds(0);
 
-	var dateToCheck = new Date(year.value, month.value, 0, 0, 0, 0, 0);
+	var dateToCheck = new Date(year.value + 2000, month.value, 0, 0, 0, 0, 0);
 
 	if (!isNumeric(month.value) || !(month.value >= 1 && month.value <= 12)) {
 		month.style.borderColor = "red";
@@ -135,21 +135,24 @@ function formValidation(callback) {
 		month.style.borderColor = "";
 	}
 	
-	if (!isNumeric(year.value) || year.value < 16) {
+	if (!isNumeric(year.value)) {
 		year.style.borderColor = "red";
 		errors.push("Expiration year must contain no letters and be numeric.");
+	}else if (year.value < 16) {
+		year.style.borderColor = "red";
+		errors.push("Your credit card has expired");
 	} else {
-		year.style.borderColor = "";
+		if(dateToCheck.getTime() < currentDate.getTime()) {
+			month.style.borderColor = "red";
+			year.style.borderColor = "red";
+			errors.push("Expiration date must be later than the current date.");
+		} else {
+			month.style.borderColor = "";
+			year.style.borderColor = "";
+		}
 	}
 
-	if(dateToCheck.getTime() < currentDate.getTime()) {
-		month.style.borderColor = "red";
-		year.style.borderColor = "red";
-		errors.push("Expiration date must be later than the current date.");
-	} else {
-		month.style.borderColor = "";
-		year.style.borderColor = "";
-	}
+	
 
 	if (cvc.value.length != 3 || !isNumeric(cvc.value)) {
 		cvc.style.borderColor = "red";
@@ -163,7 +166,7 @@ function formValidation(callback) {
 
 		var errorString = "";
 		for (var i=0; i<errors.length; i++) {
-			errorString += "<p>" + errors[i] + "<p>";
+			errorString += "<p class=\"p-error\">" + errors[i] + "<p>";
 		}
 
 		errorsElement.innerHTML = errorString;
@@ -171,5 +174,5 @@ function formValidation(callback) {
 		return false;
 	}
 
-	callback();
+	mailtoCallback(cartClearCallback);
 }

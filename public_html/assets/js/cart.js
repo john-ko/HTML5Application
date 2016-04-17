@@ -268,6 +268,6 @@ var Cart = {
     clear: function() {
         this.items = {};
         //clear cookies
-        document.cookie = "items={}";
+        document.cookie = "items={}; path=/";
     },
 };
