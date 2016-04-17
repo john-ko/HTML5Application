@@ -20,6 +20,7 @@ function formvalidation() {
 	var area = document.getElementById("phone-area");
 	var three = document.getElementById("phone-first3");
 	var four = document.getElementById("phone-last4");
+	var email = document.getElementById("emailId");
 	
 	var name = document.getElementById("nameOnCardId");
 	var number = document.getElementById("cardNumberId");
@@ -100,6 +101,14 @@ function formvalidation() {
 	else {
 		four.style.borderColor = "";
 	}
+
+	// var emailCheck = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$";
+	// if(!emailCheck.test(email)) {
+	// 	email.style.borderColor = "red";
+	// 	triggered++;
+	// } else {
+	// 	email.style.borderColor = "";
+	// }
 	
 	if (name.value.length < 2) {
 		name.style.borderColor = "red";
