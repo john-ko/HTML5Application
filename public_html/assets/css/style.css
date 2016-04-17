@@ -111,23 +111,31 @@ time, mark, audio, video {
 
 @media screen and (max-width: 768px) {
 	.row {
-		width: 100%;
+		width: 90%;
 	}
 	.third {
 		padding: 20px;
 		width: 100%;
-		float: inherit;
 		display:block;
 	}
 	.sidebar {
 		width: 100%;
+		height: inherit;
+	}
+	.sidebar:after {
+		clear:both;
+	}
+
+	.sidebar a {
+		text-align: center;
 	}
 	.main-page {
 		padding: 20px;
-		width: 100%;
+		width: 90%;
 		float: inherit;
 		display:block;
 		text-align: center;
+		clear:both;
 	}
 }
 
@@ -436,5 +444,13 @@ contact page
 
 .btn:hover {
 	background-color: #DCF0F7;
+	box-shadow: 3px 3px 5px #ccc;
+}
+
+.product-image {
+	transition: .4s ease;
+}
+
+.product-image:hover {
 	box-shadow: 3px 3px 5px #ccc;
 }

@@ -392,9 +392,9 @@ function displayProjectListing(productArray){
 		var theProduct = productArray[productObjectIndex];
 		console.log(theProduct);
 		finalHTML += '<div class="main-page">';
-		finalHTML += "<a href = \"/" + theProduct.gender + "/" + theProduct.category + "/" + theProduct.slug + "\" ><img src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
-		finalHTML += "<p>" + theProduct.name+ "</p>";
-		finalHTML += "<p>" + theProduct.brand+ "</p>";
+		finalHTML += "<a href = \"/" + theProduct.gender + "/" + theProduct.category + "/" + theProduct.slug + "\" ><img class=\"product-image\" src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
+		finalHTML += "<p class=\"product-name\">" + theProduct.name+ "</p>";
+		finalHTML += "<p class=\"product-brand\">" + theProduct.brand+ "</p>";
 		finalHTML += "<p>" + theProduct.price.toFixed(2)+ "</p> </div>";
 	}
 	return finalHTML;
