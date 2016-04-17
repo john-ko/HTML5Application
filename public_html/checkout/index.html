@@ -127,16 +127,18 @@
     				</div>
     				<td>
     				</table>
+
+                    <div id="errors"></div>
     				<div id="checkout-order-summary">
     					<h2>Order Summary</h2>
                         Shipping Method<select id="checkout-ship-method" required>
                             <option value="Standard">Standard</option>
                             <option value="Priority">Priority</option>
                         </select>
-    					<p>Total Merhandise: <span id="checkout-qty"></span></p>
+    					<p>Total Merchandise: <span id="checkout-qty"></span></p>
                         <p>Shipping: $0.00</p>
     					<p>Price Total: $<span id="checkout-price"></span></p>
-    					<button id="checkout-submit-button" type="submit" onclick="theMailFunction();">Purchase</button>
+    					<button id="checkout-submit-button" type="submit" onclick="formValidation(theMailFunction);">Purchase</button>
     				</div>
     			</form>
     		</div>

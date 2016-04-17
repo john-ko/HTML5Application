@@ -300,9 +300,7 @@ li.navItem a:hover {
 }
  
 
-/*
-contact page
-*/
+/* contact page */
 #contact-table {
 	margin-right: auto;
 	margin-left: auto;
@@ -433,6 +431,21 @@ contact page
 .product-brand {
 	font-style: italic;
 }
+
+#errors {
+	padding-top: 30px;
+	padding-left:100px;
+	width: 700px;
+	margin: 0 auto;
+	color: red;
+}
+
+@media screen and (max-width: 768px) {
+	#errors {
+		padding:10px;
+	}
+}
+
 
 button {
 	margin-top: 5px;
