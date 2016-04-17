@@ -374,7 +374,7 @@ var products = {
 					"Back zip",
 					"Dry clean",
 					"Imported"
-					]
+					],
 				"slug" : "shoushanna-azura-lace-sheath"
 			}
 		}
