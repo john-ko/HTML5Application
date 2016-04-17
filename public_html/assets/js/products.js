@@ -253,7 +253,7 @@ var products = {
 				"defaultImage" : "/women/tops/orchidIslandTopFront.jpg",
 				"images" : ["/women/tops/orchidIslandTopFront.jpg",
 					"/women/tops/orchidIslandTopBack.jpg",
-					"/women/tops/orchidIsandTopFrontCloseup.jpg"
+					"/women/tops/orchidIslandTopFrontCloseup.jpg"
 					],
 				"details" : [
 						"Cotton",
@@ -355,7 +355,7 @@ function displayProduct(theProduct){
 		finalHTML += "<img onClick = \"imageswap(this)\" src=\"/assets/images/products" + theProduct.images[index] + "\" alt=productImage width=\"15%\" height=\"auto\"/>";
 	}
 	finalHTML += "</div>";
-	finalHTML += "<h4> Name:" + theProduct.name+ "</h4>";
+	finalHTML += "<h4>" + theProduct.name+ "</h4>";
 	finalHTML += "<p> Brand:" + theProduct.brand+ "</p>";
 	finalHTML += "<p> Color:" + theProduct.color + "</p>";
 	finalHTML += "<p> Additional Details:" + theProduct.details + "</p>";
