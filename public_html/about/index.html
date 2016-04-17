@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<script src="/assets/js/templates.js"></script>
 	<script src="/assets/js/cart.js"></script>
-	<sciprt src="/assets/js/products.json"></sciprt>
+	<script src="/assets/js/products.js"></script>
 	<script>
         /**
          * cart object, initalized as an empty object
@@ -19,14 +19,14 @@
          * onLoad()
          * fires when body is loaded
          */
-         function onLoad() {
-            // load templates
-            templates();
-
-            // load cart
+        function onLoad() {
             cart = Cart;
-            // get cart from cookies
-            cart.get();
+            cart.init(products);
+            cart.load();
+            templates(function() {
+                var element = document.getElementById("cart-qty");
+                element.innerHTML = cart.getCount();
+            });
         }
         </script>
 
@@ -102,6 +102,5 @@
 
     	<div class="template" include="/templates/footer.html"></div>
 
-    	<!--<div class="template" include="/templates/footer.html"></div>-->
     </body>
     </html>
