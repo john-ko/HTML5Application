@@ -382,18 +382,14 @@ function displayProduct(theProduct){
 	finalHTML += "</div>";
 
 	finalHTML += "<h3 class=\"product-name\">" + theProduct.name+ "</h3>";
- 	finalHTML += "<p> by <span class=\"product-brand\">" + theProduct.brand+ "</span></p>";
- 	finalHTML += "<br/>";
- 	finalHTML += "<p> Color: " + theProduct.color + "</p>";
- 
- 	finalHTML += "<p class=\"product-name\">details</p>";
- 
+ 	finalHTML += "<p> by <span class=\"product-brand\">" + theProduct.brand+ "</span></p><br/>";
+ 	finalHTML += "<p class=\"product-name\">Price</p><p>" + theProduct.price.toFixed(2)+ "</p><br/>";
+ 	finalHTML += "<p class='product-name'> Color<p><p>" + theProduct.color + "</p><br/>";
+ 	finalHTML += "<p class=\"product-name\">Details</p>";
  	for(var i = 0; i < theProduct.details.length; i++) {
  		finalHTML += "<p> - " + theProduct.details[i] + "</p>";
  	}
- 
- 	finalHTML += "<p><span class=\"product-name\">Price</span>: $" + theProduct.price.toFixed(2)+ "</p>";
-	finalHTML += "<br>";	
+	finalHTML += "<br>";
 	finalHTML += "<input id=\"product-qty\" class=\"mailinglist-input\" type=\"number\" name=\"product-qty\" value=\"1\"/>";
 	finalHTML += "<button onclick= \"addItems(\'" + theProduct.gender + "\',\'" + theProduct.category + "\',\'" + theProduct.slug + "\')\">Add Items To Cart </button>";
 	finalHTML += "</div>";
