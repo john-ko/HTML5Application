@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,400italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+        <script src="/assets/js/templates.js"></script>
+        <script src="/assets/js/cart.js"></script>
+        <script src="/assets/js/products.js"></script>
+        <script src="/assets/js/imageswap.js"></script>
+        <script>
+        /**
+         * cart object, initalized as an empty object
+         * defined in onLoad function
+         */
+        var cart = {};
+
+        /**
+         * onLoad()
+         * fires when body is loaded
+         */
+        function onLoad() {
+            cart = Cart;
+            cart.init(products);
+            cart.load();
+            templates(function() {
+                var element = document.getElementById("cart-qty");
+                element.innerHTML = "(" + cart.getCount() + ")";
+            });
+
+            var clothingInfo = getItemInformation("women", "tops", "yoana-barschi-eyelet-sleeveless-blouse");
+
+            var finalHTML = displayProduct(clothingInfo);
+            document.getElementById("productDisplay").innerHTML = finalHTML;
+
+        }
+
+        </script>
+
+        <title>T H O R N E & S P I N D L E | Womens's Tops</title>
+
+    </head>
+    <body onLoad="onLoad()">
+        <div class="template" include="/templates/header.html"></div>
+        
+        <div class="row">
+            <div id="productDisplay"></div>
+
+        </div>
+
+        <div class="template" include="/templates/footer.html"></div>
+
+    </body>
+</html>
+
