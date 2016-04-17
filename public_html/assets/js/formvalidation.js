@@ -51,7 +51,7 @@ function formvalidation(callback) {
 		street.style.borderColor = "";
 	}
 	
-	if (isNumeric(city.value)) {
+	if (isNumeric(city.value) || city.value.length < 1) {
 		city.style.borderColor = "red";
 		triggered++;
 	} else {
@@ -93,7 +93,7 @@ function formvalidation(callback) {
 		four.style.borderColor = "";
 	}
 
-	if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+	if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
 		email.style.borderColor = "red";
 		triggered++;
 	} else {
