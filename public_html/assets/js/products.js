@@ -299,9 +299,9 @@ var products = {
 						],
 				"slug": "maeve-orchid-island-top"
 			},
-			"yoana-barschi-eyelet-sleeveless-blouse" : {
+			"yoana-baraschi-eyelet-sleeveless-blouse" : {
 				"name" : "Eyelet Sleeveless Blouse",
-				"brand" : "Yoana Barschi",
+				"brand" : "Yoana Baraschi",
 				"price" : 118.00,
 				"color" : "White",
 				"defaultImage" : "/women/tops/eyeletSleevelessBlouseFront.jpg",
@@ -316,7 +316,7 @@ var products = {
 					"Dry clean",
 					"Imported"
 					],
-				"slug" : "yoana-barschi-eyelet-sleeveless-blouse"
+				"slug" : "yoana-baraschi-eyelet-sleeveless-blouse"
 			}
 		},
 		"dresses" : {
