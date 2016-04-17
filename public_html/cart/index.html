@@ -35,11 +35,14 @@
             // cart
             var cartContents = document.getElementById("cart-contents");
             cartContents.innerHTML = cart.getContents();
+            if (cartContents.innerHTML == "<h1 class=\"cart-empty\"> Your cart seems sad :( </h1>") {
+                document.getElementById('checkout-button').setAttribute("style", "visibility:hidden");
+            }
 
         }
         </script>
 
-        <title>T H O R N E & S P I N D L E | about</title>
+        <title>T H O R N E & S P I N D L E | Cart</title>
 
     </head>
     <body onLoad="onLoad()">
@@ -48,7 +51,7 @@
         <div id="cart-contents"></div>
 
         <div class="row">
-            <button onclick="window.location.href='/checkout'" >Checkout</button>
+            <button id="checkout-button" onclick="window.location.href='/checkout'" >Checkout</button>
         </div>
 
         <div class="template" include="/templates/footer.html"></div>
