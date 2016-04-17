@@ -10,7 +10,7 @@ function isNumeric(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);
 }
 	
-function formvalidation(callback) {
+function formValidation(callback) {
 	var firstname = document.getElementById("first-nameId");
 	var lastname = document.getElementById("last-nameId");
 	var street = document.getElementById("streetId");
@@ -27,6 +27,10 @@ function formvalidation(callback) {
 	var month = document.getElementById("expMonthId");
 	var year = document.getElementById("expYearId");
 	var cvc = document.getElementById("csvCscId");
+	var errorsElement = document.getElementById("errors");
+
+	// clear out errors
+	errorsElement.innerHTML = "";
 
 	var errors = [];
 	
@@ -156,6 +160,14 @@ function formvalidation(callback) {
 	
 	console.log(errors);
 	if (errors.length > 0) {
+
+		var errorString = "";
+		for (var i=0; i<errors.length; i++) {
+			errorString += "<p>" + errors[i] + "<p>";
+		}
+
+		errorsElement.innerHTML = errorString;
+
 		return false;
 	}
 

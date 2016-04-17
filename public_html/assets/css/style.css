@@ -432,6 +432,21 @@ li.navItem a:hover {
 	font-style: italic;
 }
 
+#errors {
+	padding-top: 30px;
+	padding-left:100px;
+	width: 700px;
+	margin: 0 auto;
+	color: red;
+}
+
+@media screen and (max-width: 768px) {
+	#errors {
+		padding:10px;
+	}
+}
+
+
 button {
 	margin-top: 5px;
 	padding:5px;
