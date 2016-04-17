@@ -57,13 +57,17 @@ var Cart = {
      * and sets this.items (cart object)
      */
     load: function() {
-        // get cookies
-        var cookies = document.cookie;
-        // remove items= in the beginning of cookies
-        var cartItems = cookies.replace('items=', '');
+        // list of cookies []
+        var cookies = document.cookie.split(';');
+        var cartItems = "";
 
-        // cause safari is stupid
-        cartItems = cartItems.replace(/SQLiteManager.*?(;|$| )/g, '');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            if (cookie.trim().indexOf("items=")) {
+                cartItems = cookie.replace('items=', '');
+                break;
+            }
+        }
 
         // check to see if empty
         if(cartItems != '') {
@@ -101,9 +105,7 @@ var Cart = {
             this.items[gender][category][item] += parseInt(qty);
         }
         
-
         this.save();
-        console.log(this);
     },
 
     /**

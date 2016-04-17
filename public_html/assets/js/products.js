@@ -313,7 +313,7 @@ function addItems(gender, category, item) {
     var input = document.getElementById("product-qty").value;
     cart.add(gender, category, item, input);
     var element = document.getElementById("cart-qty");
-    element.innerHTML = cart.getCount();
+    element.innerHTML = "(" + cart.getCount() + ")";
 }
 
 	/**
