@@ -440,6 +440,10 @@ li.navItem a:hover {
 	color: red;
 }
 
+.p-error {
+	margin-botton:5px;
+}
+
 @media screen and (max-width: 768px) {
 	#errors {
 		padding:10px;

@@ -16,6 +16,13 @@
          */
          var cart = {};
 
+         function clearCheckout(cart) {
+            cart.clear();
+            var element = document.getElementById("cart-qty");
+            element.innerHTML = "(" + cart.getCount() + ")";
+
+            window.location.href = "/";
+         }
         /**
          * onLoad()
          * fires when body is loaded
@@ -30,16 +37,20 @@
             });
 
 
+
+
             document.getElementById("checkout-price").innerHTML = cart.total();
             document.getElementById("checkout-qty").innerHTML = cart.getCount()
         }
 
-        function theMailFunction(){
+        function theMailFunction(callback){
             var email = document.getElementById("emailId").value;
             var firstName = document.getElementById("first-nameId").value;
             var checkoutQuantity = cart.getCount();
             var purchases = cart.getCart();
             window.open("mailto:" + email + "?subject=Your Order Email Confirmation from T%26S" + "&body=Thanks for purchasing from Thorne and Spindle, " + firstName + "!%0DYou have ordered " + checkoutQuantity + " product(s)!%0DYour order is: %0D==========%0D" + purchases);
+
+            callback(cart);
         }
         </script>
 
@@ -138,7 +149,7 @@
     					<p>Total Merchandise: <span id="checkout-qty"></span></p>
                         <p>Shipping: $0.00</p>
     					<p>Price Total: $<span id="checkout-price"></span></p>
-    					<button id="checkout-submit-button" class="big-btn" onclick="formValidation(theMailFunction);">Purchase</button>
+    					<button id="checkout-submit-button" class="big-btn" onclick="formValidation(theMailFunction, clearCheckout);">Purchase</button>
     				</div>
     			<!--</form>-->
     		</div>
