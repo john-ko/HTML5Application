@@ -461,3 +461,7 @@ input, select {
 	margin: 5px;
 }
 
+.text-center {
+	text-align: center;
+}
+
