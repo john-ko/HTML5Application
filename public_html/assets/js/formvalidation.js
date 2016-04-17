@@ -10,7 +10,7 @@ function isNumeric(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);
 }
 	
-function formvalidation() {
+function formvalidation(callback) {
 	var firstname = document.getElementById("first-nameId");
 	var lastname = document.getElementById("last-nameId");
 	var street = document.getElementById("streetId");
@@ -138,4 +138,6 @@ function formvalidation() {
 	if (triggered > 0) {
 		return false;
 	}
+
+	callback();
 }
