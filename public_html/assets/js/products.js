@@ -375,17 +375,24 @@ function displayProduct(theProduct){
 	finalHTML += '<div class="big-image">';
 	finalHTML += "<img id = \"bigpic\" src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"auto\" height=\"auto\"/></div>";
 	finalHTML += "<div class = \"big-image-body\">";
-	finalHTML += "<h3>More Pictures!<h3>";
 	finalHTML += "<div>"
 	for (var index in theProduct.images){
 		finalHTML += "<img onClick = \"imageswap(this)\" src=\"/assets/images/products" + theProduct.images[index] + "\" alt=productImage width=\"15%\" height=\"auto\"/>";
 	}
 	finalHTML += "</div>";
-	finalHTML += "<h4>" + theProduct.name+ "</h4>";
-	finalHTML += "<p> Brand:" + theProduct.brand+ "</p>";
-	finalHTML += "<p> Color:" + theProduct.color + "</p>";
-	finalHTML += "<p> Additional Details:" + theProduct.details + "</p>";
-	finalHTML += "<p> Price:" + theProduct.price.toFixed(2)+ "</p>";
+
+	finalHTML += "<h3 class=\"product-name\">" + theProduct.name+ "</h3>";
+ 	finalHTML += "<p> by <span class=\"product-brand\">" + theProduct.brand+ "</span></p>";
+ 	finalHTML += "<br/>";
+ 	finalHTML += "<p> Color: " + theProduct.color + "</p>";
+ 
+ 	finalHTML += "<p class=\"product-name\">details</p>";
+ 
+ 	for(var i = 0; i < theProduct.details.length; i++) {
+ 		finalHTML += "<p> - " + theProduct.details[i] + "</p>";
+ 	}
+ 
+ 	finalHTML += "<p><span class=\"product-name\">Price</span>: $" + theProduct.price.toFixed(2)+ "</p>";
 	finalHTML += "<br>";	
 	finalHTML += "<input id=\"product-qty\" class=\"mailinglist-input\" type=\"number\" name=\"product-qty\" value=\"1\"/>";
 	finalHTML += "<button onclick= \"addItems(\'" + theProduct.gender + "\',\'" + theProduct.category + "\',\'" + theProduct.slug + "\')\">Add Items To Cart </button>";
@@ -405,7 +412,6 @@ function getCategoryArray(gender, category){
 	var clothingTypeList = [];
 
 	for (var property in clothingType) {
-		//console.log(clothingType[property]);
 		var obj = clothingType[property];
 		obj.gender = gender;
 		obj.category = category;
@@ -424,12 +430,11 @@ function displayProjectListing(productArray){
 	var finalHTML = "";
 	for(var productObjectIndex in productArray){
 		var theProduct = productArray[productObjectIndex];
-		console.log(theProduct);
 		finalHTML += '<div class="main-page">';
 		finalHTML += "<a href = \"/" + theProduct.gender + "/" + theProduct.category + "/" + theProduct.slug + "\" ><img src=\"/assets/images/products" + theProduct.defaultImage + "\" alt=productImage width=\"150\" height=\"auto\"/></a>";
-		finalHTML += "<p>" + theProduct.name+ "</p>";
-		finalHTML += "<p>" + theProduct.brand+ "</p>";
-		finalHTML += "<p>" + theProduct.price.toFixed(2)+ "</p> </div>";
+		finalHTML += "<p class=\"product-name\">" + theProduct.name+ "</p>";
+		finalHTML += "<p class=\"product-brand\">" + theProduct.brand+ "</p>";
+		finalHTML += "<p>$" + theProduct.price.toFixed(2)+ "</p> </div>";
 	}
 	return finalHTML;
 }
