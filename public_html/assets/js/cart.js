@@ -193,12 +193,6 @@ var Cart = {
 
         
         var string = '';
-        for (var categories in this.items) {
-
-            for(var items in this.items[categories]){
-
-            }
-        }
         for (var gender in this.items) {
             for (var categories in this.items[gender]) {
                 for (var items in this.items[gender][categories]) {
