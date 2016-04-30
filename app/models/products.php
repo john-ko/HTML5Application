@@ -27,6 +27,8 @@ class Products extends Model {
 
 		$whereClause = "Where ";
 
+		$attributeArray = array();
+
 		if(count($where) > 1){
 			
 			foreach($where as $searchCategory => $value){
@@ -45,8 +47,6 @@ class Products extends Model {
 		$sql = $sql . $whereClause;
 
 		$row = $testModel->query($sql, $where);
-
-		$attributeArray = array();
 
 		$mainArray = array(); //initial array of product info
 
