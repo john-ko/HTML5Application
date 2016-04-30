@@ -147,19 +147,9 @@ public static function findLike(array $userInput)
 				$product->slug = $item['slug'];
 				$product->details = $item['details'];
 				$finalProductArray[] = $product;
-			}
-			var_dump($finalProductArray);
+			});
 			return $finalProductArray;
 		}
-		
 
-	private static function assign_row_to_product(array $row)
-	{
-		$p = new Products();
-		$p->id = $row['id'];
-		// no images
-
-		return $p;
-	}
 
 }
