@@ -5,7 +5,7 @@
 
 class Routes
 {
-	public $get = [];
+	public $get = array();
 	public function get($slug, Closure $closure)
 	{
 		$parts = explode('/', trim($slug, '/'));

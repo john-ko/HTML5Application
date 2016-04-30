@@ -6,7 +6,7 @@
 
 class Autoloader
 {
-	public static $autoloader = [
+	public static $autoloader = array(
 		'Controller' => '',
 		'Kaonic' => '',
 		'Model' => '',
@@ -14,7 +14,7 @@ class Autoloader
 		'Request' => '',
 		'Routes' => '',
 		'Template' => '',
-	];
+	);
 }
 
 function kaonic_autoloader($classname)
