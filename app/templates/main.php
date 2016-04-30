@@ -8,6 +8,7 @@
 	<script src="/assets/js/templates.js"></script>
 	<script src="/assets/js/cart.js"></script>
 	<script src="/assets/js/products.js"></script>
+	<script src="/assets/js/imageswap.js"></script>
 
 	<title>T H O R N E & S P I N D L E | Main Index </title>
 
