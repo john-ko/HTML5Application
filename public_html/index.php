@@ -1,5 +1,4 @@
 <?php
-
 /**
  * cs137 tiny mvc php framework
  *
@@ -18,14 +17,46 @@ if (DEV) {
 // bootstrap our app
 include(ROOT . DS . 'app' . DS . 'bootstrap.php');
 
-$template = new Template('home');
 
-<<<<<<< Updated upstream
-$template->render([]);
-=======
-$test = ['asdf'];
-echo sizeof($test);
-$request = new Request();
-$fw = new Kaonic($routes);
-var_dump($fw->run());
->>>>>>> Stashed changes
+$routes = new Routes();
+$template = new Template();
+
+$routes->get('/test', function() use ($template) {
+	echo json_encode(array(
+		'asdf' => 123,
+		'fdsa' => 'sdfs',
+	));
+});
+
+$routes->get('/contact', function() use ($template) {
+	$template->setView('contact');
+	$template->render();
+});
+
+$routes->get('/about', function() use ($template) {
+	$template->setView('about');
+	$template->render();
+});
+
+$routes->get('/men/:category/:slug', function($category, $slug) use ($template){
+
+	$data = null;
+	if ($slug) {
+		//$data = Products::find(['slug' => $slug])
+	} else if ($category) {
+		// $data = Products::find([
+		//		'category' => $category,
+		//		'gender' => 'men',
+		// ]);
+		//
+	} else {
+		// $data = Products::find(['gender' => 'men']);
+	}
+
+	$template->setView('product');
+	$template->render($data);
+});
+
+
+
+$routes->dispatch();

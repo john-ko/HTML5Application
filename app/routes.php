@@ -8,11 +8,24 @@ class Routes
 	public $get = [];
 	public function get($slug, Closure $closure)
 	{
-		$this->get[$slug] = $closure;
+		$parts = explode('/', trim($slug, '/'));
+		$this->get[$parts[0]] = array(
+			'closure' => $closure,
+			'parts' => $parts,
+		);
 	}
 
-	public function _get($slug) 
+	public function dispatch()
 	{
-		$this->get[$slug]();
+		$request = new Request();
+
+		$params = $request->get();
+		$object = $this->get[$request->get(0)];
+		array_shift($params);
+
+		while (count($object['parts']) > count($params)) {
+			$params[] = null;
+		}
+		call_user_func_array($object['closure'], $params);
 	}
 }

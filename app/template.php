@@ -4,15 +4,16 @@ class Template
 {
 	private $view;
 
-	public function __construct($view)
+	public function setView($view)
 	{
 		$this->view = $view;
 	}
 
-	public function render($obj)
+	public function render($obj = null)
 	{
 
-		extract($obj);
+		if ($obj)
+			extract($obj);
 
 		ob_start();
 

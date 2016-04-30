@@ -1,24 +1,21 @@
 <?php if ( ! defined('ROOT')) die ("err");
 /**
+ * bootleg bootstrap
  * bootstrap.php
  */
 
-<<<<<<< Updated upstream
 class Autoloader
 {
 	public static $autoloader = [
+		'Controller' => '',
+		'Kaonic' => '',
 		'Model' => '',
 		'Products' => 'models',
+		'Request' => '',
 		'Routes' => '',
 		'Template' => '',
-
 	];
 }
-=======
-require('kaonic.php');
-require('routes.php');
-require('request.php');
->>>>>>> Stashed changes
 
 function kaonic_autoloader($classname)
 {
