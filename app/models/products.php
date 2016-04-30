@@ -32,7 +32,7 @@ class Products extends Model {
 				$attributeArray[$searchCategory] = "p.". ltrim($searchCategory, ':'). " = " . ":". $searchCategory;
 			}
 
-			$whereClause = $wherClause . implode(" AND ", $attributeArray);
+			$whereClause = $whereClause . implode(" AND ", $attributeArray);
 		} else { //just searching via 1 category
 			foreach($where as $searchCategory => $value){
 				$whereClause = $whereClause . "p.". ltrim($searchCategory, ':'). " = " . ":". $searchCategory;
@@ -87,6 +87,66 @@ class Products extends Model {
 		}
 		return $finalProductArray;
 	}
+
+
+	////////////////////////////////////////////////////////////////////////////////////////
+	//Example usages for this findLike function                                           //
+	//$p = new Products();                                                                //
+	//$theResults = $p->findLike(array(':search' => '%bottom%'));                         //
+	//The userInput attributes that are passed in as paramaters must be in the form of:   //
+	//					array(':search' => '%USER_QUERY_HERE%')                           //
+	//			where 'USER_QUERY_HERE' is what the user types into the search bar.       //
+	////////////////////////////////////////////////////////////////////////////////////////
+
+public static function findLike(array $userInput)
+	{
+		$testModel = new Model();
+
+		$sql = "SELECT * FROM products WHERE name LIKE :search 
+			OR details LIKE :search OR
+			category LIKE :search OR
+			color LIKE :search OR
+			category LIKE :search LIMIT 5";
+
+		$row = $testModel->query($sql, $userInput);
+
+		$attributeArray = array();
+
+		$mainArray = array(); //initial array of product info
+
+		$finalProductArray = array(); //array of product objects
+
+
+		if (count($row) > 0) {
+			$pastIDArray = array();
+
+			foreach($row as $attribute){
+				$mainArray[$attribute['id']] = array(
+					'id' => $attribute['id'],
+					'brand' => $attribute['brand'],
+					'name' => $attribute['name'],
+					'color' => $attribute['color'],
+					'default_image' => $attribute['default_image'],
+					'slug' => $attribute['slug'],
+					'details' => $attribute['details']
+				);
+			}
+		}
+			foreach($mainArray as $item){
+				$product = new Products();
+				$product->id = $item['id'];
+				$product->brand = $item['brand'];
+				$product->name = $item['name'];
+				$product->color = $item['color'];
+				$product->default_image = $item['default_image'];
+				$product->slug = $item['slug'];
+				$product->details = $item['details'];
+				$finalProductArray[] = $product;
+			}
+			var_dump($finalProductArray);
+			return $finalProductArray;
+		}
+		
 
 	private static function assign_row_to_product(array $row)
 	{
