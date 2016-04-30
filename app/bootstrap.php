@@ -28,3 +28,4 @@ function kaonic_autoloader($classname)
 }
 
 spl_autoload_register('kaonic_autoloader');
+

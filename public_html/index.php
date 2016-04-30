@@ -17,7 +17,6 @@ if (DEV) {
 // bootstrap our app
 include(ROOT . DS . 'app' . DS . 'bootstrap.php');
 
-
 $routes = new Routes();
 $template = new Template();
 
@@ -65,3 +64,4 @@ $routes->get('/men/:category/:slug', function($category, $slug) use ($template){
 
 
 $routes->dispatch();
+
