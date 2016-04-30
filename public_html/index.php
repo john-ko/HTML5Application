@@ -20,4 +20,12 @@ include(ROOT . DS . 'app' . DS . 'bootstrap.php');
 
 $template = new Template('home');
 
+<<<<<<< Updated upstream
 $template->render([]);
+=======
+$test = ['asdf'];
+echo sizeof($test);
+$request = new Request();
+$fw = new Kaonic($routes);
+var_dump($fw->run());
+>>>>>>> Stashed changes

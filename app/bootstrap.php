@@ -3,6 +3,7 @@
  * bootstrap.php
  */
 
+<<<<<<< Updated upstream
 class Autoloader
 {
 	public static $autoloader = [
@@ -13,6 +14,11 @@ class Autoloader
 
 	];
 }
+=======
+require('kaonic.php');
+require('routes.php');
+require('request.php');
+>>>>>>> Stashed changes
 
 function kaonic_autoloader($classname)
 {
