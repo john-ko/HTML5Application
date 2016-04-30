@@ -8,3 +8,6 @@ require('routes.php');
 
 
 require('model.php');
+
+
+require('template.php');
