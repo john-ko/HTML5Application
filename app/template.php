@@ -11,10 +11,6 @@ class Template
 
 	public function render($obj = null)
 	{
-
-		// if ($obj && is_array($obj))
-		// 	extract($obj);
-
 		ob_start();
 
 		include(ROOT. DS . "app".DS."view".DS.$this->view . '.php');

@@ -34,5 +34,3 @@
 			<button onclick="addItems('women','tops','en-elie-embroidered-sanna-top')">Add Items To Cart </button>
 		</div>
 	</div>
-
-<!-- </div>"/assets/images/products/women/tops/embroideredSannaFront.jpg" -->
