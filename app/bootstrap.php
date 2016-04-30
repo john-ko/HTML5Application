@@ -7,6 +7,7 @@
 class Autoloader
 {
 	public static $autoloader = array(
+		'Customer' => 'models',
 		'Controller' => '',
 		'Kaonic' => '',
 		'Model' => '',

@@ -97,16 +97,4 @@ class Products extends Model {
 		return $p;
 	}
 
-	public function __get($name)
-	{
-		return $this->_attributes;
-	}
-
-	public function __set($name, $value)
-	{
-		$this->_attributes[$name] = $value;
-	}
-
 }
-
-?>
