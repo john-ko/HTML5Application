@@ -23,10 +23,10 @@ Class Tax extends Model
 		$results = $tax->query("select * from tax_rates where zipcode=:p", [":p" => $p]);
 		//var_dump($results);
 		//load obj
-		try {
+		if($results) {
 			$tax->state = $results[0]['state'];
 			$tax->tax_rate = $results[0]['tax_rate'];
-		} catch (Exception $e) { }
+		}
 
 		return $tax;
 	}
