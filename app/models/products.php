@@ -32,7 +32,7 @@ class Products extends Model {
 				$attributeArray[$searchCategory] = "p.". ltrim($searchCategory, ':'). " = " . ":". $searchCategory;
 			}
 
-			$whereClause = $wherClause . implode(" AND ", $attributeArray);
+			$whereClause = $whereClause . implode(" AND ", $attributeArray);
 		} else { //just searching via 1 category
 			foreach($where as $searchCategory => $value){
 				$whereClause = $whereClause . "p.". ltrim($searchCategory, ':'). " = " . ":". $searchCategory;
