@@ -9,6 +9,7 @@ class Products extends Model {
 		'brand' => null,
 		'name' => null,
 		'color' => null,
+		'price' => null,
 		'images' => [],
 		'default_image' => null,
 		'slug' => null,
@@ -63,6 +64,7 @@ class Products extends Model {
 					'brand' => $attribute['brand'],
 					'name' => $attribute['name'],
 					'color' => $attribute['color'],
+					'price' => $attribute['price'],
 					'default_image' => $attribute['default_image'],
 					'slug' => $attribute['slug'],
 					'details' => $attribute['details'],
@@ -78,6 +80,7 @@ class Products extends Model {
 				$product->brand = $item['brand'];
 				$product->name = $item['name'];
 				$product->color = $item['color'];
+				$product->price = $item['price'];
 				$product->default_image = $item['default_image'];
 				$product->slug = $item['slug'];
 				$product->details = $item['details'];
@@ -126,6 +129,7 @@ public static function findLike(array $userInput)
 					'brand' => $attribute['brand'],
 					'name' => $attribute['name'],
 					'color' => $attribute['color'],
+					'price' => $attribute['price'],
 					'default_image' => $attribute['default_image'],
 					'slug' => $attribute['slug'],
 					'details' => $attribute['details']
@@ -138,6 +142,7 @@ public static function findLike(array $userInput)
 				$product->brand = $item['brand'];
 				$product->name = $item['name'];
 				$product->color = $item['color'];
+				$product->price = $item['price'];
 				$product->default_image = $item['default_image'];
 				$product->slug = $item['slug'];
 				$product->details = $item['details'];
