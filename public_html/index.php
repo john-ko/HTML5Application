@@ -18,6 +18,5 @@ if (DEV) {
 // bootstrap our app
 include(ROOT . DS . 'app' . DS . 'bootstrap.php');
 
-$template = new Template('home');
+$asdf = new Model();
 
-$template->render([]);
