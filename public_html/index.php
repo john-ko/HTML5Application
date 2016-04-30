@@ -28,7 +28,7 @@ $routes->get('/test', function() use ($template) {
 });
 
 $routes->get('/', function() use ($template) {
-	$template->setView('contact');
+	$template->setView('home');
 	$template->render();
 });
 
@@ -61,6 +61,24 @@ $routes->get('/men/:category/:slug', function($category, $slug) use ($template){
 	$template->render($data);
 });
 
+$routes->get('/women/:category/:slug', function($category, $slug) use ($template){
+
+	$data = null;
+	if ($slug) {
+		//$data = Products::find(['slug' => $slug])
+	} else if ($category) {
+		// $data = Products::find([
+		//		'category' => $category,
+		//		'gender' => 'men',
+		// ]);
+		//
+	} else {
+		// $data = Products::find(['gender' => 'men']);
+	}
+
+	$template->setView('product');
+	$template->render($data);
+});
 
 
 $routes->dispatch();

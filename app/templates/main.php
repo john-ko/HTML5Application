@@ -17,15 +17,15 @@
 
 	<header>
 		<div class="header">
-			<h1 class="header-logo-text"> <a href="/"> T H O R N E & S P I N D L E </a> </h1>
+			<h1 class="header-logo-text"> <a href="/index.php"> T H O R N E & S P I N D L E </a> </h1>
 			<nav class = "navigationBar">
 				<ul class="headernav">
-					<li class="navItem"><a href="/women">Women</a></li>
-					<li class="navItem"><a href="/men">Men</a></li>
-					<li class="navItem"><a href="/about">About</a></li>
-					<li class="navItem"><a href="/contact">Contact</a></li>
+					<li class="navItem"><a href="/index.php/women">Women</a></li>
+					<li class="navItem"><a href="/index.php/men">Men</a></li>
+					<li class="navItem"><a href="/index.php/about">About</a></li>
+					<li class="navItem"><a href="/index.php/contact">Contact</a></li>
 					<li class="navItem" id="cartimage">
-						<a class="cart-icon" href="/cart">
+						<a class="cart-icon" href="/index.php/cart">
 							<img src = "/assets/images/thecarticon.png" alt="cart icon" /><span id="cart-qty"></span>
 						</a>
 					</li>
@@ -43,14 +43,14 @@
 			<div class="row">
 				<div class="third">
 					<h3 class="footer-header">Site Map</h3>
-					<div><a href="/women">Women</a></div>
-					<div><a href="/men">Men</a></div>
-					<div><a href="/cart">View Cart</a></div>
+					<div><a href="/index.php/women">Women</a></div>
+					<div><a href="/index.php/men">Men</a></div>
+					<div><a href="/index.php/cart">View Cart</a></div>
 				</div>
 				<div class="third">
 					<h3 class="footer-header">Company Info</h3>
-					<div><a href="/about">About Us</a></div>
-					<div><a href="/contact">Contact Us</a></div>
+					<div><a href="/index.php/about">About Us</a></div>
+					<div><a href="/index.php/contact">Contact Us</a></div>
 					<br>
 					Join our mailing list!<br>
 					<input class="mailinglist-input" type="text" name="do" />
