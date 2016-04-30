@@ -49,3 +49,17 @@ product_id int(11) unsigned ,
 qty int (11) unsigned
 );
 
+create table zip_codes(
+	zip varchar(5) NOT NULL,
+	state varchar(2),
+	city varchar(25),
+	PRIMARY KEY(zip)
+);
+
+create table tax_rates(
+	state varchar(2),
+	zipcode varchar(5) NOT NULL,
+	tax_region varchar(45),
+	tax_rate decimal(10,6),
+	PRIMARY KEY(zipcode)
+);
