@@ -5,13 +5,14 @@
 
 class Routes
 {
-	public $routes = [];
+	public $get = [];
 	public function get($slug, Closure $closure)
 	{
-		$this->routes[$slug] = $closure;
+		$this->get[$slug] = $closure;
 	}
 
-	public function test($slug) {
-		$this->routes[$slug]();
+	public function _get($slug) 
+	{
+		$this->get[$slug]();
 	}
 }
