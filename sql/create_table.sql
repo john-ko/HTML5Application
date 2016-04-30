@@ -10,6 +10,8 @@ price float(6,2),
 default_image varchar(200),
 details varchar(200),
 slug varchar(80) UNIQUE DEFAULT "",
+gender varchar(25),
+category varchar(50),
 PRIMARY KEY(id)
 );
 
