@@ -9,7 +9,7 @@ create table products(
   price float(6,2),
   default_image varchar(200),
   details varchar(200),
-  slug varchar(80) UNIQUE DEFAULT "",
+  slug varchar(80) UNIQUE NOT NULL,
   gender varchar(25),
   category varchar(50),
   PRIMARY KEY(id)
