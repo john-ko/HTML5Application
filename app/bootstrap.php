@@ -3,11 +3,28 @@
  * bootstrap.php
  */
 
-require('kaonic.php');
-require('routes.php');
+class Autoloader
+{
+	public static $autoloader = [
+		'Model' => '',
+		'Products' => 'models',
+		'Routes' => '',
+		'Template' => '',
+
+	];
+}
 
 
-require('model.php');
+function koanic_autoloader($classname)
+{
+	echo $classname;
+	if (array_key_exists($classname, Autoloader::$autoloader)) {
+		echo "REQUIRED!";
+		$folder = Autoloader::$autoloader[$classname];
+		$class = ROOT . DS . 'app'. DS . ($folder ? ($folder . DS) : '') . strtolower($classname) . '.php';
 
+		require_once($class);
+	}
+}
 
-require('template.php');
+spl_autoload_register('koanic_autoloader');
