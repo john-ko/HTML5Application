@@ -12,12 +12,12 @@ class Template
 	public function render($obj = null)
 	{
 
-		if ($obj)
-			extract($obj);
+		// if ($obj && is_array($obj))
+		// 	extract($obj);
 
 		ob_start();
 
-		include(ROOT. DS . "app".DS."templates".DS.$this->view . '.php');
+		include(ROOT. DS . "app".DS."view".DS.$this->view . '.php');
 
 		$_contents = ob_get_contents();
 		ob_end_clean();
