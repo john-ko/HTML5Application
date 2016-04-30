@@ -9,16 +9,30 @@
 class Request
 {
 
-	private $params = [];
+	private $params = array();
 
 	public function __construct()
 	{
 		// todo get routes from $_SERVER['REQUEST_URI']
+		if (isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] != '/') {
+			$this->params = explode("/", trim($_SERVER['PATH_INFO'], '/'));
+		}
+
 	}
 
 
-	public function get()
+	public function get($index = NULL)
 	{
+		//gets $params
+		if (!isset($index)) {
+			return $this->params;
+		}
+
+		//allows for optional parameter to allow framework to check element at specific position
+		if (count($this->params) > $index) {
+			return $this->params[$index];
+		}
+		return NULL;
 
 	}
 }
