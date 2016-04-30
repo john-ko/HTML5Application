@@ -5,14 +5,11 @@ class Model
 	private $servername = 'localhost';
 	private $dbname = 'tnsdb';
 	private $username = 'root';
-	private $password = 'root';
+	private $password = 'LOLroot1';
 
 	protected $dbh;
 	protected $stmh;
 
-	// to do remove me
-	public static $table = "products";
-	//
 
 	public function __construct() {
 		$this->connect();
@@ -28,8 +25,25 @@ class Model
 
 	public function query($sql, array $params)
 	{
-		$sql = 'SELECT * FROM mytable WHERE name = :name';
-		$params = [':name' => 'kevin'];
+		//$sql =;
+		//$params = [':id' => 1];
+
+		$this->stmh = $this->dbh->prepare($sql);
+		$this->stmh->execute($params);
+
+		$results = [];
+		while($row = $this->stmh->fetch(PDO::FETCH_ASSOC)) {
+			$results[] = $row;
+		}
+
+		return $results;
+		//return $this->stmh->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function queryPics($sql, array $params)
+	{
+		//$sql =;
+		//$params = [':id' => 1];
 
 		$this->stmh = $this->dbh->prepare($sql);
 		$this->stmh->execute($params);
