@@ -20,25 +20,42 @@ class Products extends Model {
 		parent::__construct();
 	}
 
-	public static function findProductInfo(array $params)
+	public static function find(array $where)
 	{
-		//$product = new Products();
 		$testModel = new Model();
-		//$row = $product->query("SELECT * FROM products WHERE id = :id", $params);
-		$row = $testModel->query("SELECT brand, p.color as color, price, default_image, p.id as id, p.name as name, p.details as details, p.slug as slug, p.gender as gender, p.category as category, i.url as url FROM products as p LEFT JOIN product_images as pi ON (pi.`product_id` = p.id) LEFT JOIN images as i ON (i.id = pi.image_id) WHERE p.id = :id", $params);
-		//var_dump($row);
 
-		$mainArray = []; //initial array of product info
+		$whereClause = "Where ";
 
-		$finalProductArray = []; //array of product objects
+		if(count($where) > 1){
+			
+			foreach($where as $searchCategory => $value){
+				$attributeArray[$searchCategory] = "p.". ltrim($searchCategory, ':'). " = " . ":". $searchCategory;
+			}
+
+			$whereClause = $wherClause . implode(" AND ", $attributeArray);
+		} else { //just searching via 1 category
+			foreach($where as $searchCategory => $value){
+				$whereClause = $whereClause . "p.". ltrim($searchCategory, ':'). " = " . ":". $searchCategory;
+			}
+
+		}
+
+		$sql = "SELECT brand, p.color as color, price, default_image, p.id as id, p.name as name, p.details as details, p.slug as slug, p.gender as gender, p.category as category, i.url as url FROM products as p LEFT JOIN product_images as pi ON (pi.`product_id` = p.id) LEFT JOIN images as i ON (i.id = pi.image_id) ";
+		$sql = $sql . $whereClause;
+
+		$row = $testModel->query($sql, $where);
+
+		$attributeArray = array();
+
+		$mainArray = array(); //initial array of product info
+
+		$finalProductArray = array(); //array of product objects
 
 
 		if (count($row) > 0) {
-			// what if theres 2 products?
-			$pastIDArray = [];
+			$pastIDArray = array();
 
 			foreach($row as $attribute){
-				//var_dump($mainArray);
 
 				if(!isset($pastIDArray[$attribute['id']])){
 				$mainArray[$attribute['id']] = array(
@@ -51,65 +68,24 @@ class Products extends Model {
 					'details' => $attribute['details'],
 					'images' => array()
 				);
-				$pastIDArray[$attribute['id']] = 1;
+				$pastIDArray[$attribute['id']] = 1; //set the past ID array as 1/true
 			}
-				//var_dump($mainArray[$attribute['id']]['images']);
-				//var_dump($attribute['id']);
-				echo"-----\n";
 				$mainArray[$attribute['id']]['images'][]= $attribute['url'];
-				// if (!isset($mainArray[$attribute['id']]['images'])){
-				// 	echo "in here1\n";
-				// 	$mainArray[$attribute['id']]['images']= array($attribute['url']);
-				// 	//var_dump($attribute['id']);
-				// 	var_dump($mainArray[$attribute['id']]['images']);
-				// 	echo"===\n";
-				// 	var_dump($mainArray);
-				// } else {
-				// 	echo "in here 2\n";
-				// 	$mainArray[$attribute['id']]['images'][] = $attribute['url'];
-				// 	var_dump($mainArray);
-				// }
-
 			}
-			//var_dump($mainArray);
-
 			foreach($mainArray as $item){
 				$product = new Products();
 				$product->id = $item['id'];
 				$product->brand = $item['brand'];
 				$product->name = $item['name'];
 				$product->color = $item['color'];
-				//$product->images = $item['images'];
 				$product->default_image = $item['default_image'];
 				$product->slug = $item['slug'];
 				$product->details = $item['details'];
 				$product->images = $item['images'];
 				$finalProductArray[] = $product;
 			}
-
-			var_dump($finalProductArray);
-
-			// foreach($finalProductArray as $product){
-			// 	var_dump($product);
-			// }
-
-			// $images = [];
-			// foreach($row as $item) {
-			// 	//if array_key_exists()
-			// 	//var_dump($item);
-			// 	$product->id = $item['id'];
-			// 	$product->brand = $item['brand'];
-			// 	$product->name = $item['name'];
-			// 	$product->color = $item['color'];
-			// 	//$product->images = $item['images'];
-			// 	$product->default_image = $item['default_image'];
-			// 	$product->slug = $item['slug'];
-			// 	$product->details = $item['details'];
-			// 	$images[] = $item['url'];
-			// }
-			// $product->images = $images;
 		}
-		//var_dump($product->id);
+		return $finalProductArray;
 	}
 
 	private static function assign_row_to_product(array $row)
@@ -130,15 +106,7 @@ class Products extends Model {
 	{
 		$this->_attributes[$name] = $value;
 	}
-// public static function addID
-// {
-// 	$this->id = 
-// }
 
 }
-
-// $p = Products::find(['gender' => 'men']);
-// $p->id;
-// $p->images;
 
 ?>
