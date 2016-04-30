@@ -15,11 +15,10 @@ class Autoloader
 }
 
 
-function koanic_autoloader($classname)
+function kaonic_autoloader($classname)
 {
 	echo $classname;
 	if (array_key_exists($classname, Autoloader::$autoloader)) {
-		echo "REQUIRED!";
 		$folder = Autoloader::$autoloader[$classname];
 		$class = ROOT . DS . 'app'. DS . ($folder ? ($folder . DS) : '') . strtolower($classname) . '.php';
 
