@@ -24,8 +24,9 @@ class Autoloader
 function koanic_autoloader($classname)
 {
 	echo $classname;
-	if (in_array($classname, Autoloader::$autoloader)) {
-		//require_once(ROOT . DS . Autoloader::$autoloader[$classname] . DS . $classname . DS . '.php');
+	if (array_key_exists($classname, Autoloader::$autoloader)) {
+		echo "REQUIRED!";
+		require_once(ROOT . DS . Autoloader::$autoloader[$classname] . DS . $classname . DS . '.php');
 	}
 }
 
