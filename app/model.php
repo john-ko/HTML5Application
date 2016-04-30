@@ -2,14 +2,13 @@
 
 class Model
 {
-	private $servername = 'localhost';
+	private $servername = '127.0.0.1';
 	private $dbname = 'tnsdb';
 	private $username = 'root';
-	private $password = '----';
+	private $password = 'myrootpw';
 
 	protected $dbh;
 	protected $stmh;
-
 
 	public function __construct() {
 		$this->connect();
@@ -36,4 +35,24 @@ class Model
 		return $results;
 	}
 
+	public function __get($name)
+	{
+		return $this->_attributes[$name];
+	}
+
+	public function __set($name, $value)
+	{
+		$this->_attributes[$name] = $value;
+	}
+
+	public function save()
+	{
+		$keys = array_keys($this->_attributes);
+		$values = array_values($this->_attributes);
+		$colonKeys = preg_filter('/^/', ':', $keys);
+		$query = 'INSERT INTO ' . static::$table . ' (' . implode(',', $keys) . ') VALUES (' . implode(',', $colonKeys). ');';
+
+		var_dump($query);
+		return $this->query($query, array_combine($colonKeys, $values));
+	}
 }
