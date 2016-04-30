@@ -28,6 +28,11 @@ $routes->get('/test', function() use ($template) {
 	));
 });
 
+$routes->get('/', function() use ($template) {
+	$template->setView('contact');
+	$template->render();
+});
+
 $routes->get('/contact', function() use ($template) {
 	$template->setView('contact');
 	$template->render();

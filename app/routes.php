@@ -26,7 +26,7 @@ class Routes
 		while (count($object['parts']) > count($params)) {
 			$params[] = null;
 		}
-		$closure = $object['closure'];
-		call_user_func_array($closure, $params);
+		//$closure = $object['closure'];
+		call_user_func_array($object['closure'], $params);
 	}
 }
