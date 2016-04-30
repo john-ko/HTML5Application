@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * cs137 tiny mvc php framework
  *
