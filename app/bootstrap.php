@@ -1,16 +1,19 @@
 <?php if ( ! defined('ROOT')) die ("err");
 /**
+ * bootleg bootstrap
  * bootstrap.php
  */
 
 class Autoloader
 {
 	public static $autoloader = [
+		'Controller' => '',
+		'Kaonic' => '',
 		'Model' => '',
 		'Products' => 'models',
+		'Request' => '',
 		'Routes' => '',
 		'Template' => '',
-
 	];
 }
 

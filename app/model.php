@@ -3,7 +3,7 @@
 class Model
 {
 	private $servername = 'localhost';
-	private $dbname = 'test';
+	private $dbname = 'tnsdb';
 	private $username = 'root';
 	private $password = 'root';
 

@@ -8,18 +8,14 @@
 
 class Request
 {
-
 	private $params = array();
 
 	public function __construct()
 	{
-		// todo get routes from $_SERVER['REQUEST_URI']
 		if (isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] != '/') {
 			$this->params = explode("/", trim($_SERVER['PATH_INFO'], '/'));
 		}
-
 	}
-
 
 	public function get($index = NULL)
 	{

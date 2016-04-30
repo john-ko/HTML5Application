@@ -7,19 +7,6 @@
 
 class Kaonic
 {
-	private $request;
-	private $response;
-	public function __construct()
-	{
 
-	}
-	public function init()
-	{
 
-	}
-	
-	public function run()
-	{
-		
-	}
 }
