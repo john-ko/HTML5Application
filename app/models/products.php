@@ -147,9 +147,10 @@ public static function findLike(array $userInput)
 				$product->slug = $item['slug'];
 				$product->details = $item['details'];
 				$finalProductArray[] = $product;
-			});
+			}
+
 			return $finalProductArray;
 		}
-
+		
 
 }
