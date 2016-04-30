@@ -2,26 +2,28 @@
 
 class Template
 {
-	function __construct(Data $data)
+	private $view;
+
+	public function __construct($view)
 	{
-		$this->_data = $data;
+		$this->view = $view;
 	}
 
 	public function render($obj)
 	{
-		if (!this->doesTemplateExist($this->_template)) {
-			throw new \Exception("File Not Found - a", 404);
-		}
-
-		if($this->doesViewFileExist()) {
-			throw new \Exception("File Not Found - b", 404);
-		}
 
 		extract($obj);
 
-		include(ROOT."app".DS."public_html".DS )
+		ob_start();
+
+		include(ROOT. DS . "app".DS."templates".DS.$this->view . '.php');
+
+		$_contents = ob_get_contents();
+		ob_end_clean();
+
+		//include template
+		include(ROOT.DS."app".DS. "templates".DS."main.php");
+
 	}
-
-
 
 }

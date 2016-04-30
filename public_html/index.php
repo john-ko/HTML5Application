@@ -18,11 +18,6 @@ if (DEV) {
 // bootstrap our app
 include(ROOT . DS . 'app' . DS . 'bootstrap.php');
 
-$routes = new Routes();
-$routes->get('asdf', function() {
-	echo 'hello';
-});
+$template = new Template('home');
 
-echo 'world?';
-$routes->test('asdf');
-//var_dump($http);
+$template->render([]);
