@@ -14,10 +14,8 @@ class Autoloader
 	];
 }
 
-
 function kaonic_autoloader($classname)
 {
-	echo $classname;
 	if (array_key_exists($classname, Autoloader::$autoloader)) {
 		$folder = Autoloader::$autoloader[$classname];
 		$class = ROOT . DS . 'app'. DS . ($folder ? ($folder . DS) : '') . strtolower($classname) . '.php';
@@ -26,4 +24,4 @@ function kaonic_autoloader($classname)
 	}
 }
 
-spl_autoload_register('koanic_autoloader');
+spl_autoload_register('kaonic_autoloader');
