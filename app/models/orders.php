@@ -30,11 +30,9 @@ class Orders extends Model
 		$customer->save();
 		$order->customer_id = $customer->getLastInsertID();
 
-		// todo fix total, tax, and subtotal
-
-		$order->total = $cart->total;
-		$order->tax = $tax->tax;
-		$order->subtotal = $cart->subtotal;
+		$order->tax = $tax->tax_rate;
+		$order->subtotal = $cart->getSubTotal();
+		$order->total = $cart->getSubtotal() * (1 + $tax->tax_rate);
 
 		$order->save();
 
@@ -43,8 +41,8 @@ class Orders extends Model
 		// loop through cart items and save items
 		foreach($cart->getItems() as $product) {
 			$product_orders = new Product_Orders();
-			$product_orders->product_id = $product->id;
-			$product_orders->qty = $product->qty;
+			$product_orders->product_id = $product['id'];
+			$product_orders->qty = $product['qty'];
 			$product_orders->order_id = $order_id;
 			$product_orders->save();
 		}

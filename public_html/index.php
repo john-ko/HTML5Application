@@ -20,13 +20,16 @@ include(ROOT . DS . 'app' . DS . 'bootstrap.php');
 
 $routes = new Routes();
 $template = new Template();
-
+$cart = new Cart();
 $routes->get('/test', function() use ($template) {
-	$customer = new Customer();
-	$customer->first_name = 'sharon';
-	$customer->last_name = 'park';
-	$customer->save();
-	echo $customer->getLastInsertID();
+	echo '<pre>';
+
+	$product = Products::find(array(
+		'id' => 1
+	));
+
+
+	var_dump($product);
 });
 
 $routes->get('/search/:arguments', function($arguments) use ($template) {
@@ -42,6 +45,11 @@ $routes->get('/search/:arguments', function($arguments) use ($template) {
 
 });
 
+$routes->get('/addtocart/:id/:qty', function($id, $qty) use ($template) {
+
+
+});
+
 $routes->get('/', function() use ($template) {
 	$template->setView('home');
 	$template->render();
@@ -54,6 +62,11 @@ $routes->get('/contact', function() use ($template) {
 
 $routes->get('/about', function() use ($template) {
 	$template->setView('about');
+	$template->render();
+});
+
+$routes->get('/cart', function() use ($template, $cart) {
+	$template->setView('cart');
 	$template->render();
 });
 

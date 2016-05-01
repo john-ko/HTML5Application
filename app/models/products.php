@@ -27,27 +27,34 @@ class Products extends Model {
 	{
 		$testModel = new Model();
 
-		$whereClause = "Where ";
+		$whereClause = "WHERE ";
 
 		$attributeArray = array();
 
-		if(count($where) > 1){
-			
-			foreach($where as $searchCategory => $value){
-				$attributeArray[$searchCategory] = "p.". ltrim($searchCategory, ':'). " = " . ":". $searchCategory;
+		if ( ! self::isAssoc($where)) {
+			$whereClause .= 'p.id IN (' . implode(',', $where) . ')';
+
+		} else if (count($where) > 1) {
+
+			foreach ($where as $searchCategory => $value) {
+				$attributeArray[$searchCategory] = "p." . ltrim($searchCategory, ':') . " = " . ":" . $searchCategory;
 			}
 
 			$whereClause = $whereClause . implode(" AND ", $attributeArray);
 		} else { //just searching via 1 category
-			foreach($where as $searchCategory => $value){
-				$whereClause = $whereClause . "p.". ltrim($searchCategory, ':'). " = " . ":". $searchCategory;
+			foreach ($where as $searchCategory => $value) {
+				$whereClause = $whereClause . "p." . ltrim($searchCategory, ':') . " = " . ":" . $searchCategory;
 			}
 
 		}
 
-		$sql = "SELECT brand, p.color as color, price, default_image, p.id as id, p.name as name, p.details as details, p.slug as slug, p.gender as gender, p.category as category, i.url as url FROM products as p LEFT JOIN product_images as pi ON (pi.`product_id` = p.id) LEFT JOIN images as i ON (i.id = pi.image_id) ";
+		$sql = "SELECT brand, p.color as color, price, default_image, p.id as id, p.name as name,
+			p.details as details, p.slug as slug, p.gender as gender, p.category as category,
+			i.url as url FROM products as p LEFT JOIN product_images as pi ON (pi.`product_id` = p.id)
+			LEFT JOIN images as i ON (i.id = pi.image_id) ";
 		$sql = $sql . $whereClause;
 
+		var_dump($whereClause);
 		$row = $testModel->query($sql, $where);
 
 		$mainArray = array(); //initial array of product info
@@ -58,27 +65,27 @@ class Products extends Model {
 		if (count($row) > 0) {
 			$pastIDArray = array();
 
-			foreach($row as $attribute){
+			foreach ($row as $attribute) {
 
-				if(!isset($pastIDArray[$attribute['id']])){
-				$mainArray[$attribute['id']] = array(
-					'id' => $attribute['id'],
-					'brand' => $attribute['brand'],
-					'name' => $attribute['name'],
-					'color' => $attribute['color'],
-					'price' => $attribute['price'],
-					'default_image' => $attribute['default_image'],
-					'slug' => $attribute['slug'],
-					'details' => $attribute['details'],
-					'images' => array(),
-					'gender' => $attribute['gender'],
-					'category' => $attribute['category']
-				);
-				$pastIDArray[$attribute['id']] = 1; //set the past ID array as 1/true
+				if (!isset($pastIDArray[$attribute['id']])) {
+					$mainArray[$attribute['id']] = array(
+						'id' => $attribute['id'],
+						'brand' => $attribute['brand'],
+						'name' => $attribute['name'],
+						'color' => $attribute['color'],
+						'price' => $attribute['price'],
+						'default_image' => $attribute['default_image'],
+						'slug' => $attribute['slug'],
+						'details' => $attribute['details'],
+						'images' => array(),
+						'gender' => $attribute['gender'],
+						'category' => $attribute['category']
+					);
+					$pastIDArray[$attribute['id']] = 1; //set the past ID array as 1/true
+				}
+				$mainArray[$attribute['id']]['images'][] = $attribute['url'];
 			}
-				$mainArray[$attribute['id']]['images'][]= $attribute['url'];
-			}
-			foreach($mainArray as $item){
+			foreach ($mainArray as $item) {
 				$product = new Products();
 				$product->id = $item['id'];
 				$product->brand = $item['brand'];
@@ -96,7 +103,6 @@ class Products extends Model {
 		}
 		return $finalProductArray;
 	}
-
 
 	////////////////////////////////////////////////////////////////////////////////////////
 	//Example usages for this findLike function                                           //
