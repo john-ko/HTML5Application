@@ -10,7 +10,7 @@ class Products extends Model {
 		'name' => null,
 		'color' => null,
 		'price' => null,
-		'images' => [],
+		'images' => array(),
 		'default_image' => null,
 		'slug' => null,
 		'details' => null,
@@ -29,25 +29,19 @@ class Products extends Model {
 
 		$whereClause = "WHERE ";
 
-		$attributeArray = array();
+		$attributes = array();
 
 		if ( ! self::isAssoc($where)) {
 			$whereClause .= 'p.id IN (' . implode(',', $where) . ')';
 
-		} else if (count($where) > 1) {
+		} else {
 
 			foreach ($where as $searchCategory => $value) {
-				$attributeArray[$searchCategory] = "p." . ltrim($searchCategory, ':') . " = " . ":" . $searchCategory;
+				$attributes[$searchCategory] = "p." . ltrim($searchCategory, ':') . " = " . ":" . $searchCategory;
 			}
 
-			$whereClause = $whereClause . implode(" AND ", $attributeArray);
-		} else { //just searching via 1 category
-			foreach ($where as $searchCategory => $value) {
-				$whereClause = $whereClause . "p." . ltrim($searchCategory, ':') . " = " . ":" . $searchCategory;
-			}
-
-		}
-
+			$whereClause = $whereClause . implode(" AND ", $attributes);
+		} 
 		$sql = "SELECT brand, p.color as color, price, default_image, p.id as id, p.name as name,
 			p.details as details, p.slug as slug, p.gender as gender, p.category as category,
 			i.url as url FROM products as p LEFT JOIN product_images as pi ON (pi.`product_id` = p.id)
@@ -58,49 +52,34 @@ class Products extends Model {
 
 		$mainArray = array(); //initial array of product info
 
-		$finalProductArray = array(); //array of product objects
-
+		$finalProducts = array(); //array of product objects
 
 		if (count($row) > 0) {
-			$pastIDArray = array();
 
 			foreach ($row as $attribute) {
 
-				if (!isset($pastIDArray[$attribute['id']])) {
-					$mainArray[$attribute['id']] = array(
-						'id' => $attribute['id'],
-						'brand' => $attribute['brand'],
-						'name' => $attribute['name'],
-						'color' => $attribute['color'],
-						'price' => $attribute['price'],
-						'default_image' => $attribute['default_image'],
-						'slug' => $attribute['slug'],
-						'details' => $attribute['details'],
-						'images' => array(),
-						'gender' => $attribute['gender'],
-						'category' => $attribute['category']
-					);
-					$pastIDArray[$attribute['id']] = 1; //set the past ID array as 1/true
+				if(array_key_exists($attribute['id'], $finalProducts)){
+					$finalProducts[$attribute['id']]->images = $attribute['url'];
+				} else {
+					$product = new Products();
+					$product->id = $attribute['id'];
+					$product->brand = $attribute['brand'];
+					$product->name = $attribute['name'];
+					$product->color = $attribute['color'];
+					$product->price = $attribute['price'];
+					$product->default_image = $attribute['default_image'];
+					$product->slug = $attribute['slug'];
+					$product->details = $attribute['details'];
+					$product->images = $attribute['url'];
+					$product->gender = $attribute['gender'];
+					$product->category = $attribute['category'];
+					$finalProducts[$attribute['id']] = $product;
 				}
-				$mainArray[$attribute['id']]['images'][] = $attribute['url'];
+
 			}
-			foreach ($mainArray as $item) {
-				$product = new Products();
-				$product->id = $item['id'];
-				$product->brand = $item['brand'];
-				$product->name = $item['name'];
-				$product->color = $item['color'];
-				$product->price = $item['price'];
-				$product->default_image = $item['default_image'];
-				$product->slug = $item['slug'];
-				$product->details = $item['details'];
-				$product->images = $item['images'];
-				$product->gender = $item['gender'];
-				$product->category = $item['category'];
-				$finalProductArray[] = $product;
-			}
+
 		}
-		return $finalProductArray;
+		return array_values($finalProducts);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////
@@ -124,47 +103,27 @@ public static function findLike(array $userInput)
 
 		$row = $testModel->query($sql, $userInput);
 
-		$attributeArray = array();
-
-		$mainArray = array(); //initial array of product info
-
-		$finalProductArray = array(); //array of product objects
-
+		$finalProducts = array(); //array of product objects
 
 		if (count($row) > 0) {
-			$pastIDArray = array();
 
 			foreach($row as $attribute){
-				$mainArray[$attribute['id']] = array(
-					'id' => $attribute['id'],
-					'brand' => $attribute['brand'],
-					'name' => $attribute['name'],
-					'color' => $attribute['color'],
-					'price' => $attribute['price'],
-					'default_image' => $attribute['default_image'],
-					'slug' => $attribute['slug'],
-					'details' => $attribute['details'],
-					'gender' => $attribute['gender'],
-					'category' => $attribute['category']
-				);
+				$product = new Products();
+				$product->id = $attribute['id'];
+				$product->brand = $attribute['brand'];
+				$product->name = $attribute['name'];
+				$product->color = $attribute['color'];
+				$product->price = $attribute['price'];
+				$product->default_image = $attribute['default_image'];
+				$product->slug = $attribute['slug'];
+				$product->details = $attribute['details'];
+				$product->gender = $attribute['gender'];
+				$product->category = $attribute['category'];
+				$finalProducts[] = $product;
 			}
 		}
-			foreach($mainArray as $item){
-				$product = new Products();
-				$product->id = $item['id'];
-				$product->brand = $item['brand'];
-				$product->name = $item['name'];
-				$product->color = $item['color'];
-				$product->price = $item['price'];
-				$product->default_image = $item['default_image'];
-				$product->slug = $item['slug'];
-				$product->details = $item['details'];
-				$product->gender = $item['gender'];
-				$product->category = $item['category'];
-				$finalProductArray[] = $product;
-			}
 
-			return $finalProductArray;
+			return $finalProducts;
 		}
 		
 
