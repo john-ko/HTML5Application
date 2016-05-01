@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <pre>
 	<?php var_dump($obj); ?>
 
