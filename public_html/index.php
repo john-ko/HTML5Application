@@ -69,19 +69,22 @@ $routes->get('/men/:category/:slug', function($category, $slug) use ($template){
 
 	$data = null;
 	if ($slug) {
-		//$data = Products::find(['slug' => $slug])
+		$data = Products::find(['slug' => $slug]);
+		$template->setView('product');
+		$template->render($data[0]);
 	} else if ($category) {
-		// $data = Products::find([
-		//		'category' => $category,
-		//		'gender' => 'men',
-		// ]);
-		//
+		$data = Products::find([
+			'category' => $category,
+			'gender' => 'men',
+		]);
+		echo '<pre>';
+		var_dump($data);
+		$template->setView();
 	} else {
-		// $data = Products::find(['gender' => 'men']);
+		$data = Products::find(['gender' => 'men']);
+		$template->setView('men');
+		$template->render($data);
 	}
-
-	$template->setView('product');
-	$template->render($data);
 });
 
 $routes->get('/women/:category/:slug', function($category, $slug) use ($template){
@@ -90,7 +93,7 @@ $routes->get('/women/:category/:slug', function($category, $slug) use ($template
 	if ($slug) {
 		$data = Products::find(['slug' => $slug]);
 		$template->setView('product');
-	$template->render($data[0]);
+		$template->render($data[0]);
 	} else if ($category) {
 		$data = Products::find([
 			'category' => $category,
@@ -104,9 +107,6 @@ $routes->get('/women/:category/:slug', function($category, $slug) use ($template
 		$template->setView('women');
 		$template->render($data);
 	}
-
-	// $template->setView('product');
-	// $template->render($data);
 });
 
 
