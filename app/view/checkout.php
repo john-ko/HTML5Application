@@ -86,7 +86,9 @@
 		</select>
 		<p>Total Merchandise: <span id="checkout-qty"></span></p>
 		<p>Shipping: $0.00</p>
-		<p>Price Total: $<span id="checkout-price"></span></p>
+		<p>Subtotal: $<span id="checkout-subtotal"><?php echo $this->cart->getSubtotal();?></span></p>
+		<p>Tax: $<span id="checkout-tax"><?php echo $this->cart->getTax();?></span></p>
+		<p>Price Total: $<span id="checkout-price"><?php echo $this->cart->getTotal(); ?></span></p>
 		<button id="checkout-submit-button" class="big-btn" onclick="formValidation(theMailFunction, clearCheckout);">Purchase</button>
 	</div>
 	<!--</form>-->

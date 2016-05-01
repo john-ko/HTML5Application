@@ -53,9 +53,14 @@ $routes->get('/addtocart/:id/:qty', function($id, $qty) use ($cart) {
 
 $routes->get('/calculatetax/:zip', function($zip) use ($cart) {
 	$tax = Tax::find(array(':zipcode' => $zip));
-	var_dump($tax);
-	$cart->setTaxRate($tax->tax_rate);
-	echo $tax->tax_rate;
+	$cart->setTaxRate($tax->tax_rate? : 0);
+	$response = array(
+		'subtotal' => $cart->getSubtotal(),
+		'tax_rate' => $cart->getTaxRate(),
+		'tax' => $cart->getTax(),
+		'total' => $cart->getTotal(),
+	);
+	echo json_decode($response);
 });
 
 $routes->get('/', function() use ($template) {
