@@ -2,8 +2,6 @@
 
 class Model
 {
-
-
 	protected $dbh;
 	protected $stmh;
 
