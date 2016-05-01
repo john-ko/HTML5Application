@@ -2,22 +2,19 @@
 
 class Model
 {
-	private $servername = '127.0.0.1';
-	private $dbname = 'tnsdb';
-	private $username = 'root';
-	private $password = 'myrootpw';
+
 
 	protected $dbh;
 	protected $stmh;
 
-	public function __construct() {
+	public function __construct()
+	{
 		$this->connect();
 	}
 
 	public function connect()
 	{
-		$this->dbh = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
-
+		$this->dbh = Database::getInstance();
 		return $this->dbh;
 	}
 
@@ -54,5 +51,10 @@ class Model
 
 		var_dump($query);
 		return $this->query($query, array_combine($colonKeys, $values));
+	}
+	
+	public function getLastInsertID()
+	{
+		return $this->dbh->lastInsertID();
 	}
 }

@@ -9,9 +9,11 @@ class Autoloader
 	public static $autoloader = array(
 		'Customer' => 'models',
 		'Controller' => '',
+		'Database' => '',
 		'Kaonic' => '',
 		'Model' => '',
 		'Products' => 'models',
+		'Product_Orders' => '',
 		'Request' => '',
 		'Routes' => '',
 		'Tax' => '',
@@ -30,4 +32,3 @@ function kaonic_autoloader($classname)
 }
 
 spl_autoload_register('kaonic_autoloader');
-

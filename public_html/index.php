@@ -21,10 +21,11 @@ $routes = new Routes();
 $template = new Template();
 
 $routes->get('/test', function() use ($template) {
-	echo json_encode(array(
-		'asdf' => 123,
-		'fdsa' => 'sdfs',
-	));
+	$customer = new Customer();
+	$customer->first_name = 'sharon';
+	$customer->last_name = 'park';
+	$customer->save();
+	echo $customer->getLastInsertID();
 });
 
 $routes->get('/search/:arguments', function($arguments) use ($template) {
