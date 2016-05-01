@@ -29,6 +29,6 @@ class Customer extends Model
 	{
 		// do some checks here
 
-		//call parent::save()
+		parent::save();
 	}
 }

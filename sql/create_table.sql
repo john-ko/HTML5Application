@@ -37,17 +37,19 @@ create table customers(
   PRIMARY KEY(id)
 );
 
-create table customers_orders(
-  customer_id int (11) unsigned NOT NULL,
+create table product_orders(
+  product_id int (11) unsigned NOT NULL,
   order_id int(11) unsigned NOT NULL,
-  total float,
-  shipping float
+  qty int (11) unsigned
 );
 
 create table orders(
   id int(11) unsigned NOT NULL AUTO_INCREMENT,
-  product_id int(11) unsigned ,
-  qty int (11) unsigned,
+  customer_id int(11) unsigned,
+  total float,
+  subtotal float,
+  tax float,
+  shipping float,
   PRIMARY KEY(id)
 );
 
