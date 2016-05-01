@@ -52,7 +52,8 @@ $routes->get('/addtocart/:id/:qty', function($id, $qty) use ($cart) {
 });
 
 $routes->get('/calculatetax/:zip', function($zip) use ($cart) {
-	$tax = Tax::find(array('zipcode' => $zip));
+	$tax = Tax::find(array(':zipcode' => $zip));
+	var_dump($tax);
 	$cart->setTaxRate($tax->tax_rate);
 	echo $tax->tax_rate;
 });
