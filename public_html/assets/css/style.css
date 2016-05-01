@@ -498,6 +498,7 @@ button.big-btn:hover {
 
 #searchContainer{
 	position: relative;
+	top: 10;
 }
 
 #searchResults{
@@ -526,3 +527,14 @@ button.big-btn:hover {
 	background-color:#e6e6ff;
 }
 
+#searchBar {
+	height: 22px;
+	width: 200px;
+	padding: 1px;
+	transition: all 1s ease;
+}
+
+input#searchBar:focus {
+	color: #A0A0A0;
+	width: 650px;
+}
