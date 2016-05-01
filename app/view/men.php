@@ -7,21 +7,46 @@
                 <h4>Tops</h4> </a>
                 <a href="/index.php/men/bottoms">
                     <h4>Bottoms</h4> </a>
-                    </div>
-                    
-                    <?php
+                </div>
+                
+                <?php
 
+                $tops = array();
+                $bottoms = array();
+                
+                foreach($obj as $product) {
+                    if($product->category === "tops") {
+                        array_push($tops, $product);
+                    } else {
+                        array_push($bottoms, $product);
+                    }
+                }
+                
+                foreach($tops as $a_top) {
                     
-                    foreach($obj as $product) {
+                    ?>
+
+                    <div class="main-page">
+                        <a href="/<?php echo $a_top->gender; ?>/<?php echo $a_top->category; ?>/<?php echo $a_top->slug; ?>" >
+                            <img class="product-image" src="/assets/images/products<?php echo $a_top->default_image; ?>" alt="productImage" width="150" height="auto"/></a>
+                            <p class="product-name"><?php echo $a_top->name; ?></p>
+                            <p class="product-brand"><?php echo $a_top->brand; ?></p>
+                            <p><?php echo $a_top->price; ?></p>
+                        </div>
+
+                        <?php
+                    }
+                    
+                    foreach($bottoms as $a_bottom) {
                         
                         ?>
 
                         <div class="main-page">
-                            <a href="/<?php echo $product->gender; ?>/<?php echo $product->category; ?>/<?php echo $product->slug; ?>" >
-                                <img class="product-image" src="/assets/images/products<?php echo $product->default_image; ?>" alt="productImage" width="150" height="auto"/></a>
-                                <p class="product-name"><?php echo $product->name; ?></p>
-                                <p class="product-brand"><?php echo $product->brand; ?></p>
-                                <p><?php echo $product->price; ?></p>
+                            <a href="/<?php echo $a_bottom->gender; ?>/<?php echo $a_bottom->category; ?>/<?php echo $a_bottom->slug; ?>" >
+                                <img class="product-image" src="/assets/images/products<?php echo $a_bottom->default_image; ?>" alt="productImage" width="150" height="auto"/></a>
+                                <p class="product-name"><?php echo $a_bottom->name; ?></p>
+                                <p class="product-brand"><?php echo $a_bottom->brand; ?></p>
+                                <p><?php echo $a_bottom->price; ?></p>
                             </div>
 
                             <?php
