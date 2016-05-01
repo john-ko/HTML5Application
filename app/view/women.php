@@ -1,5 +1,5 @@
-<pre>
-	<?php var_dump($obj); ?>
+<!-- <pre>
+	<?php var_dump($obj); ?> -->
 
 	<div class="row">
 
@@ -13,7 +13,6 @@
 					<a href="/index.php/women/dresses">
 						<h4>Dresses</h4> </a>
 					</div>
-					<div id="productList">The product list goes here</div>
 					<?php
 
 					foreach($obj as $product) {
@@ -22,8 +21,8 @@
 
 						<img id="bigpic" src="/assets/images/products<?php echo $product->default_image; ?>" alt="productImage" width="auto" height="auto">
 
-						<p><?php echo $product->name; ?></p>
-						<p><?php echo $product->brand; ?></p>
+						<p class="product-name"><?php echo $product->name; ?></p>
+						<p class="product-brand"><?php echo $product->brand; ?></p>
 						<p><?php echo $product->price; ?></p>
 
 
