@@ -7,6 +7,7 @@
 class Autoloader
 {
 	public static $autoloader = array(
+		'Cart' => '',
 		'Customer' => 'models',
 		'Controller' => '',
 		'Database' => '',

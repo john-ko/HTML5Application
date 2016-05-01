@@ -2,46 +2,56 @@
 
 class Cart
 {
-	public $mycart;
-	public $total;
+	public $items = array();
+	public $subtotal = 0.0;
+	public $totalQty = 0;
 
 	public function __construct()
 	{
-		if(isset($_SESSION['mycart']) ) {
-			$this->mycart = json_decode($_SESSION['mycart'], true);
-			$this->total = $_SESSION['total'];
+		if(isset($_SESSION['items']) ) {
+			$this->items = json_decode($_SESSION['items'], true);
 		}
-		else {
-			$this->mycart = array();
-			$this->total = 0;
-		}
+
+		$this->update();
 	}
 
 	public function destroy_cart()
 	{
-		unset($_SESSION['mycart']);
-		unset($_SESSION['total']);
+		unset($_SESSION['items']);
 	}
 
 	public function save()
 	{
-		$_SESSION['mycart'] = json_encode($this->mycart);
-		$_SESSION['total'] = $this->total;
+		$_SESSION['items'] = json_encode($this->items);
 	}
 
 	public function add($id, $qty)
 	{
-		if(array_key_exists($id, $this->mycart))
-			$this->total += $qty - $this->mycart[$id];
-		else 
-			$this->total += $qty;
-		
-		if($qty == 0)
-			unset($this->mycart[$id]);
-		else
-			$this->mycart[$id] = $qty;
+		if (array_key_exists($id, $this->items)) {
+			$this->items[$id]['qty'] += $qty;
+		} else {
+			$this->items[$id] = array(
+				'id' => $id,
+				'qty' => $qty,
+			);
+		}
 
+		$this->update();
 		$this->save();
+	}
+
+	/**
+	 * update
+	 *
+	 * updates totalPrice and totalQty by looping through cart contents
+	 */
+	public function update()
+	{
+		$this->subtotal = 0;
+		$this->totalQty = 0;
+		foreach($this->items as $item) {
+			$this->totalQty += $item['qty'];
+		}
 	}
 
 	// private function generateCartItem($name, $brand, $image, $price, $qty, $gender, $category, $item)
@@ -66,7 +76,7 @@ class Cart
 	{
 		$return_array = array();
 
-		foreach($this->mycart as $key => $value) {
+		foreach($this->items as $key => $value) {
 			$return_array[$key] = $value;
 		}
 
@@ -74,8 +84,36 @@ class Cart
 
 	}
 
-	public function getTotal()
+	public function getSubtotal()
 	{
-		return $this->total;
+		return $this->subtotal;
+	}
+
+	public function getQty()
+	{
+		return $this->totalQty;
+	}
+
+	public function getItems()
+	{
+		return $this->items;
+	}
+
+	/**
+	 * getItemsAsProductObjects
+	 * to be used in the front end
+	 * @return array of Products
+	 */
+	public function getItemsAsProductObjects()
+	{
+		$keys = array_keys($this->items);
+
+		$products = Products::find($keys);
+
+		foreach($products as $product) {
+			$product->qty = $this->items[$product->id]['qty'];
+		}
+
+		return $products;
 	}
 }

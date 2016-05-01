@@ -20,7 +20,7 @@ Class Tax extends Model
 	{
 		$p = $params["param"];
 		$tax = new Tax();
-		$results = $tax->query("select * from tax_rates where zipcode=:p", [":p" => $p]);
+		$results = $tax->query("SELECT * FROM tax_rates WHERE zipcode= :p ", [":p" => $p]);
 		//var_dump($results);
 		//load obj
 		if($results) {

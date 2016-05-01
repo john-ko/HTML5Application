@@ -42,17 +42,28 @@ class Model
 
 	public function save()
 	{
-		$keys = array_keys($this->_attributes);
-		$values = array_values($this->_attributes);
-		$colonKeys = preg_filter('/^/', ':', $keys);
-		$query = 'INSERT INTO ' . static::$table . ' (' . implode(',', $keys) . ') VALUES (' . implode(',', $colonKeys). ');';
+		$container = self::getColonKeys($this->_attributes);
+		$query = 'INSERT INTO ' . static::$table . ' (' . implode(',', $container->keys) . ') VALUES (' . implode(',', $container->keysWithColons). ');';
 
-		var_dump($query);
-		return $this->query($query, array_combine($colonKeys, $values));
+		return $this->query($query, array_combine($container->keysWithColons, $container->values));
 	}
-	
+
 	public function getLastInsertID()
 	{
 		return $this->dbh->lastInsertID();
+	}
+
+	public static function getColonKeys(array $array)
+	{
+		$container = new stdClass();
+		$container->keys = array_keys($array);
+		$container->values = array_values($array);
+		$container->keysWithColons = preg_filter('/^/', ':', $container->keys);
+		return $container;
+	}
+
+	public static function isAssoc($arr)
+	{
+		return array_keys($arr) !== range(0, count($arr) - 1);
 	}
 }
