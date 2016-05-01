@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	<script src="/assets/js/templates.js"></script>
 	<script src="/assets/js/cart.js"></script>
-	<script src="/assets/js/products.js"></script>
+	<script src="/assets/js/addToCart.js"></script>
 	<script src="/assets/js/imageswap.js"></script>
 
 	<title>T H O R N E & S P I N D L E | Main Index </title>
@@ -27,7 +27,7 @@
 			document.getElementById("searchResults").innerHTML=xmlhttp.responseText;
 			//document.getElementById("searchResults").style.border="1px solid #A5ACB2";
 		}
-	}
+	};
 	xmlhttp.open("GET","/index.php/search/" +theInput,true);
 	xmlhttp.send();
 }
@@ -49,7 +49,9 @@
 					<li class="navItem"><a href="/index.php/contact">Contact</a></li>
 					<li class="navItem" id="cartimage">
 						<a class="cart-icon" href="/index.php/cart">
-							<img src = "/assets/images/thecarticon.png" alt="cart icon" /><span id="cart-qty">(<?php echo isset($_SESSION['total'])?: 0; ?>)</span>
+							<img src = "/assets/images/thecarticon.png" alt="cart icon" /><span id="cart-qty">
+								(<?php echo $this->cart->getQty(); ?>)
+							</span>
 						</a>
 					</li>
 				</ul>

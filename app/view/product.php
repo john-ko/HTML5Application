@@ -31,6 +31,7 @@
 			?>
 			<br>
 			<input id="product-qty" class="mailinglist-input" type="number" name="product-qty" value="1">
-			<button onclick="addItems('women','tops','en-elie-embroidered-sanna-top')">Add Items To Cart </button>
+			<button onclick="addItems('<?php echo $obj->id; ?>')">Add Items To Cart </button>
 		</div>
 	</div>
+</div>

@@ -4,6 +4,11 @@ class Template
 {
 	private $view;
 
+	public function __construct(Cart $cart)
+	{
+		$this->cart = $cart;
+	}
+
 	public function setView($view)
 	{
 		$this->view = $view;

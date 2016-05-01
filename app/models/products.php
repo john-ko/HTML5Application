@@ -54,7 +54,6 @@ class Products extends Model {
 			LEFT JOIN images as i ON (i.id = pi.image_id) ";
 		$sql = $sql . $whereClause;
 
-		var_dump($whereClause);
 		$row = $testModel->query($sql, $where);
 
 		$mainArray = array(); //initial array of product info

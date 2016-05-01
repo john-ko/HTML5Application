@@ -25,7 +25,7 @@ class Cart
 		$_SESSION['items'] = json_encode($this->items);
 	}
 
-	public function add($id, $qty, $price)
+	public function add($id, $qty)
 	{
 		if (array_key_exists($id, $this->items)) {
 			$this->items[$id]['qty'] += $qty;
@@ -33,7 +33,6 @@ class Cart
 			$this->items[$id] = array(
 				'id' => $id,
 				'qty' => $qty,
-				'price' => $price,
 			);
 		}
 
@@ -51,7 +50,6 @@ class Cart
 		$this->subtotal = 0;
 		$this->totalQty = 0;
 		foreach($this->items as $item) {
-			$this->subtotal += $item['qty'] * $item['price'];
 			$this->totalQty += $item['qty'];
 		}
 	}
@@ -111,6 +109,10 @@ class Cart
 		$keys = array_keys($this->items);
 
 		$products = Products::find($keys);
+
+		foreach($products as $product) {
+			$product->qty = $this->items[$product->id]['qty'];
+		}
 
 		return $products;
 	}

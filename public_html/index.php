@@ -1,10 +1,9 @@
 <?php
-session_start();
 /**
  * cs137 tiny mvc php framework
  *
  */
-
+session_start();
 // define root directory and directory separator
 DEFINE('ROOT', dirname(__DIR__));
 DEFINE('DS', DIRECTORY_SEPARATOR);
@@ -19,8 +18,9 @@ if (DEV) {
 include(ROOT . DS . 'app' . DS . 'bootstrap.php');
 
 $routes = new Routes();
-$template = new Template();
 $cart = new Cart();
+$template = new Template($cart);
+
 $routes->get('/test', function() use ($template) {
 	echo '<pre>';
 
@@ -45,8 +45,9 @@ $routes->get('/search/:arguments', function($arguments) use ($template) {
 
 });
 
-$routes->get('/addtocart/:id/:qty', function($id, $qty) use ($template) {
-
+$routes->get('/addtocart/:id/:qty', function($id, $qty) use ($cart) {
+	$cart->add($id, $qty);
+	echo $cart->getQty();
 
 });
 
@@ -66,13 +67,14 @@ $routes->get('/about', function() use ($template) {
 });
 
 $routes->get('/cart', function() use ($template, $cart) {
+	$products = $cart->getItemsAsProductObjects();
 	$template->setView('cart');
-	$template->render();
+	$template->render($products);
 });
 
-$routes->get('/checkout', function() use ($template) {
+$routes->get('/checkout', function() use ($template, $cart) {
 
-	//$cart = new Cart();
+
 	$template->setView('checkout');
 	$template->render();
 });
@@ -122,9 +124,3 @@ $routes->get('/women/:category/:slug', function($category, $slug) use ($template
 
 
 $routes->dispatch();
-
-	// echo'<form>';
-	// echo'<input type="text" size="30" onkeyup="getResults(this.value)">';
-	// echo'<div id="searchResults" class = "thesearchresults"></div>';
-	// echo'</form>';
-
