@@ -5,6 +5,8 @@ class Cart
 	public $items = array();
 	public $subtotal = 0.0;
 	public $totalQty = 0;
+	public $total = 0.0;
+	public $tax = 0.0;
 
 	public function __construct()
 	{
@@ -18,6 +20,12 @@ class Cart
 	public function destroy_cart()
 	{
 		unset($_SESSION['items']);
+		$this->items = array();
+		$this->totalQty = 0;
+		$this->subtotal = 0.0;
+		$this->total = 0.0;
+		$this->tax = 0.0;
+
 	}
 
 	public function save()
@@ -30,9 +38,11 @@ class Cart
 		if (array_key_exists($id, $this->items)) {
 			$this->items[$id]['qty'] += $qty;
 		} else {
+			$product = Products::find(array('id' => $id));
 			$this->items[$id] = array(
 				'id' => $id,
 				'qty' => $qty,
+				'price' => $product[0]->price,
 			);
 		}
 
@@ -49,9 +59,14 @@ class Cart
 	{
 		$this->subtotal = 0;
 		$this->totalQty = 0;
+		$this->tax = 0.0;
 		foreach($this->items as $item) {
 			$this->totalQty += $item['qty'];
+			$this->subtotal += ($item['qty'] * $item['price']);
 		}
+
+		$this->total = $this->tax + $this->subtotal;
+
 	}
 
 	// private function generateCartItem($name, $brand, $image, $price, $qty, $gender, $category, $item)
@@ -92,6 +107,11 @@ class Cart
 	public function getQty()
 	{
 		return $this->totalQty;
+	}
+
+	public function getTotal()
+	{
+		return $this->total;
 	}
 
 	public function getItems()

@@ -20,9 +20,14 @@ if ($obj) {
 		</div>
 	</div>
 	<?php } ?>
+<div>
+	<p style="padding-left:45px">*Estimated Tax: $0.00</p>
+	<p style="padding-left:45px; padding-bottom:10px">Subtotal: $<?php echo number_format($this->cart->total, 2, '.', '') ?> </p>
 <div class="row">
 	<button class="big-btn" id="checkout-button" onclick="window.location.href='/checkout'" >Checkout</button>
 </div>
+<div>
+	<p style="padding-left:45px; padding-top: 80px">*Tax calculated at checkout.</p>
 
 <?php } else {
 	?>
