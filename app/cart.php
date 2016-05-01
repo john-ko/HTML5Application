@@ -7,6 +7,7 @@ class Cart
 	public $totalQty = 0;
 	public $total = 0.0;
 	public $tax = 0.0;
+	public $taxrate = 0.0;
 
 	public function __construct()
 	{
@@ -50,6 +51,12 @@ class Cart
 		$this->save();
 	}
 
+	public function setTaxRate($rate)
+	{	
+		$this->taxrate = $rate;
+		$this->update();
+	}
+
 	/**
 	 * update
 	 *
@@ -65,6 +72,7 @@ class Cart
 			$this->subtotal += ($item['qty'] * $item['price']);
 		}
 
+		$this->tax = $this->subtotal * $this->taxrate;
 		$this->total = $this->tax + $this->subtotal;
 
 	}
