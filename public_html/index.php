@@ -55,6 +55,14 @@ $routes->get('/about', function() use ($template) {
 	$template->render();
 });
 
+$routes->get('/checkout', function() use ($template) {
+
+	//$cart = new Cart();
+	$template->setView('checkout');
+	$template->render();
+});
+
+
 $routes->get('/men/:category/:slug', function($category, $slug) use ($template){
 
 	$data = null;

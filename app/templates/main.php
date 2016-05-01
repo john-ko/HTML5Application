@@ -49,7 +49,7 @@
 					<li class="navItem"><a href="/index.php/contact">Contact</a></li>
 					<li class="navItem" id="cartimage">
 						<a class="cart-icon" href="/index.php/cart">
-							<img src = "/assets/images/thecarticon.png" alt="cart icon" /><span id="cart-qty"></span>
+							<img src = "/assets/images/thecarticon.png" alt="cart icon" /><span id="cart-qty">(<?php echo isset($_SESSION['total'])?: 0; ?>)</span>
 						</a>
 					</li>
 				</ul>
