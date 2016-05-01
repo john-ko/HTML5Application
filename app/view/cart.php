@@ -22,7 +22,8 @@ if ($obj) {
 	<?php } ?>
 <div>
 	<p style="padding-left:45px">*Estimated Tax: $0.00</p>
-	<p style="padding-left:45px; padding-bottom:10px">Subtotal: $<?php echo number_format($this->cart->total, 2, '.', '') ?> </p>
+	<p id="subtotal" style="padding-left:45px; padding-bottom:10px">Subtotal: $<?php echo $this->cart->getTotal(); ?> </p>
+</div>
 <div class="row">
 	<button class="big-btn" id="checkout-button" onclick="window.location.href='/index.php/checkout'" >Checkout</button>
 </div>
