@@ -37,7 +37,7 @@ class Model
 
 	public function __set($name, $value)
 	{
-		if(is_array($this->_attributes[$name])) {
+		if(array_key_exists($name, $this->_attributes) && is_array($this->_attributes[$name])) {
 			$this->_attributes[$name][] = $value;
 		} else {
 			$this->_attributes[$name] = $value;

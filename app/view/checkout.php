@@ -61,7 +61,7 @@
 					<option value="WI">Wisconsin</option>
 					<option value="WY">Wyoming</option>
 				</select>
-				Zip <input id="zipId" type="text" maxlength="5"required /><br />
+				Zip <input id="zipId" type="text" onkeyup="calculateTax(this.value)" maxlength="5" required /><br />
 				Phone (<input id="phone-area" type="text" value="" maxlength="3" required />) <input id="phone-first3" type="text" value="" maxlength="3" required /> - <input id="phone-last4" type="text" value="" maxlength="4" required /><br />
 				Email <input id="emailId" type="email" required /><br />
 			</div>
@@ -86,7 +86,9 @@
 		</select>
 		<p>Total Merchandise: <span id="checkout-qty"></span></p>
 		<p>Shipping: $0.00</p>
-		<p>Price Total: $<span id="checkout-price"></span></p>
+		<p>Subtotal: $<span id="checkout-subtotal"><?php echo $this->cart->getSubtotal();?></span></p>
+		<p>Tax: $<span id="checkout-tax"><?php echo $this->cart->getTax();?></span></p>
+		<p>Price Total: $<span id="checkout-price"><?php echo $this->cart->getTotal(); ?></span></p>
 		<button id="checkout-submit-button" class="big-btn" onclick="formValidation(theMailFunction, clearCheckout);">Purchase</button>
 	</div>
 	<!--</form>-->

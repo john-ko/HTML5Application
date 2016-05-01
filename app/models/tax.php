@@ -18,11 +18,9 @@ Class Tax extends Model
 
 	public static function find($params)
 	{
-		$p = $params["param"];
 		$tax = new Tax();
-		$results = $tax->query("SELECT * FROM tax_rates WHERE zipcode= :p ", [":p" => $p]);
-		//var_dump($results);
-		//load obj
+		$results = $tax->query("SELECT * FROM tax_rates WHERE zipcode = :zipcode", $params);
+
 		if($results) {
 			$tax->state = $results[0]['state'];
 			$tax->tax_rate = $results[0]['tax_rate'];

@@ -51,6 +51,18 @@ $routes->get('/addtocart/:id/:qty', function($id, $qty) use ($cart) {
 
 });
 
+$routes->get('/calculatetax/:zip', function($zip) use ($cart) {
+	$tax = Tax::find(array(':zipcode' => $zip));
+	$cart->setTaxRate($tax->tax_rate? : 0);
+	$response = array(
+		'subtotal' => $cart->getSubtotal(),
+		'tax_rate' => $cart->getTaxRate(),
+		'tax' => $cart->getTax(),
+		'total' => $cart->getTotal(),
+	);
+	echo json_decode($response);
+});
+
 $routes->get('/', function() use ($template) {
 	$template->setView('home');
 	$template->render();
@@ -74,11 +86,17 @@ $routes->get('/cart', function() use ($template, $cart) {
 
 $routes->get('/checkout', function() use ($template, $cart) {
 
-
+	$products = $cart->getItemsAsProductObjects();
 	$template->setView('checkout');
 	$template->render();
 });
 
+$routes->post('/checkout', function() use ($template, $cart) {
+
+	$products = $cart->getItemsAsProductObjects();
+	$template->setView('checkedout');
+	$template->render();
+});
 
 $routes->get('/men/:category/:slug', function($category, $slug) use ($template){
 
