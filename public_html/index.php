@@ -92,13 +92,17 @@ $routes->get('/women/:category/:slug', function($category, $slug) use ($template
 		$template->setView('product');
 	$template->render($data[0]);
 	} else if ($category) {
-		// $data = Products::find([
-		//		'category' => $category,
-		//		'gender' => 'men',
-		// ]);
-		//
+		$data = Products::find([
+			'category' => $category,
+			'gender' => 'women',
+		]);
+		echo '<pre>';
+		var_dump($data);
+		$template->setView();
 	} else {
-		// $data = Products::find(['gender' => 'men']);
+		$data = Products::find(['gender' => 'women']);
+		$template->setView('women');
+		$template->render($data);
 	}
 
 	// $template->setView('product');
