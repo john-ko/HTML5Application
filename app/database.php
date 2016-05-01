@@ -8,7 +8,7 @@ class Database
 	private static $servername = '127.0.0.1';
 	private static $dbname = 'tnsdb';
 	private static $username = 'root';
-	private static $password = 'myrootpw';
+	private static $password = 'kilamoChi';
 
 	public static function getInstance()
 	{
