@@ -56,7 +56,8 @@
 					</li>
 				</ul>
 				<form>
-					<input type="text" size="30" onkeyup="getResults(this.value)">
+					<input type="text" id="searchBar" placeholder="Search products" onFocus="this.placeholder=''" onkeyup="getResults(this.value)">
+					<img src="/assets/images/searchicon.png" alt="search icon" />
 					<div id = searchContainer>
 						<div id="searchResults"></div>
 					</div>
