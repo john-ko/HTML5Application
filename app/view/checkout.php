@@ -61,7 +61,7 @@
 					<option value="WI">Wisconsin</option>
 					<option value="WY">Wyoming</option>
 				</select>
-				Zip <input id="zipId" type="text" maxlength="5"required /><br />
+				Zip <input id="zipId" type="text" onkeyup="calculateTax(this.value)" maxlength="5" required /><br />
 				Phone (<input id="phone-area" type="text" value="" maxlength="3" required />) <input id="phone-first3" type="text" value="" maxlength="3" required /> - <input id="phone-last4" type="text" value="" maxlength="4" required /><br />
 				Email <input id="emailId" type="email" required /><br />
 			</div>
