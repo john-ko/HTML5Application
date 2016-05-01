@@ -77,6 +77,8 @@ $routes->get('/men/:category/:slug', function($category, $slug) use ($template){
 			'category' => $category,
 			'gender' => 'men',
 		]);
+		$template->setView('men');
+		$template->render($data);
 	} else {
 		$data = Products::find(['gender' => 'men']);
 		$template->setView('men');
@@ -96,6 +98,8 @@ $routes->get('/women/:category/:slug', function($category, $slug) use ($template
 			'category' => $category,
 			'gender' => 'women',
 		]);
+		$template->setView('women');
+		$template->render($data);
 	} else {
 		$data = Products::find(['gender' => 'women']);
 		$template->setView('women');
