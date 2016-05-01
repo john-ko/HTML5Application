@@ -5,7 +5,7 @@
 
 if ($obj) {
 	foreach($obj as $product) { ?>
-	<div class="row cart-container">
+	<div class="row cart-container" id="<?php echo $product->id ?>">
 		<div class="cart-item">
 			<div class="cart-img-container">
 				<img src="/assets/images/products<?php echo $product->default_image;?>" />
@@ -15,7 +15,7 @@ if ($obj) {
 				<span class="product-attr product-brand"><?php echo $product->brand;?></span>
 				<span class="product-attr">$<?php echo $product->price;?></span>
 				<span class="product-attr">qty: <?php echo $product->qty; ?></span>
-				<button class="btn" >remove</button>
+				<button class="btn" onclick="removeItems('<?php echo $product->id ?>')">remove</button>
 			</div>
 		</div>
 	</div>
