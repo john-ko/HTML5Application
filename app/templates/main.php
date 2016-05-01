@@ -52,13 +52,13 @@
 							<img src = "/assets/images/thecarticon.png" alt="cart icon" /><span id="cart-qty"></span>
 						</a>
 					</li>
-					 	<form>
-							<input type="text" size="30" onkeyup="getResults(this.value)">
-							<div id = searchContainer>
-								<div id="searchResults"></div>
-							</div>
-							</form>
 				</ul>
+				<form>
+					<input type="text" size="30" onkeyup="getResults(this.value)">
+					<div id = searchContainer>
+						<div id="searchResults"></div>
+					</div>
+				</form>
 			</nav>
 		</div>
 	</header>
