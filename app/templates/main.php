@@ -11,6 +11,28 @@
 	<script src="/assets/js/imageswap.js"></script>
 
 	<title>T H O R N E & S P I N D L E | Main Index </title>
+	<script>
+	function getResults(theInput) {
+	if (theInput.length < 3) {
+		document.getElementById("searchResults").innerHTML="";
+		document.getElementById("searchResults").style.border="0px";
+		return;
+	}
+	if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	} 
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById("searchResults").innerHTML=xmlhttp.responseText;
+			//document.getElementById("searchResults").style.border="1px solid #A5ACB2";
+		}
+	}
+	xmlhttp.open("GET","/index.php/search/" +theInput,true);
+	xmlhttp.send();
+}
+
+</script>
 
 </head>
 <body>
@@ -30,6 +52,12 @@
 							<img src = "/assets/images/thecarticon.png" alt="cart icon" /><span id="cart-qty"></span>
 						</a>
 					</li>
+					 	<form>
+							<input type="text" size="30" onkeyup="getResults(this.value)">
+							<div id = searchContainer>
+								<div id="searchResults"></div>
+							</div>
+							</form>
 				</ul>
 			</nav>
 		</div>

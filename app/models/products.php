@@ -4,7 +4,7 @@ class Products extends Model {
 
 	protected static $table = 'products';
 
-	protected $_attributes = [
+	public $_attributes = [
 		'id' => null,
 		'brand' => null,
 		'name' => null,
@@ -14,6 +14,8 @@ class Products extends Model {
 		'default_image' => null,
 		'slug' => null,
 		'details' => null,
+		'gender' => null,
+		'category' => null
 	];
 
 	public function __construct()
@@ -68,7 +70,9 @@ class Products extends Model {
 					'default_image' => $attribute['default_image'],
 					'slug' => $attribute['slug'],
 					'details' => $attribute['details'],
-					'images' => array()
+					'images' => array(),
+					'gender' => $attribute['gender'],
+					'category' => $attribute['category']
 				);
 				$pastIDArray[$attribute['id']] = 1; //set the past ID array as 1/true
 			}
@@ -85,6 +89,8 @@ class Products extends Model {
 				$product->slug = $item['slug'];
 				$product->details = $item['details'];
 				$product->images = $item['images'];
+				$product->gender = $item['gender'];
+				$product->category = $item['category'];
 				$finalProductArray[] = $product;
 			}
 		}
@@ -109,7 +115,7 @@ public static function findLike(array $userInput)
 			OR details LIKE :search OR
 			category LIKE :search OR
 			color LIKE :search OR
-			category LIKE :search LIMIT 5";
+			brand LIKE :search LIMIT 5";
 
 		$row = $testModel->query($sql, $userInput);
 
@@ -132,7 +138,9 @@ public static function findLike(array $userInput)
 					'price' => $attribute['price'],
 					'default_image' => $attribute['default_image'],
 					'slug' => $attribute['slug'],
-					'details' => $attribute['details']
+					'details' => $attribute['details'],
+					'gender' => $attribute['gender'],
+					'category' => $attribute['category']
 				);
 			}
 		}
@@ -146,6 +154,8 @@ public static function findLike(array $userInput)
 				$product->default_image = $item['default_image'];
 				$product->slug = $item['slug'];
 				$product->details = $item['details'];
+				$product->gender = $item['gender'];
+				$product->category = $item['category'];
 				$finalProductArray[] = $product;
 			}
 

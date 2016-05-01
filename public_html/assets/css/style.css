@@ -495,3 +495,15 @@ button.big-btn:hover {
 	color: #4CAF50;
 }
 
+
+#searchContainer{
+	position: relative
+}
+
+#searchResults{
+	position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+

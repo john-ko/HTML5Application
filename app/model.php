@@ -5,7 +5,7 @@ class Model
 	private $servername = '127.0.0.1';
 	private $dbname = 'tnsdb';
 	private $username = 'root';
-	private $password = 'kilamoChi';
+	private $password = 'myrootpw';
 
 	protected $dbh;
 	protected $stmh;
