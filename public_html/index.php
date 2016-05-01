@@ -29,14 +29,10 @@ $routes->get('/test', function() use ($template) {
 
 $routes->get('/search/:arguments', function($arguments) use ($template) {
 	$data = Products::findLike(array(":search" => "%$arguments%"));
-	//echo"<pre>";
 	$results = array();
 	foreach($data as $prod){
 		$results[] = $prod->_attributes;
 	}
-
-	 echo"<br>";
-	// echo (json_encode($results));
 
 	foreach($results as $product){
 		echo"<p>" . "<a href='/index.php/" . $product['gender']. "/". $product['category']. "/" .$product['slug'] . "'>" . $product['name'] . "</a></p>";
