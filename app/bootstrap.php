@@ -14,6 +14,7 @@ class Autoloader
 		'Products' => 'models',
 		'Request' => '',
 		'Routes' => '',
+		'Tax' => '',
 		'Template' => '',
 	);
 }
