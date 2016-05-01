@@ -51,6 +51,13 @@ class Cart
 		$this->save();
 	}
 
+	public function remove($id)
+	{
+		$this->items[$id]['qty'] = 0;
+		$this->update();
+		$this->save();
+	}
+
 	public function setTaxRate($rate)
 	{	
 		$this->taxrate = $rate;
@@ -68,6 +75,10 @@ class Cart
 		$this->totalQty = 0;
 		$this->tax = 0.0;
 		foreach($this->items as $item) {
+			if($item['qty'] == 0) {
+				unset($this->items[$item['id']]);
+				continue;
+			}
 			$this->totalQty += $item['qty'];
 			$this->subtotal += ($item['qty'] * $item['price']);
 		}
@@ -109,7 +120,7 @@ class Cart
 
 	public function getSubtotal()
 	{
-		return $this->subtotal;
+		return number_format($this->subtotal, 2, '.', '');
 	}
 
 	public function getQty()
@@ -119,12 +130,22 @@ class Cart
 
 	public function getTotal()
 	{
-		return $this->total;
+		return number_format($this->total, 2, '.', '');
 	}
 
 	public function getItems()
 	{
 		return $this->items;
+	}
+
+	public function getTax()
+	{
+		return number_format($this->tax, 2, '.', '');
+	}
+
+	public function getTaxRate()
+	{
+		return number_format($this->taxrate, 2, '.', '');
 	}
 
 	/**

@@ -9,6 +9,7 @@
 	<script src="/assets/js/calculateTax.js"></script>
 	<script src="/assets/js/addToCart.js"></script>
 	<script src="/assets/js/imageswap.js"></script>
+	<script src="/assets/js/removeFromCart.js"></script>
 
 	<title>T H O R N E & S P I N D L E | Main Index </title>
 	<script>
