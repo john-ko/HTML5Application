@@ -61,7 +61,7 @@ $routes->get('/calculatetax/:zip', function($zip) use ($cart) {
 		'total' => $cart->getTotal(),
 	);
 	echo json_decode($response);
-}};
+});
 
 $routes->get('/removefromcart/:id', function($id) use ($cart) {
 	$cart->remove($id);
