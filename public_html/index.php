@@ -103,9 +103,19 @@ $routes->get('/checkout', function() use ($template, $cart) {
 
 $routes->post('/checkout', function() use ($template, $cart) {
 
+	$customer = new Customer();
+	$customer->first_name = $_POST['first_name'];
+	$customer->last_name = $_POST['last_name'];
+	$customer->address = $_POST['address'];
+	$customer->state = $_POST['state'];
+	$customer->city = $_POST['city'];
+	$customer->zip = $_POST['zipcode'];
+
+	Orders::place($customer, $cart);
+
 	$products = $cart->getItemsAsProductObjects();
 	$template->setView('checkedout');
-	$template->render();
+	$template->render($products);
 });
 
 $routes->get('/men/:category/:slug', function($category, $slug) use ($template){
