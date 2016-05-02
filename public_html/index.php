@@ -3,12 +3,13 @@
  * cs137 tiny mvc php framework
  *
  */
-session_start();
 // define root directory and directory separator
 DEFINE('ROOT', dirname(__DIR__));
 DEFINE('DS', DIRECTORY_SEPARATOR);
 DEFINE('DEV', true);
 
+session_save_path(ROOT . DS . 'sess');
+session_start();
 if (DEV) {
 	ini_set("display_errors", "1");
 	error_reporting(E_ALL);
