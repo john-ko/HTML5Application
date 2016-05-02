@@ -62,6 +62,7 @@ class Cart
 	{	
 		$this->taxrate = $rate;
 		$this->update();
+		$this->save();
 	}
 
 	/**
