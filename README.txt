@@ -1,12 +1,32 @@
-CS137/INF124 Thorne & Spindle [Group23] README
+CS137/INF124 Thorne & Spindle [Group23] README.txt - PROGRAMMING ASSIGNMENT 2
+Web Application using PHP, AJAX, and MySQL
 
-Our project URL: http://andromeda-23.ics.uci.edu:56077/.
+Our project URL: http://andromeda-23.ics.uci.edu:56077/index.php.
+(NOTE: MUST ADD THE '/index.php' as entry point for PROJECT 2).
 
 NOTE: With how our website is setup (we are using AJAX for templating), our site will not run correctly locally (unless you use a cross-platform web server solution like XAMPP). In order to view our website correctly, you have to use the andromeda link with that port number (56077) displayed above. Thanks.
 
 For the TA: We used Github as our version control system. The link (which is public) can be found here: https://github.com/john-ko/HTML5Application.
 No password should be needed.
 
+
+The numbers refer to their respective requirement found on the EEE canvas website:
+1. The basic layout of our site is essentially the same compared to our first project. (The information found in the README.txt file from project 1 will be appended to the bottom of this README.txt file as a reference for the description of the various features found on the website.) All of the information about the products is generated dynamically using PHP and MySQL (using PDO to query the backend MySQL database.)
+
+2. The order information is stored on the MySQL database (in order to complete step 3).
+
+3. The confirmation page is created after checkout is completed
+
+4. We implemented three non-trivial features that utilizes AJAX. The two non-trivial features with AJAX that we implemented in our site are a search bar with a drop down that provides auto-completion of the query/suggestions on products that the user is searching for, and dynamically generating tax information based on the location the user inputs in the checkout page.
+
+As for the first AJAX feature (search bar), there will be an input text bar underneath the navigation bar in almost every page. In order to activate the AJAX functionality, type in at least 3 letters into the search bar, then after 3 letters, if the phrase is found in either the name, details, catergory, color, and brand, of a product a dropdown of the corresponding product's name will be displayed below the search bar. When the user clicks on the name, it will redirect the user to the individual product page.
+
+The second AJAX feature is adding/removing/updating items from the cart.
+
+The third AJAX feature is generating tax information based on the zip code that the user inputs during the 'checkout' process. (The tax information is in the bottom of the page).
+
+
+===== NOTE: PROJECT1 README.txt Information/ Thorne & Spindle Feature Reference =====
 
 The numbers refer to their respective requirement found on the EEE canvas website:
 1. Our overview of our business can be found under the 'About' and 'Contact' links from the header.
