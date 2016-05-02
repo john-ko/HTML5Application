@@ -333,33 +333,34 @@ li.navItem a:hover {
 	margin-left: auto;
 }
 #checkout-order-summary {
-	text-align: center;
+	width: 600px;
+	margin: 0 auto;
 }
 #zipId {
-	width: 12%;
+	width: 15%;
 }
 #phone-area {
-	width: 7%;
+	width: 10%;
 	text-align: center;
 }
 #phone-first3 {
-	width: 7%;
+	width: 10%;
 	text-align: center;
 }
 #phone-last4 {
-	width: 8%;
+	width: 13%;
 	text-align: center;
 }
 #expMonthId {
-	width: 6%;
+	width: 10%;
 	text-align: center;
 }
 #expYearId {
-	width: 6%;
+	width: 10%;
 	text-align: center;
 }
 #csvCscId {
-	width: 12%;
+	width: 13%;
 	text-align: center;
 }
 
@@ -537,4 +538,9 @@ button.big-btn:hover {
 input#searchBar:focus {
 	color: #A0A0A0;
 	width: 650px;
+}
+
+.cart-info {
+	margin: 0 auto;
+	width:500px;
 }

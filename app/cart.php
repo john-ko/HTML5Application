@@ -11,8 +11,12 @@ class Cart
 
 	public function __construct()
 	{
-		if(isset($_SESSION['items']) ) {
+		if (isset($_SESSION['items']) ) {
 			$this->items = json_decode($_SESSION['items'], true);
+		}
+
+		if (isset($_SESSION['tax_rate'])) {
+			$this->taxrate = $_SESSION['tax_rate'];
 		}
 
 		$this->update();
@@ -21,6 +25,7 @@ class Cart
 	public function destroy_cart()
 	{
 		unset($_SESSION['items']);
+		unset($_SESSION['tax_rate']);
 		$this->items = array();
 		$this->totalQty = 0;
 		$this->subtotal = 0.0;
@@ -32,6 +37,7 @@ class Cart
 	public function save()
 	{
 		$_SESSION['items'] = json_encode($this->items);
+		$_SESSION['tax_rate'] = $this->taxrate;
 	}
 
 	public function add($id, $qty)
@@ -62,6 +68,7 @@ class Cart
 	{	
 		$this->taxrate = $rate;
 		$this->update();
+		$this->save();
 	}
 
 	/**
@@ -73,7 +80,7 @@ class Cart
 	{
 		$this->subtotal = 0;
 		$this->totalQty = 0;
-		$this->tax = 0.0;
+
 		foreach($this->items as $item) {
 			if($item['qty'] == 0) {
 				unset($this->items[$item['id']]);
@@ -88,24 +95,6 @@ class Cart
 
 	}
 
-	// private function generateCartItem($name, $brand, $image, $price, $qty, $gender, $category, $item)
-	// {
-	// 	echo '' .
- //            '<div class="row cart-container">' .
- //            '<div class="cart-item">' .
- //                '<div class="cart-img-container">'.
- //                    '<img src="/assets/images/products' . $image . '" />' .
- //                '</div>' .
- //                '<div class="cart-description">' .
- //                    '<span class="product-attr product-name">'. $name .'</span>' .
- //                    '<span class="product-attr product-brand">'. $brand .'</span>' .
- //                    '<span class="product-attr">$'. $price.toFixed(2) .'</span>' .
- //                    '<span class="product-attr">qty: ' . $qty . '</span>' .
- //                    '<button class="btn" onclick=cart.remove("' . $gender+'","'. $category .'","' .$item.'") >remove</button>' .
- //                '</div>' .
- //            '</div>' .
- //        '</div>';
-	// }
 	public function getContents()
 	{
 		$return_array = array();

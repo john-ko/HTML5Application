@@ -20,15 +20,15 @@ if ($obj) {
 		</div>
 	</div>
 	<?php } ?>
-<div>
-	<p style="padding-left:45px">*Estimated Tax: $0.00</p>
-	<p id="subtotal" style="padding-left:45px; padding-bottom:10px">Subtotal: $<?php echo $this->cart->getTotal(); ?> </p>
-</div>
-<div class="row">
-	<button class="big-btn" id="checkout-button" onclick="window.location.href='/index.php/checkout'" >Checkout</button>
-</div>
-<div>
-	<p style="padding-left:45px; padding-top: 80px">*Tax calculated at checkout.</p>
+	<div class="row">
+		<p>*Estimated Tax: $0.00</p>
+		<p id="subtotal" >Subtotal: $<?php echo $this->cart->getTotal(); ?> </p>
+
+	</div>
+	<div class="row">
+		<button class="big-btn" id="checkout-button" onclick="window.location.href='/index.php/checkout'" >Checkout</button>
+		<p>*Tax calculated at checkout.</p>
+	</div>
 
 <?php } else {
 	?>

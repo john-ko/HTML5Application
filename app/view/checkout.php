@@ -1,14 +1,14 @@
 <div class="row">
-	<!--<form id="checkout-form" name="checkoutForm" method="post">-->
+	<form id="checkout-form" name="checkoutForm" method="post">
 	<table id="checkout-table">
 		<td>
 			<h2>Shipping & Billing Address</h2>
 			<div id="shippingAddress">
-				First Name <input id="first-nameId" type="text" required /><br />
-				Last Name <input id="last-nameId" type="text" required /><br />
-				Street <input id="streetId" type="text" required /><br />
-				City <input id="cityId" type="text" required /><br />
-				State <select id="stateId" required>
+				First Name <input name="first_name" id="first-nameId" type="text" required /><br />
+				Last Name <input name="last_name" id="last-nameId" type="text" required /><br />
+				Street <input name="address" id="streetId" type="text" required /><br />
+				City <input name="city" id="cityId" type="text" required /><br />
+				State <select name="state" id="stateId" required>
 					<option value="AL">Alabama</option>
 					<option value="AK">Alaska</option>
 					<option value="AZ">Arizona</option>
@@ -61,9 +61,9 @@
 					<option value="WI">Wisconsin</option>
 					<option value="WY">Wyoming</option>
 				</select>
-				Zip <input id="zipId" type="text" onkeyup="calculateTax(this.value)" maxlength="5" required /><br />
-				Phone (<input id="phone-area" type="text" value="" maxlength="3" required />) <input id="phone-first3" type="text" value="" maxlength="3" required /> - <input id="phone-last4" type="text" value="" maxlength="4" required /><br />
-				Email <input id="emailId" type="email" required /><br />
+				Zip <input id="zipId" name="zipcode" type="text" onchange="calculateTax(this.value)" maxlength="5" required /><br />
+				Phone (<input id="phone-area" name="phone" type="text" value="" maxlength="3" required />) <input id="phone-first3" type="text" value="" maxlength="3" required /> - <input id="phone-last4" type="text" value="" maxlength="4" required /><br />
+				Email <input id="emailId" name="email" type="email" required /><br />
 			</div>
 		</td>
 		<td>
@@ -89,7 +89,7 @@
 		<p>Subtotal: $<span id="checkout-subtotal"><?php echo $this->cart->getSubtotal();?></span></p>
 		<p>Tax: $<span id="checkout-tax"><?php echo $this->cart->getTax();?></span></p>
 		<p>Price Total: $<span id="checkout-price"><?php echo $this->cart->getTotal(); ?></span></p>
-		<button id="checkout-submit-button" class="big-btn" onclick="formValidation(theMailFunction, clearCheckout);">Purchase</button>
+		<button id="checkout-submit-button" type="button" class="big-btn" onclick="formValidation();">Purchase</button>
 	</div>
-	<!--</form>-->
+	</form>
 </div>

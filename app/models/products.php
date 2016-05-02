@@ -4,7 +4,7 @@ class Products extends Model {
 
 	protected static $table = 'products';
 
-	public $_attributes = [
+	public $_attributes = array(
 		'id' => null,
 		'brand' => null,
 		'name' => null,
@@ -16,7 +16,7 @@ class Products extends Model {
 		'details' => null,
 		'gender' => null,
 		'category' => null
-	];
+	);
 
 	public function __construct()
 	{

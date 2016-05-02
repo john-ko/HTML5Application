@@ -3,12 +3,13 @@
  * cs137 tiny mvc php framework
  *
  */
-session_start();
 // define root directory and directory separator
 DEFINE('ROOT', dirname(__DIR__));
 DEFINE('DS', DIRECTORY_SEPARATOR);
 DEFINE('DEV', true);
 
+session_save_path(ROOT . DS . 'sess');
+session_start();
 if (DEV) {
 	ini_set("display_errors", "1");
 	error_reporting(E_ALL);
@@ -60,7 +61,7 @@ $routes->get('/calculatetax/:zip', function($zip) use ($cart) {
 		'tax' => $cart->getTax(),
 		'total' => $cart->getTotal(),
 	);
-	echo json_decode($response);
+	echo json_encode($response);
 });
 
 $routes->get('/removefromcart/:id', function($id) use ($cart) {
@@ -95,35 +96,43 @@ $routes->get('/cart', function() use ($template, $cart) {
 });
 
 $routes->get('/checkout', function() use ($template, $cart) {
-
-	$products = $cart->getItemsAsProductObjects();
 	$template->setView('checkout');
 	$template->render();
 });
 
 $routes->post('/checkout', function() use ($template, $cart) {
 
+	$customer = new Customer();
+	$customer->first_name = $_POST['first_name'];
+	$customer->last_name = $_POST['last_name'];
+	$customer->address = $_POST['address'];
+	$customer->state = $_POST['state'];
+	$customer->city = $_POST['city'];
+	$customer->zip = $_POST['zipcode'];
+
+	Orders::place($customer, $cart);
+
 	$products = $cart->getItemsAsProductObjects();
 	$template->setView('checkedout');
-	$template->render();
+	$template->render($products);
 });
 
 $routes->get('/men/:category/:slug', function($category, $slug) use ($template){
 
 	$data = null;
 	if ($slug) {
-		$data = Products::find(['slug' => $slug]);
+		$data = Products::find(array('slug' => $slug));
 		$template->setView('product');
 		$template->render($data[0]);
 	} else if ($category) {
-		$data = Products::find([
+		$data = Products::find(array(
 			'category' => $category,
 			'gender' => 'men',
-		]);
+		));
 		$template->setView('men');
 		$template->render($data);
 	} else {
-		$data = Products::find(['gender' => 'men']);
+		$data = Products::find(array('gender' => 'men'));
 		$template->setView('men');
 		$template->render($data);
 	}
@@ -133,18 +142,18 @@ $routes->get('/women/:category/:slug', function($category, $slug) use ($template
 
 	$data = null;
 	if ($slug) {
-		$data = Products::find(['slug' => $slug]);
+		$data = Products::find(array('slug' => $slug));
 		$template->setView('product');
 		$template->render($data[0]);
 	} else if ($category) {
-		$data = Products::find([
+		$data = Products::find(array(
 			'category' => $category,
 			'gender' => 'women',
-		]);
+		));
 		$template->setView('women');
 		$template->render($data);
 	} else {
-		$data = Products::find(['gender' => 'women']);
+		$data = Products::find(array('gender' => 'women'));
 		$template->setView('women');
 		$template->render($data);
 	}

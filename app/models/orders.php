@@ -23,16 +23,16 @@ class Orders extends Model
 		parent::save();
 	}
 
-	public static function place(Customer $customer, Cart $cart, Tax $tax)
+	public static function place(Customer $customer, Cart $cart)
 	{
 		// none of this works, but this is what I intend to happen
 		$order = new Orders();
 		$customer->save();
 		$order->customer_id = $customer->getLastInsertID();
 
-		$order->tax = $tax->tax_rate;
+		$order->tax = $cart->getTax();
 		$order->subtotal = $cart->getSubTotal();
-		$order->total = $cart->getSubtotal() * (1 + $tax->tax_rate);
+		$order->total = $cart->getTotal();
 
 		$order->save();
 

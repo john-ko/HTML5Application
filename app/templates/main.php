@@ -5,7 +5,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-	<script src="/assets/js/templates.js"></script>
+	<script src="/assets/js/formvalidation.js"></script>
 	<script src="/assets/js/calculateTax.js"></script>
 	<script src="/assets/js/addToCart.js"></script>
 	<script src="/assets/js/imageswap.js"></script>

@@ -22,7 +22,7 @@ class Model
 		$this->stmh = $this->dbh->prepare($sql);
 		$this->stmh->execute($params);
 
-		$results = [];
+		$results = array();
 		while($row = $this->stmh->fetch(PDO::FETCH_ASSOC)) {
 			$results[] = $row;
 		}

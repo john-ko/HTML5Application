@@ -10,7 +10,8 @@ function isNumeric(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);
 }
 	
-function formValidation(mailtoCallback, cartClearCallback) {
+function formValidation() {
+
 	var firstname = document.getElementById("first-nameId");
 	var lastname = document.getElementById("last-nameId");
 	var street = document.getElementById("streetId");
@@ -174,5 +175,7 @@ function formValidation(mailtoCallback, cartClearCallback) {
 		return false;
 	}
 
-	mailtoCallback(cartClearCallback);
+	var form = document.getElementById('checkout-form');
+	form.submit();
+
 }
