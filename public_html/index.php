@@ -120,18 +120,18 @@ $routes->get('/men/:category/:slug', function($category, $slug) use ($template){
 
 	$data = null;
 	if ($slug) {
-		$data = Products::find(['slug' => $slug]);
+		$data = Products::find(array('slug' => $slug));
 		$template->setView('product');
 		$template->render($data[0]);
 	} else if ($category) {
-		$data = Products::find([
+		$data = Products::find(array(
 			'category' => $category,
 			'gender' => 'men',
-		]);
+		));
 		$template->setView('men');
 		$template->render($data);
 	} else {
-		$data = Products::find(['gender' => 'men']);
+		$data = Products::find(array('gender' => 'men'));
 		$template->setView('men');
 		$template->render($data);
 	}
@@ -141,18 +141,18 @@ $routes->get('/women/:category/:slug', function($category, $slug) use ($template
 
 	$data = null;
 	if ($slug) {
-		$data = Products::find(['slug' => $slug]);
+		$data = Products::find(array('slug' => $slug));
 		$template->setView('product');
 		$template->render($data[0]);
 	} else if ($category) {
-		$data = Products::find([
+		$data = Products::find(array(
 			'category' => $category,
 			'gender' => 'women',
-		]);
+		));
 		$template->setView('women');
 		$template->render($data);
 	} else {
-		$data = Products::find(['gender' => 'women']);
+		$data = Products::find(array('gender' => 'women'));
 		$template->setView('women');
 		$template->render($data);
 	}
