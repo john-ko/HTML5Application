@@ -11,13 +11,13 @@ No password should be needed.
 
 
 The numbers refer to their respective requirement found on the EEE canvas website:
-1. The basic layout of our site is essentially the same compared to our first project. (The information found in the README.txt file from project 1 will be appended to the bottom of this README.txt file as a reference for the description of the various features found on the website.) All of the information about the products is generated dynamically using PHP and MySQL (using PDO to query the backend MySQL database.)
+-1. The basic layout of our site is essentially the same compared to our first project. (The information found in the README.txt file from project 1 will be appended to the bottom of this README.txt file as a reference for the description of the various features found on the website.) All of the information about the products is generated dynamically using PHP and MySQL (using PDO to query the backend MySQL database.)
 
-2. The order information is stored on the MySQL database (in order to complete step 3).
+-2. The order information is stored on the MySQL database (in order to complete step 3).
 
-3. The confirmation page is created after checkout is completed
+-3. The confirmation page is created after checkout is completed
 
-4. We implemented three non-trivial features that utilizes AJAX. The two non-trivial features with AJAX that we implemented in our site are a search bar with a drop down that provides auto-completion of the query/suggestions on products that the user is searching for, and dynamically generating tax information based on the location the user inputs in the checkout page.
+-4. We implemented three non-trivial features that utilizes AJAX. 
 
 As for the first AJAX feature (search bar), there will be an input text bar underneath the navigation bar in almost every page. In order to activate the AJAX functionality, type in at least 3 letters into the search bar, then after 3 letters, if the phrase is found in either the name, details, catergory, color, and brand, of a product a dropdown of the corresponding product's name will be displayed below the search bar. When the user clicks on the name, it will redirect the user to the individual product page.
 
