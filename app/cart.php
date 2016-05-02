@@ -11,12 +11,12 @@ class Cart
 
 	public function __construct()
 	{
-		if (isset($_COOKIE['items']) ) {
-			$this->items = json_decode($_COOKIE['items'], true);
+		if (isset($_SESSION['items']) ) {
+			$this->items = json_decode($_SESSION['items'], true);
 		}
 
-		if (isset($_COOKIE['tax_rate'])) {
-			$this->taxrate = $_COOKIE['tax_rate'];
+		if (isset($_SESSION['tax_rate'])) {
+			$this->taxrate = $_SESSION['tax_rate'];
 		}
 
 		$this->update();
@@ -24,8 +24,8 @@ class Cart
 
 	public function destroy_cart()
 	{
-		unset($_COOKIE['items']);
-		unset($_COOKIE['tax_rate']);
+		unset($_SESSION['items']);
+		unset($_SESSION['tax_rate']);
 		$this->items = array();
 		$this->totalQty = 0;
 		$this->subtotal = 0.0;
@@ -36,8 +36,8 @@ class Cart
 
 	public function save()
 	{
-		$_COOKIE['items'] = json_encode($this->items);
-		$_COOKIE['tax_rate'] = $this->taxrate;
+		$_SESSION['items'] = json_encode($this->items);
+		$_SESSION['tax_rate'] = $this->taxrate;
 	}
 
 	public function add($id, $qty)
