@@ -95,8 +95,6 @@ $routes->get('/cart', function() use ($template, $cart) {
 });
 
 $routes->get('/checkout', function() use ($template, $cart) {
-
-	$products = $cart->getItemsAsProductObjects();
 	$template->setView('checkout');
 	$template->render();
 });

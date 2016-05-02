@@ -333,7 +333,8 @@ li.navItem a:hover {
 	margin-left: auto;
 }
 #checkout-order-summary {
-	text-align: center;
+	width: 600px;
+	margin: 0 auto;
 }
 #zipId {
 	width: 15%;
@@ -537,4 +538,9 @@ button.big-btn:hover {
 input#searchBar:focus {
 	color: #A0A0A0;
 	width: 650px;
+}
+
+.cart-info {
+	margin: 0 auto;
+	width:500px;
 }

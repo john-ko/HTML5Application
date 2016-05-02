@@ -11,6 +11,7 @@ function isNumeric(n) {
 }
 	
 function formValidation() {
+
 	var firstname = document.getElementById("first-nameId");
 	var lastname = document.getElementById("last-nameId");
 	var street = document.getElementById("streetId");
