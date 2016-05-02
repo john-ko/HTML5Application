@@ -336,30 +336,30 @@ li.navItem a:hover {
 	text-align: center;
 }
 #zipId {
-	width: 12%;
+	width: 15%;
 }
 #phone-area {
-	width: 7%;
+	width: 10%;
 	text-align: center;
 }
 #phone-first3 {
-	width: 7%;
+	width: 10%;
 	text-align: center;
 }
 #phone-last4 {
-	width: 8%;
+	width: 13%;
 	text-align: center;
 }
 #expMonthId {
-	width: 6%;
+	width: 10%;
 	text-align: center;
 }
 #expYearId {
-	width: 6%;
+	width: 10%;
 	text-align: center;
 }
 #csvCscId {
-	width: 12%;
+	width: 13%;
 	text-align: center;
 }
 
