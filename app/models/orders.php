@@ -30,7 +30,8 @@ class Orders extends Model
 		$customer->save();
 		$order->customer_id = $customer->getLastInsertID();
 
-		$order->tax = $cart->getTaxRate();
+		var_dump($cart->getTax());
+		$order->tax = $cart->getTax();
 		$order->subtotal = $cart->getSubTotal();
 		$order->total = $cart->getTotal();
 
